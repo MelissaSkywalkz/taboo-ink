@@ -6,7 +6,8 @@ Statisk hemsida för Taboo Ink Stockholm byggd i HTML/CSS/JS utan build-step. An
 
 1. Lägg dina egna bilder i `assets/img/`.
 2. Skapa filerna:
-   - `assets/img/hero.jpg`
+   - `assets/img/hero.png`
+   - `assets/img/logo.png`
    - `assets/img/lukas.jpg`
    - `assets/img/og.jpg`
    - `assets/img/portfolio/01.jpg` till `09.jpg`

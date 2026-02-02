@@ -130,23 +130,9 @@ textarea:focus-visible {
   gap: 24px;
 }
 
-.logo svg {
+.logo img {
   width: 170px;
-  height: 55px;
-}
-
-.logo-text {
-  font-family: "Oswald", "Bebas Neue", sans-serif;
-  font-size: 36px;
-  fill: #f2f2f2;
-  letter-spacing: 0.14em;
-}
-
-.logo-sub {
-  font-family: "Oswald", "Bebas Neue", sans-serif;
-  font-size: 16px;
-  fill: var(--accent);
-  letter-spacing: 0.4em;
+  height: auto;
 }
 
 .nav {
@@ -200,7 +186,7 @@ textarea:focus-visible {
   display: flex;
   align-items: center;
   background: linear-gradient(180deg, rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.7)),
-    url("../img/hero.jpg") center/cover no-repeat;
+    url("../img/hero.png") center/cover no-repeat;
   position: relative;
   overflow: hidden;
 }
@@ -221,6 +207,11 @@ textarea:focus-visible {
   position: relative;
   z-index: 2;
   max-width: 680px;
+}
+
+.hero-logo {
+  width: min(240px, 70%);
+  margin-bottom: 16px;
 }
 
 .hero-kicker {
