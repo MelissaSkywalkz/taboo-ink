@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Galleri – Taboo Ink Stockholm</title>
+  <meta name="description" content="Utforska hela galleriet från Taboo Ink Stockholm. Realism, porträtt, Black & Grey, dotwork och cover-ups.">
+  <link rel="canonical" href="https://example.com/portfolio.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" href="assets/img/favicon-16.png" sizes="16x16">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="Taboo Ink Stockholm">
+        <img src="assets/img/logo.png" alt="Taboo Ink Stockholm">
+      </a>
+      <nav class="nav" id="primary-nav" aria-label="Huvudmeny">
+        <a href="index.html#portfolio">Arbeten</a>
+        <a href="index.html#about">Om</a>
+        <a href="index.html#styles">Stilar</a>
+        <a href="index.html#book">Boka</a>
+      </nav>
+      <button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+        <span class="sr-only">Öppna meny</span>
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section hero hero-compact" aria-labelledby="portfolio-title">
+      <div class="hero-content container">
+        <p class="hero-kicker">Galleri</p>
+        <h1 id="portfolio-title">FULLT UTBUD</h1>
+        <p class="hero-subtitle">Black &amp; Grey • Realism • Porträtt • Dotwork • Cover-ups</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="filter-bar" role="tablist" aria-label="Filtrera galleriet">
+          <button class="filter-btn is-active" data-filter="all" type="button">Alla motiv</button>
+          <button class="filter-btn" data-filter="blackgrey" type="button">Black &amp; Grey</button>
+          <button class="filter-btn" data-filter="realism" type="button">Realism</button>
+          <button class="filter-btn" data-filter="dotwork" type="button">Dotwork</button>
+          <button class="filter-btn" data-filter="color" type="button">Färg</button>
+        </div>
+        <div class="portfolio-grid portfolio-grid--full" id="portfolio-grid">
+          <figure class="portfolio-card" data-tags="blackgrey realism">
+            <img src="assets/img/portfolio/01.jpg" alt="Black &amp; Grey realism motiv">
+            <figcaption>Black &amp; Grey</figcaption>
+          </figure>
+          <figure class="portfolio-card" data-tags="realism">
+            <img src="assets/img/portfolio/02.jpg" alt="Realistisk porträtt tatuering">
+            <figcaption>Realism</figcaption>
+          </figure>
+          <figure class="portfolio-card" data-tags="dotwork">
+            <img src="assets/img/portfolio/03.jpg" alt="Dotwork geometri motiv">
+            <figcaption>Dotwork</figcaption>
+          </figure>
+          <figure class="portfolio-card" data-tags="blackgrey">
+            <img src="assets/img/portfolio/04.jpg" alt="Black &amp; Grey detalj">
+            <figcaption>Black &amp; Grey</figcaption>
+          </figure>
+          <figure class="portfolio-card" data-tags="realism">
+            <img src="assets/img/portfolio/05.jpg" alt="Realism motiv i gråskala">
+            <figcaption>Realism</figcaption>
+          </figure>
+          <figure class="portfolio-card" data-tags="color">
+            <img src="assets/img/portfolio/06.jpg" alt="Färgtatuering med kontrast">
+            <figcaption>Färg</figcaption>
+          </figure>
+          <figure class="portfolio-card" data-tags="blackgrey">
+            <img src="assets/img/portfolio/07.jpg" alt="Black &amp; Grey motiv med skuggor">
+            <figcaption>Black &amp; Grey</figcaption>
+          </figure>
+          <figure class="portfolio-card" data-tags="dotwork">
+            <img src="assets/img/portfolio/08.jpg" alt="Dotwork mandala motiv">
+            <figcaption>Dotwork</figcaption>
+          </figure>
+          <figure class="portfolio-card" data-tags="color">
+            <img src="assets/img/portfolio/09.jpg" alt="Färgtatuering med detaljer">
+            <figcaption>Färg</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Taboo Ink Stockholm</h3>
+        <p>Studio för realism och Black &amp; Grey i Stockholm.</p>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <p>Telefon: +46 70 000 00 00<br>Mail: info@tabooink.se<br>Instagram: @tabooink</p>
+      </div>
+      <div>
+        <h4>Öppettider</h4>
+        <p>Vardagar 11:00–18:00<br>Lördag 12:00–16:00<br>Söndag stängt</p>
+      </div>
+    </div>
+    <p class="footer-note">© Taboo Ink Stockholm</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
