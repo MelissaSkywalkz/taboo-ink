@@ -5,7 +5,13 @@
   --muted: #b2b2b2;
   --header-bg: rgba(10, 10, 10, 0.9);
   --border: rgba(255, 255, 255, 0.15);
+  --border-subtle: #141414;
   --shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+/* Base reset + typography */
+html {
+  scroll-behavior: smooth;
 }
 
 * {
@@ -18,9 +24,13 @@ body {
   font-family: "Montserrat", sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.6;
+  line-height: 1.7;
   min-height: 100vh;
   position: relative;
+}
+
+body.nav-open {
+  overflow: hidden;
 }
 
 body::before {
@@ -52,10 +62,12 @@ textarea:focus-visible {
 }
 
 .container {
-  width: min(1120px, 90%);
+  width: min(1200px, 100%);
+  padding: 0 24px;
   margin: 0 auto;
 }
 
+/* Section layout */
 .section {
   padding: 72px 0;
   position: relative;
@@ -77,8 +89,10 @@ textarea:focus-visible {
 
 .section-heading p {
   color: var(--muted);
+  max-width: 60ch;
 }
 
+/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -99,20 +113,22 @@ textarea:focus-visible {
   color: var(--text);
 }
 
+.btn-secondary {
+  background: #0d0d0d;
+  border: 1px solid #2a2a2a;
+  color: var(--text);
+}
+
 .btn-primary:hover,
 .btn-primary:focus-visible,
-.btn-outline:hover,
-.btn-outline:focus-visible {
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
   background: #fff;
   color: #0a0a0a;
   transform: translateY(-1px);
 }
 
-.btn-outline {
-  border: 1px solid #fff;
-  color: var(--text);
-}
-
+/* Header + navigation */
 .site-header {
   position: sticky;
   top: 0;
@@ -130,9 +146,30 @@ textarea:focus-visible {
   gap: 24px;
 }
 
-.logo img {
-  width: 170px;
-  height: auto;
+.logo-wordmark {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  font-family: "Oswald", "Bebas Neue", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.logo-text {
+  font-size: 1.1rem;
+}
+
+.logo-accent {
+  width: 56px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.logo-sub {
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  color: var(--muted);
 }
 
 .nav {
@@ -164,6 +201,14 @@ textarea:focus-visible {
   width: 100%;
 }
 
+.nav a.is-active::after {
+  width: 100%;
+}
+
+.nav a.is-active {
+  color: #fff;
+}
+
 .menu-toggle {
   display: none;
   background: transparent;
@@ -181,14 +226,22 @@ textarea:focus-visible {
   background: #f2f2f2;
 }
 
+/* Hero */
 .hero {
   min-height: 85vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(180deg, rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.7)),
-    url("../img/hero.png") center/cover no-repeat;
+  background: url("../img/hero.jpg") center/cover no-repeat;
   position: relative;
   overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.55));
+  z-index: 1;
 }
 
 .hero::after {
@@ -197,6 +250,7 @@ textarea:focus-visible {
   inset: 0;
   background: radial-gradient(circle at center, rgba(10, 10, 10, 0.25) 0%, rgba(10, 10, 10, 0.9) 70%);
   mix-blend-mode: multiply;
+  z-index: 1;
 }
 
 .hero-compact {
@@ -207,6 +261,7 @@ textarea:focus-visible {
   position: relative;
   z-index: 2;
   max-width: 680px;
+  padding: 120px 0;
 }
 
 .hero-logo {
@@ -244,10 +299,11 @@ textarea:focus-visible {
   gap: 16px;
 }
 
+/* Portfolio */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 12px;
 }
 
 .portfolio-grid--full {
@@ -260,6 +316,7 @@ textarea:focus-visible {
   border-radius: 16px;
   box-shadow: var(--shadow);
   background: #0a0a0a;
+  border: 1px solid var(--border-subtle);
 }
 
 .portfolio-card img {
@@ -306,6 +363,7 @@ textarea:focus-visible {
   text-align: center;
 }
 
+/* About */
 .section-split {
   background: #080808;
 }
@@ -345,8 +403,10 @@ textarea:focus-visible {
 .split-content p {
   color: var(--muted);
   margin-bottom: 16px;
+  max-width: 65ch;
 }
 
+/* Styles */
 .style-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -401,6 +461,7 @@ textarea:focus-visible {
   color: var(--muted);
 }
 
+/* Reviews */
 .review-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -431,6 +492,7 @@ textarea:focus-visible {
   background: #080808;
 }
 
+/* Forms */
 .book-form {
   display: grid;
   gap: 18px;
@@ -485,6 +547,12 @@ input::file-selector-button {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
+}
+
+.filter-btn:hover,
+.filter-btn:focus-visible {
+  border-color: #fff;
 }
 
 .filter-btn.is-active {
@@ -493,6 +561,7 @@ input::file-selector-button {
   background: #fff;
 }
 
+/* Footer */
 .site-footer {
   padding: 48px 0 32px;
   background: #050505;
@@ -533,6 +602,19 @@ input::file-selector-button {
   border: 0;
 }
 
+/* Motion */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
 @media (max-width: 960px) {
   .portfolio-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -547,8 +629,52 @@ input::file-selector-button {
 }
 
 @media (max-width: 760px) {
+  .container {
+    padding: 0 18px;
+  }
+
   .section {
     padding: 48px 0;
+  }
+
+  .hero {
+    min-height: 100svh;
+    align-items: flex-end;
+    background: url("../img/hero-mobile.jpg") center/cover no-repeat;
+  }
+
+  .hero::before {
+    background: linear-gradient(180deg, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.6));
+  }
+
+  .hero-content {
+    padding: 0 0 64px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 6vw, 2.8rem);
+    letter-spacing: 0.04em;
+  }
+
+  .hero-subtitle {
+    letter-spacing: 0.08em;
+  }
+
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    max-width: 340px;
+    min-height: 52px;
   }
 
   .nav {
@@ -580,4 +706,29 @@ input::file-selector-button {
   .portfolio-grid {
     grid-template-columns: 1fr;
   }
+
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .split-media {
+    order: -1;
+  }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  [data-reveal] {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* CHANGELOG
+- Added mobile-first hero adjustments, button variants, and header wordmark.
+- Improved spacing, section widths, and portfolio hover presentation.
+- Added reveal motion with reduced-motion support and navigation polish.
+*/
