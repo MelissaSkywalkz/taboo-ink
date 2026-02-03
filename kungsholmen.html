@@ -129,7 +129,8 @@
         <a href="realism.html">Realism</a>
         <a href="black-grey.html">Black &amp; Grey</a>
         <a href="cover-up.html">Cover-up</a>
-        <a href="#book">Kontakt/Boka</a>
+        <a href="kungsholmen.html">Hitta hit</a>
+        <a href="index.html#book">Kontakt/Boka</a>
       </nav>
       <button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
         <span class="sr-only">Öppna meny</span>
@@ -161,11 +162,16 @@
           Taboo Ink Stockholm ligger centralt på Kungsholmen med nära till tunnelbana och buss.
         </p>
 
-        <div id="studio-map" class="map"></div>
-
-        <div class="map-address">
-          <img src="assets/img/logo-favicon.png" alt="" class="map-icon">
-          <span>Taboo Ink Stockholm – Hantverkargatan 83, Kungsholmen</span>
+        <div class="map-card">
+          <div class="map-header">
+            <img src="assets/img/logo-favicon.png" alt="" aria-hidden="true">
+            <span>Hantverkargatan 83, 112 38 Stockholm</span>
+          </div>
+          <div id="studio-map" class="map-embed" role="region" aria-label="Karta till Taboo Ink Stockholm"></div>
+          <div class="map-actions">
+            <a class="btn btn-secondary" href="https://www.google.com/maps/dir/?api=1&destination=Hantverkargatan+83+112+38+Stockholm">ÖPPNA I GOOGLE MAPS</a>
+            <a class="btn btn-secondary" href="https://www.openstreetmap.org/?mlat=59.33436&mlon=18.03272#map=18/59.33436/18.03272">ÖPPNA I OPENSTREETMAP</a>
+          </div>
         </div>
       </div>
     </section>
@@ -318,21 +324,23 @@
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
-    const lat = 59.3326;
-    const lng = 18.0412;
+    const lat = 59.33436;
+    const lng = 18.03272;
 
     const map = L.map('studio-map', {
-      scrollWheelZoom: false
+      scrollWheelZoom: false,
+      zoomControl: true
     }).setView([lat, lng], 15);
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; OpenStreetMap & CartoDB'
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CartoDB</a>'
     }).addTo(map);
 
     const icon = L.icon({
       iconUrl: 'assets/img/logo-favicon.png',
-      iconSize: [34, 34],
-      iconAnchor: [17, 34]
+      iconSize: [40, 40],
+      iconAnchor: [20, 40],
+      popupAnchor: [0, -40]
     });
 
     L.marker([lat, lng], { icon }).addTo(map)
