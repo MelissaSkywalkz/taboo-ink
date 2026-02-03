@@ -1004,12 +1004,40 @@ input::file-selector-button {
     grid-template-columns: 1fr;
   }
 
+  .portfolio-grid--full {
+    grid-template-columns: 1fr;
+  }
+
   .split {
     grid-template-columns: 1fr;
   }
 
   .split-media {
     order: -1;
+  }
+
+  .map {
+    height: 350px;
+  }
+
+  .map-section h2 {
+    font-size: clamp(1.4rem, 5vw, 2rem);
+    margin-bottom: 16px;
+  }
+
+  .map-address {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: center;
+  }
+
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .style-grid,
+  .review-grid {
+    grid-template-columns: 1fr;
   }
 }
 
