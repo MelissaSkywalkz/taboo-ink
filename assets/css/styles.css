@@ -212,8 +212,7 @@ textarea:focus-visible {
 .menu-toggle {
   display: none;
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 999px;
+  border: 0px solid rgba(255, 255, 255, 0.3);
   padding: 10px;
   gap: 4px;
   flex-direction: column;
@@ -240,7 +239,7 @@ textarea:focus-visible {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.55));
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.70));
   z-index: 1;
 }
 
@@ -248,9 +247,8 @@ textarea:focus-visible {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(10, 10, 10, 0.25) 0%, rgba(10, 10, 10, 0.9) 70%);
-  mix-blend-mode: multiply;
-  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(to bottom,rgba(10,10,10,0) 60%,rgba(10, 10, 10) 100%);
 }
 
 .hero-compact {
@@ -262,23 +260,27 @@ textarea:focus-visible {
   z-index: 2;
   max-width: 680px;
   padding: 120px 0;
+  text-align: center;
+  display: ruby;
 }
 
 .hero-logo {
-  width: min(240px, 70%);
-  margin-bottom: 16px;
+  margin: auto;
+  display: block;
+  width: 55%;
 }
 
 .hero-kicker {
   text-transform: uppercase;
   letter-spacing: 0.4em;
-  font-size: 0.75rem;
+  font-size: 1.50rem;
+  font-weight: 400;
   color: var(--accent);
   margin-bottom: 16px;
 }
 
 .hero h1 {
-  font-size: clamp(2.6rem, 4vw, 4.2rem);
+  font-size: clamp(2.6rem, 4vw, 3.2rem);
   margin-bottom: 12px;
 }
 
@@ -630,25 +632,20 @@ input::file-selector-button {
 
 @media (max-width: 760px) {
   .container {
-    padding: 0 18px;
+    padding: 18px;
   }
 
   .section {
     padding: 48px 0;
   }
 
-  .hero {
-    min-height: 100svh;
-    align-items: flex-end;
-    background: url("../img/hero-mobile.jpg") center/cover no-repeat;
-  }
-
-  .hero::before {
-    background: linear-gradient(180deg, rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.6));
+  .hero-logo {
+    margin: auto;
+    display: block;
+    width: 65%;
   }
 
   .hero-content {
-    padding: 0 0 64px;
     text-align: center;
     margin: 0 auto;
   }
@@ -726,9 +723,3 @@ input::file-selector-button {
     transform: none;
   }
 }
-
-/* CHANGELOG
-- Added mobile-first hero adjustments, button variants, and header wordmark.
-- Improved spacing, section widths, and portfolio hover presentation.
-- Added reveal motion with reduced-motion support and navigation polish.
-*/
