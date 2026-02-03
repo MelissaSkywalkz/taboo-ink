@@ -323,6 +323,12 @@ textarea:focus-visible {
   opacity: 0.6;
 }
 
+.page-hero__media img {
+  filter: grayscale(0.6) contrast(1.1);
+  max-height: 500px;
+  object-fit: cover;
+}
+
 .portfolio-card figcaption {
   position: absolute;
   inset: 0;
