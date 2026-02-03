@@ -19,50 +19,41 @@
   <meta name="twitter:title" content="Cover-up i Stockholm | Taboo Ink">
   <meta name="twitter:description" content="Cover-up i Stockholm med trygg process från konsultation till eftervård. Taboo Ink skapar nya motiv med kvalitet och precision.">
   <meta name="twitter:image" content="https://example.com/assets/img/og.jpg">
-  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
-  <link rel="icon" href="assets/img/favicon-16.png" sizes="16x16">
-  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="assets/img/logo-favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/logo-favicon.png">
+  <meta name="theme-color" content="#0a0a0a">
   <link rel="stylesheet" href="assets/css/styles.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
-      {
+     {
         "@type": "TattooParlor",
         "name": "Taboo Ink Stockholm",
         "url": "https://example.com/",
-        "telephone": "+46704455619",
-        "email": "info@tabooinkstockholm.com",
+        "telephone": "+46 70 000 00 00",
+        "openingHours": "Mo-Fr 11:00-18:00",
+        "image": "https://example.com/assets/img/og.jpg",
+        "priceRange": "$$",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Hantverkargatan 83",
-          "addressLocality": "Stockholm",
           "postalCode": "112 38",
+          "addressLocality": "Stockholm",
           "addressCountry": "SE"
         },
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday"
-            ],
-            "opens": "11:00",
-            "closes": "17:00"
-          }
-        ],
         "geo": {
           "@type": "GeoCoordinates",
           "latitude": 59.33436,
           "longitude": 18.03272
         },
-        "hasMap": "https://www.openstreetmap.org/?mlat=59.33436&mlon=18.03272#map=18/59.33436/18.03272",
+        "areaServed": {
+          "@type": "City",
+          "name": "Stockholm"
+        },
         "sameAs": [
-          "https://instagram.com/tabooink",
-          "https://facebook.com/tabooink"
+          "https://www.instagram.com/taboo_ink",
+          "https://www.facebook.com/tabooinkstockholm"
         ]
       },
       {
@@ -125,8 +116,12 @@
 <body>
   <header class="site-header" id="top">
     <div class="container header-inner">
-      <a class="logo" href="index.html" aria-label="Taboo Ink Stockholm">
-        <img src="assets/img/logo-light.png" alt="Taboo Ink Stockholm logotyp" class="logo-img">
+      <a class="logo" href="#top" aria-label="Taboo Ink Stockholm">
+        <img 
+          src="assets/img/logo-light.png" 
+          alt="Taboo Ink Stockholm logotyp"
+          class="logo-img"
+        >
       </a>
       <nav class="nav" id="primary-nav" aria-label="Huvudmeny">
         <a href="index.html">Hem</a>
@@ -134,7 +129,6 @@
         <a href="realism.html">Realism</a>
         <a href="black-grey.html">Black &amp; Grey</a>
         <a href="cover-up.html">Cover-up</a>
-        <a href="kungsholmen.html">Hitta hit</a>
         <a href="#book">Kontakt/Boka</a>
       </nav>
       <button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
@@ -154,12 +148,11 @@
           <h1 id="page-title">Cover-up i Stockholm</h1>
           <p class="hero-description">Taboo Ink hjälper dig att förvandla en äldre tatuering till något nytt. Vi arbetar med smart komposition, kontrast och tydlig planering.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://www.tabooinkstockholm.com/book-online">BOKA KONSULTATION</a>
+            <a class="btn btn-primary" href="#book">BOKA KONSULTATION</a>
           </div>
         </div>
-        <p class="booking-note">Bokningar kan kräva deposition. Avbokning senast 48h innan.</p>
         <div class="page-hero__media media-frame" data-placeholder="Lägg till bild: assets/img/landing/cover-up.jpg">
-          <img src="assets/img/landing/cover-up.jpg" alt="cover up tatuering stockholm av Lukas Taboo Ink" loading="lazy">
+          <img src="assets/img/portfolio/08.png" alt="realism tatuering stockholm av Lukas Taboo Ink" loading="lazy">
         </div>
       </div>
     </section>
@@ -222,10 +215,7 @@
             <h2>Redo för en cover-up som känns ny</h2>
             <p>Berätta om din nuvarande tatuering och din idé för nästa steg. Vi återkommer med förslag och plan för hur cover-up kan göras på bästa sätt.</p>
           </div>
-          <div class="cta-actions">
-            <a class="btn btn-primary" href="https://www.tabooinkstockholm.com/book-online">BOKA KONSULTATION</a>
-            <p class="booking-note">Bokningar kan kräva deposition. Avbokning senast 48h innan.</p>
-          </div>
+          <a class="btn btn-primary" href="#book">BOKA KONSULTATION</a>
         </div>
       </div>
     </section>
@@ -264,7 +254,7 @@
           <h2>BOKA KONSULTATION</h2>
           <p>Beskriv din idé så återkommer vi med upplägg, tidsförslag och pris.</p>
         </div>
-        <form class="book-form" action="mailto:info@tabooinkstockholm.com" method="post" enctype="text/plain">
+        <form class="book-form" action="mailto:info@tabooink.se" method="post" enctype="text/plain">
           <div class="form-row">
             <label for="name">Ditt namn</label>
             <input id="name" name="name" type="text" required>
@@ -303,11 +293,11 @@
       </div>
       <div>
         <h4>Kontakt</h4>
-        <p>Telefon: <a href="tel:+46704455619">+46 70 445 56 19</a><br>Mail: <a href="mailto:info@tabooinkstockholm.com">info@tabooinkstockholm.com</a><br>Adress: <a href="kungsholmen.html">Hantverkargatan 83, 112 38 Stockholm</a></p>
+        <p>Telefon: +46 70 000 00 00<br>Mail: info@tabooink.se<br>Instagram: @tabooink</p>
       </div>
       <div>
         <h4>Öppettider</h4>
-        <p>Mån–Fre 11:00–17:00<br>Helg: enligt överenskommelse</p>
+        <p>Vardagar 11:00–18:00<br>Lördag 12:00–16:00<br>Söndag stängt</p>
       </div>
     </div>
     <p class="footer-note">© Taboo Ink Stockholm</p>

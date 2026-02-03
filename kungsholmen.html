@@ -21,47 +21,39 @@
   <meta name="twitter:image" content="https://example.com/assets/img/og.jpg">
   <link rel="icon" type="image/png" href="assets/img/logo-favicon.png">
   <link rel="apple-touch-icon" href="assets/img/logo-favicon.png">
+  <meta name="theme-color" content="#0a0a0a">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@graph": [
-      {
+     {
         "@type": "TattooParlor",
         "name": "Taboo Ink Stockholm",
         "url": "https://example.com/",
-        "telephone": "+46704455619",
-        "email": "info@tabooinkstockholm.com",
+        "telephone": "+46 70 000 00 00",
+        "openingHours": "Mo-Fr 11:00-18:00",
+        "image": "https://example.com/assets/img/og.jpg",
+        "priceRange": "$$",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Hantverkargatan 83",
-          "addressLocality": "Stockholm",
           "postalCode": "112 38",
+          "addressLocality": "Stockholm",
           "addressCountry": "SE"
         },
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday"
-            ],
-            "opens": "11:00",
-            "closes": "17:00"
-          }
-        ],
         "geo": {
           "@type": "GeoCoordinates",
           "latitude": 59.33436,
           "longitude": 18.03272
         },
-        "hasMap": "https://www.openstreetmap.org/?mlat=59.33436&mlon=18.03272#map=18/59.33436/18.03272",
+        "areaServed": {
+          "@type": "City",
+          "name": "Stockholm"
+        },
         "sameAs": [
-          "https://instagram.com/tabooink",
-          "https://facebook.com/tabooink"
+          "https://www.instagram.com/taboo_ink",
+          "https://www.facebook.com/tabooinkstockholm"
         ]
       },
       {
@@ -124,8 +116,12 @@
 <body>
   <header class="site-header" id="top">
     <div class="container header-inner">
-      <a class="logo" href="index.html" aria-label="Taboo Ink Stockholm">
-        <img src="assets/img/logo-light.png" alt="Taboo Ink Stockholm logotyp" class="logo-img">
+      <a class="logo" href="#top" aria-label="Taboo Ink Stockholm">
+        <img 
+          src="assets/img/logo-light.png" 
+          alt="Taboo Ink Stockholm logotyp"
+          class="logo-img"
+        >
       </a>
       <nav class="nav" id="primary-nav" aria-label="Huvudmeny">
         <a href="index.html">Hem</a>
@@ -133,7 +129,6 @@
         <a href="realism.html">Realism</a>
         <a href="black-grey.html">Black &amp; Grey</a>
         <a href="cover-up.html">Cover-up</a>
-        <a href="kungsholmen.html">Hitta hit</a>
         <a href="#book">Kontakt/Boka</a>
       </nav>
       <button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
@@ -153,12 +148,24 @@
           <h1 id="page-title">Tatuerare på Kungsholmen</h1>
           <p class="hero-description">Taboo Ink är ett självklart val för kunder på Kungsholmen som söker realism, Black &amp; Grey och cover-up. Vi arbetar personligt och med lång erfarenhet.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://www.tabooinkstockholm.com/book-online">BOKA KONSULTATION</a>
+            <a class="btn btn-primary" href="#book">BOKA KONSULTATION</a>
           </div>
         </div>
-        <p class="booking-note">Bokningar kan kräva deposition. Avbokning senast 48h innan.</p>
-        <div class="page-hero__media media-frame" data-placeholder="Lägg till bild: assets/img/landing/kungsholmen.jpg">
-          <img src="assets/img/landing/kungsholmen.jpg" alt="tatuerare kungsholmen stockholm Taboo Ink" loading="lazy">
+      </div>
+    </section>
+
+    <section class="map-section">
+      <div class="container">
+        <h2>Hitta till studion på Kungsholmen</h2>
+        <p class="map-intro">
+          Taboo Ink Stockholm ligger centralt på Kungsholmen med nära till tunnelbana och buss.
+        </p>
+
+        <div id="studio-map" class="map"></div>
+
+        <div class="map-address">
+          <img src="assets/img/logo-favicon.png" alt="" class="map-icon">
+          <span>Taboo Ink Stockholm – Hantverkargatan 83, Kungsholmen</span>
         </div>
       </div>
     </section>
@@ -216,31 +223,12 @@
 
     <section class="section" data-reveal>
       <div class="container">
-        <div class="map-card">
-          <div class="map-header">
-            <img src="assets/img/logo-favicon.png" alt="" aria-hidden="true">
-            <span>Hantverkargatan 83, 112 38 Stockholm</span>
-          </div>
-          <div id="studio-map" class="map-embed"></div>
-          <div class="map-actions">
-            <a class="btn btn-secondary" href="https://www.google.com/maps/dir/?api=1&destination=Hantverkargatan+83+112+38+Stockholm">ÖPPNA I GOOGLE MAPS</a>
-            <a class="btn btn-secondary" href="https://www.openstreetmap.org/?mlat=59.33436&mlon=18.03272#map=18/59.33436/18.03272">ÖPPNA I OPENSTREETMAP</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" data-reveal>
-      <div class="container">
         <div class="cta-box">
           <div>
             <h2>Boka en tatuerare nära Kungsholmen</h2>
             <p>Skicka en förfrågan med din idé så återkommer vi med tider och ett upplägg som passar dig.</p>
           </div>
-          <div class="cta-actions">
-            <a class="btn btn-primary" href="https://www.tabooinkstockholm.com/book-online">BOKA KONSULTATION</a>
-            <p class="booking-note">Bokningar kan kräva deposition. Avbokning senast 48h innan.</p>
-          </div>
+          <a class="btn btn-primary" href="#book">BOKA KONSULTATION</a>
         </div>
       </div>
     </section>
@@ -279,7 +267,7 @@
           <h2>BOKA KONSULTATION</h2>
           <p>Beskriv din idé så återkommer vi med upplägg, tidsförslag och pris.</p>
         </div>
-        <form class="book-form" action="mailto:info@tabooinkstockholm.com" method="post" enctype="text/plain">
+        <form class="book-form" action="mailto:info@tabooink.se" method="post" enctype="text/plain">
           <div class="form-row">
             <label for="name">Ditt namn</label>
             <input id="name" name="name" type="text" required>
@@ -318,11 +306,11 @@
       </div>
       <div>
         <h4>Kontakt</h4>
-        <p>Telefon: <a href="tel:+46704455619">+46 70 445 56 19</a><br>Mail: <a href="mailto:info@tabooinkstockholm.com">info@tabooinkstockholm.com</a><br>Adress: <a href="kungsholmen.html">Hantverkargatan 83, 112 38 Stockholm</a></p>
+        <p>Telefon: +46 70 000 00 00<br>Mail: info@tabooink.se<br>Instagram: @tabooink</p>
       </div>
       <div>
         <h4>Öppettider</h4>
-        <p>Mån–Fre 11:00–17:00<br>Helg: enligt överenskommelse</p>
+        <p>Vardagar 11:00–18:00<br>Lördag 12:00–16:00<br>Söndag stängt</p>
       </div>
     </div>
     <p class="footer-note">© Taboo Ink Stockholm</p>
@@ -330,12 +318,12 @@
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
-    const lat = 59.33436;
-    const lng = 18.03272;
+    const lat = 59.3326;
+    const lng = 18.0412;
 
     const map = L.map('studio-map', {
       scrollWheelZoom: false
-    }).setView([lat, lng], 16);
+    }).setView([lat, lng], 15);
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CartoDB</a>'
@@ -349,7 +337,7 @@
     });
 
     L.marker([lat, lng], { icon }).addTo(map)
-      .bindPopup("<strong>Taboo Ink Stockholm</strong><br>Hantverkargatan 83, 112 38 Stockholm")
+      .bindPopup("<strong>Taboo Ink Stockholm</strong><br>Hantverkargatan 83, Kungsholmen")
       .openPopup();
   </script>
   <script src="assets/js/main.js"></script>
