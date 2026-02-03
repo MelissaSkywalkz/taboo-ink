@@ -18,9 +18,9 @@
   <meta name="twitter:title" content="Tatuerare i Stockholm – Taboo Ink | Realism &amp; Black &amp; Grey">
   <meta name="twitter:description" content="Taboo Ink Stockholm – studio för realism, porträtt och Black &amp; Grey med över 20 års erfarenhet. Personliga motiv och konsultationer.">
   <meta name="twitter:image" content="https://example.com/assets/img/og.jpg">
-  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
-  <link rel="icon" href="assets/img/favicon-16.png" sizes="16x16">
-  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="assets/img/logo-favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/logo-favicon.png">
+  <meta name="theme-color" content="#0a0a0a">
   <link rel="stylesheet" href="assets/css/styles.css">
   <script type="application/ld+json">
   {
@@ -47,11 +47,13 @@
 <body>
   <header class="site-header" id="top">
     <div class="container header-inner">
-      <a class="logo logo-wordmark" href="#top" aria-label="Taboo Ink Stockholm">
-        <span class="logo-text">Taboo Ink</span>
-        <span class="logo-accent" aria-hidden="true"></span>
-        <span class="logo-sub">Stockholm</span>
-      </a>
+      <a class="logo" href="#top" aria-label="Taboo Ink Stockholm">
+      <img 
+        src="assets/img/logo-light.png" 
+        alt="Taboo Ink Stockholm logotyp"
+        class="logo-img"
+      >
+    </a>
       <nav class="nav" id="primary-nav" aria-label="Huvudmeny">
         <a href="#portfolio">Arbeten</a>
         <a href="#about">Om</a>
@@ -226,18 +228,27 @@
   </main>
 
   <footer class="site-footer">
+    <div class="footer-watermark" aria-hidden="true"></div>
     <div class="container footer-grid">
       <div>
         <h3>Taboo Ink Stockholm</h3>
-        <p>Studio för realism och Black &amp; Grey i Stockholm.</p>
+        <p>Studio för realism och Black & Grey i Stockholm.</p>
       </div>
       <div>
         <h4>Kontakt</h4>
-        <p>Telefon: +46 70 000 00 00<br>Mail: info@tabooink.se<br>Instagram: @tabooink</p>
+        <p>
+          Telefon: <a href="tel:+46700000000">+46 70 000 00 00</a><br>
+          Mail: <a href="mailto:info@tabooink.se">info@tabooink.se</a><br>
+          Instagram: @tabooink
+        </p>
       </div>
       <div>
         <h4>Öppettider</h4>
-        <p>Vardagar 11:00–18:00<br>Lördag 12:00–16:00<br>Söndag stängt</p>
+        <p>
+          Vardagar 11:00–18:00<br>
+          Lördag 12:00–16:00<br>
+          Söndag stängt
+        </p>
       </div>
     </div>
     <p class="footer-note">© Taboo Ink Stockholm</p>
