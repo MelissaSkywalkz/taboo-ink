@@ -23,26 +23,37 @@
   <link rel="apple-touch-icon" href="assets/img/logo-favicon.png">
   <meta name="theme-color" content="#0a0a0a">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@graph": [
-      {
+     {
         "@type": "TattooParlor",
         "name": "Taboo Ink Stockholm",
         "url": "https://example.com/",
         "telephone": "+46 70 000 00 00",
+        "openingHours": "Mo-Fr 11:00-18:00",
+        "image": "https://example.com/assets/img/og.jpg",
+        "priceRange": "$$",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Adressgata 1",
+          "streetAddress": "Hantverkargatan 83",
+          "postalCode": "112 38",
           "addressLocality": "Stockholm",
-          "postalCode": "111 11",
           "addressCountry": "SE"
         },
-        "openingHours": "Mo-Fr 11:00-18:00",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 59.33436,
+          "longitude": 18.03272
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Stockholm"
+        },
         "sameAs": [
-          "https://instagram.com/tabooink",
-          "https://facebook.com/tabooink"
+          "https://www.instagram.com/taboo_ink",
+          "https://www.facebook.com/tabooinkstockholm"
         ]
       },
       {
@@ -140,8 +151,21 @@
             <a class="btn btn-primary" href="#book">BOKA KONSULTATION</a>
           </div>
         </div>
-        <div class="page-hero__media media-frame" data-placeholder="Lägg till bild: assets/img/landing/kungsholmen.jpg">
-          <img src="assets/img/portfolio/08.png" alt="realism tatuering stockholm av Lukas Taboo Ink" loading="lazy">
+      </div>
+    </section>
+
+    <section class="map-section">
+      <div class="container">
+        <h2>Hitta till studion på Kungsholmen</h2>
+        <p class="map-intro">
+          Taboo Ink Stockholm ligger centralt på Kungsholmen med nära till tunnelbana och buss.
+        </p>
+
+        <div id="studio-map" class="map"></div>
+
+        <div class="map-address">
+          <img src="assets/img/logo-favicon.png" alt="" class="map-icon">
+          <span>Taboo Ink Stockholm – Hantverkargatan 83, Kungsholmen</span>
         </div>
       </div>
     </section>
@@ -292,6 +316,29 @@
     <p class="footer-note">© Taboo Ink Stockholm</p>
   </footer>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const lat = 59.3326;
+    const lng = 18.0412;
+
+    const map = L.map('studio-map', {
+      scrollWheelZoom: false
+    }).setView([lat, lng], 15);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap & CartoDB'
+    }).addTo(map);
+
+    const icon = L.icon({
+      iconUrl: 'assets/img/logo-favicon.png',
+      iconSize: [34, 34],
+      iconAnchor: [17, 34]
+    });
+
+    L.marker([lat, lng], { icon }).addTo(map)
+      .bindPopup("<strong>Taboo Ink Stockholm</strong><br>Hantverkargatan 83, Kungsholmen")
+      .openPopup();
+  </script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
