@@ -18,9 +18,9 @@
   <meta name="twitter:title" content="Tatuerare i Stockholm – Taboo Ink | Realism &amp; Black &amp; Grey">
   <meta name="twitter:description" content="Taboo Ink Stockholm – studio för realism, porträtt och Black &amp; Grey med över 20 års erfarenhet. Personliga motiv och konsultationer.">
   <meta name="twitter:image" content="https://example.com/assets/img/og.jpg">
-  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
-  <link rel="icon" href="assets/img/favicon-16.png" sizes="16x16">
-  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="assets/img/logo-favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/logo-favicon.png">
+  <meta name="theme-color" content="#0a0a0a">
   <link rel="stylesheet" href="assets/css/styles.css">
   <script type="application/ld+json">
   {
@@ -59,6 +59,18 @@
         <a href="black-grey.html">Black &amp; Grey</a>
         <a href="cover-up.html">Cover-up</a>
         <a href="#book">Kontakt/Boka</a>
+      <a class="logo" href="#top" aria-label="Taboo Ink Stockholm">
+      <img 
+        src="assets/img/logo-light.png" 
+        alt="Taboo Ink Stockholm logotyp"
+        class="logo-img"
+      >
+    </a>
+      <nav class="nav" id="primary-nav" aria-label="Huvudmeny">
+        <a href="#portfolio">Arbeten</a>
+        <a href="#about">Om</a>
+        <a href="#styles">Stilar</a>
+        <a href="#book">Boka</a>
       </nav>
       <button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
         <span class="sr-only">Öppna meny</span>
@@ -91,27 +103,27 @@
         </div>
         <div class="portfolio-grid">
           <figure class="portfolio-card">
-            <img src="assets/img/portfolio/01.jpg" alt="Black &amp; Grey porträtt tatuering">
+            <img src="assets/img/portfolio/01.png" alt="Black &amp; Grey porträtt tatuering">
             <figcaption>Se mer</figcaption>
           </figure>
           <figure class="portfolio-card">
-            <img src="assets/img/portfolio/02.jpg" alt="Realism tatuering med hög kontrast">
+            <img src="assets/img/portfolio/02.png" alt="Realism tatuering med hög kontrast">
             <figcaption>Se mer</figcaption>
           </figure>
           <figure class="portfolio-card">
-            <img src="assets/img/portfolio/03.jpg" alt="Dotwork motiv i svart och grått">
+            <img src="assets/img/portfolio/03.png" alt="Dotwork motiv i svart och grått">
             <figcaption>Se mer</figcaption>
           </figure>
           <figure class="portfolio-card">
-            <img src="assets/img/portfolio/04.jpg" alt="Detaljrikt realistiskt motiv">
+            <img src="assets/img/portfolio/04.png" alt="Detaljrikt realistiskt motiv">
             <figcaption>Se mer</figcaption>
           </figure>
           <figure class="portfolio-card">
-            <img src="assets/img/portfolio/05.jpg" alt="Tatueringsdetalj i black &amp; grey">
+            <img src="assets/img/portfolio/05.png" alt="Tatueringsdetalj i black &amp; grey">
             <figcaption>Se mer</figcaption>
           </figure>
           <figure class="portfolio-card">
-            <img src="assets/img/portfolio/06.jpg" alt="Konstnärlig tatuering med mjuka skuggor">
+            <img src="assets/img/portfolio/06.png" alt="Konstnärlig tatuering med mjuka skuggor">
             <figcaption>Se mer</figcaption>
           </figure>
         </div>
@@ -124,7 +136,7 @@
     <section class="section section-split" id="about" data-reveal>
       <div class="container split">
         <div class="split-media">
-          <img src="assets/img/lukas.jpg" alt="Porträtt av tatueraren Lukas">
+          <img src="assets/img/lukas.png" alt="Porträtt av tatueraren Lukas">
         </div>
         <div class="split-content">
           <h2>OM LUKAS</h2>
@@ -228,18 +240,27 @@
   </main>
 
   <footer class="site-footer">
+    <div class="footer-watermark" aria-hidden="true"></div>
     <div class="container footer-grid">
       <div>
         <h3>Taboo Ink Stockholm</h3>
-        <p>Studio för realism och Black &amp; Grey i Stockholm.</p>
+        <p>Studio för realism och Black & Grey i Stockholm.</p>
       </div>
       <div>
         <h4>Kontakt</h4>
-        <p>Telefon: +46 70 000 00 00<br>Mail: info@tabooink.se<br>Instagram: @tabooink</p>
+        <p>
+          Telefon: <a href="tel:+46700000000">+46 70 000 00 00</a><br>
+          Mail: <a href="mailto:info@tabooink.se">info@tabooink.se</a><br>
+          Instagram: @tabooink
+        </p>
       </div>
       <div>
         <h4>Öppettider</h4>
-        <p>Vardagar 11:00–18:00<br>Lördag 12:00–16:00<br>Söndag stängt</p>
+        <p>
+          Vardagar 11:00–18:00<br>
+          Lördag 12:00–16:00<br>
+          Söndag stängt
+        </p>
       </div>
     </div>
     <p class="footer-note">© Taboo Ink Stockholm</p>
