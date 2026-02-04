@@ -1,6 +1,8 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
 const navLinks = nav ? nav.querySelectorAll('a') : [];
+const dropdownToggles = nav ? nav.querySelectorAll('.nav-dropdown-toggle') : [];
+const dropdownItems = nav ? nav.querySelectorAll('.nav-item.has-dropdown') : [];
 const body = document.body;
 
 const currentPath = window.location.pathname.split('/').pop() || 'index.html';
@@ -21,11 +23,24 @@ const closeMenu = () => {
   menuToggle.setAttribute('aria-expanded', 'false');
 };
 
+const closeDropdowns = () => {
+  dropdownItems.forEach((item) => {
+    item.classList.remove('is-open');
+    const toggle = item.querySelector('.nav-dropdown-toggle');
+    if (toggle) {
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+};
+
 if (menuToggle && nav) {
   menuToggle.addEventListener('click', () => {
     const isOpen = nav.classList.toggle('is-open');
     menuToggle.setAttribute('aria-expanded', String(isOpen));
     body.classList.toggle('nav-open', isOpen);
+    if (!isOpen) {
+      closeDropdowns();
+    }
   });
 
   navLinks.forEach((link) => {
@@ -33,12 +48,38 @@ if (menuToggle && nav) {
       if (nav.classList.contains('is-open')) {
         closeMenu();
       }
+      closeDropdowns();
     });
   });
 
+  dropdownToggles.forEach((toggle) => {
+    toggle.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const item = toggle.closest('.nav-item');
+      if (!item) {
+        return;
+      }
+      const isOpen = item.classList.contains('is-open');
+      closeDropdowns();
+      if (!isOpen) {
+        item.classList.add('is-open');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!nav.contains(event.target)) {
+      closeDropdowns();
+    }
+  });
+
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && nav.classList.contains('is-open')) {
-      closeMenu();
+    if (event.key === 'Escape') {
+      closeDropdowns();
+      if (nav.classList.contains('is-open')) {
+        closeMenu();
+      }
     }
   });
 }

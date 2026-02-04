@@ -125,12 +125,31 @@
       <nav class="nav" id="primary-nav" aria-label="Huvudmeny">
         <a href="index.html">Hem</a>
         <a href="portfolio.html">Portfolio</a>
-        <a href="realism.html">Realism</a>
-        <a href="black-grey.html">Black &amp; Grey</a>
-        <a href="cover-up.html">Cover-up</a>
-        <a href="portratt.html">Porträtt</a>
-        <a href="kungsholmen.html">Hitta hit</a>
-        <a href="https://www.tabooinkstockholm.com/book-online" target="_blank" rel="noopener">Boka</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="nav-dropdown-styles" aria-haspopup="true">
+            Stilar
+            <span class="dropdown-icon" aria-hidden="true">▾</span>
+          </button>
+          <div class="nav-dropdown" role="menu" id="nav-dropdown-styles">
+            <a href="realism.html" role="menuitem">Realism</a>
+            <a href="black-grey.html" role="menuitem">Black &amp; Grey</a>
+            <a href="cover-up.html" role="menuitem">Cover-up</a>
+            <a href="portratt.html" role="menuitem">Porträtt</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="nav-dropdown-info" aria-haspopup="true">
+            Info
+            <span class="dropdown-icon" aria-hidden="true">▾</span>
+          </button>
+          <div class="nav-dropdown" role="menu" id="nav-dropdown-info">
+            <a href="aftercare.html" role="menuitem">Eftervård</a>
+            <a href="pris.html" role="menuitem">Pris &amp; konsultation</a>
+            <a href="faq.html" role="menuitem">FAQ</a>
+            <a href="kungsholmen.html" role="menuitem">Hitta hit</a>
+          </div>
+        </div>
+        <a class="nav-book btn btn-primary" href="https://www.tabooinkstockholm.com/book-online" target="_blank" rel="noopener">Boka</a>
       </nav>
       <button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
         <span class="sr-only">Öppna meny</span>
@@ -142,6 +161,15 @@
   </header>
 
   <main>
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Brödsmulor">
+        <a href="index.html">Hem</a>
+        <span class="separator">/</span>
+        <a href="index.html#explore">Info</a>
+        <span class="separator">/</span>
+        <span aria-current="page">Eftervård</span>
+      </nav>
+    </div>
     <section class="page-hero" aria-labelledby="page-title">
       <div class="container page-hero__content">
         <div class="page-hero__text">
@@ -162,7 +190,7 @@
       <div class="container page-content">
         <h2>Dag 1–3</h2>
         <p>Tvätta tatueringen försiktigt 2–3 gånger per dag med ljummet vatten och mild, parfymfri tvål. Klappa torrt och applicera en tunn mängd aftercare-salva. Lätt rodnad, värme och spänd hud är normalt de första dagarna.</p>
-        <p>Undvik tajta kläder som gnider mot huden. Om du vill läsa mer om stilval kan du besöka våra sidor om <a href="realism.html">Realism</a>, <a href="black-grey.html">Black &amp; Grey</a> och <a href="portratt.html">Porträtt</a>.</p>
+        <p>Undvik tajta kläder som gnider mot huden. Om du planerar en <a href="cover-up.html">cover-up</a> är extra noggrann eftervård särskilt viktigt.</p>
       </div>
     </section>
 
@@ -170,7 +198,7 @@
       <div class="container page-content">
         <h2>Vecka 1–2</h2>
         <p>Under vecka 1–2 kommer huden att flagna och klia. Det är en naturlig del av läkningen. Klia inte och pilla inte bort skorpor. Fortsätt att återfukta tunt och låt huden få andas.</p>
-        <p>Lugn träning går ofta bra, men undvik friktion och intensiva pass som gör området blött länge. Behöver du råd inför en <a href="cover-up.html">cover-up</a> eller ett större motiv kan du även kolla <a href="pris.html">pris &amp; konsultation</a>.</p>
+        <p>Lugn träning går ofta bra, men undvik friktion och intensiva pass som gör området blött länge. Vill du förstå upplägg och tider kan du läsa om <a href="pris.html">pris &amp; konsultation</a>.</p>
       </div>
     </section>
 
@@ -178,7 +206,7 @@
       <div class="container page-content">
         <h2>Sol, bad, bastu</h2>
         <p>Undvik direkt sol under hela läkningen och använd hög SPF efter att huden har läkt. Bad, pool och bastu bör undvikas i minst 2–3 veckor för att inte störa läkningen.</p>
-        <p>Vill du veta mer om studion och hur du hittar hit? Besök <a href="kungsholmen.html">Hitta hit</a>.</p>
+        <p>Om du vill ha fler svar om läkning hittar du dem i vår <a href="faq.html">FAQ</a>.</p>
       </div>
     </section>
 
@@ -298,6 +326,26 @@
       <div>
         <h4>Kontakt</h4>
         <p>Telefon: <a href="tel:+46704455619">+46 70 445 56 19</a><br>Mail: <a href="mailto:info@tabooinkstockholm.com">info@tabooinkstockholm.com</a><br>Adress: <a href="kungsholmen.html">Hantverkargatan 83, 112 38 Stockholm</a><br>Eftervård: <a href="aftercare.html">Eftervård</a><br>Pris: <a href="pris.html">Pris</a><br>FAQ: <a href="faq.html">FAQ</a></p>
+      </div>
+      <div>
+        <h4>Snabblänkar</h4>
+        <ul class="footer-links">
+          <li><a href="aftercare.html">Eftervård</a></li>
+          <li><a href="pris.html">Pris</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="kungsholmen.html">Hitta hit</a></li>
+          <li><a href="https://www.tabooinkstockholm.com/book-online" target="_blank" rel="noopener">Boka</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Stilar</h4>
+        <ul class="footer-links">
+          <li><a href="realism.html">Realism</a></li>
+          <li><a href="black-grey.html">Black &amp; Grey</a></li>
+          <li><a href="cover-up.html">Cover-up</a></li>
+          <li><a href="portratt.html">Porträtt</a></li>
+        </ul>
+        <a class="footer-portfolio" href="portfolio.html">Portfolio</a>
       </div>
       <div>
         <h4>Öppettider</h4>

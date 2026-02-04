@@ -126,12 +126,31 @@
       <nav class="nav" id="primary-nav" aria-label="Huvudmeny">
         <a href="index.html">Hem</a>
         <a href="portfolio.html">Portfolio</a>
-        <a href="realism.html">Realism</a>
-        <a href="black-grey.html">Black &amp; Grey</a>
-        <a href="cover-up.html">Cover-up</a>
-        <a href="portratt.html">Porträtt</a>
-        <a href="kungsholmen.html">Hitta hit</a>
-        <a href="https://www.tabooinkstockholm.com/book-online" target="_blank" rel="noopener">Boka</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="nav-dropdown-styles" aria-haspopup="true">
+            Stilar
+            <span class="dropdown-icon" aria-hidden="true">▾</span>
+          </button>
+          <div class="nav-dropdown" role="menu" id="nav-dropdown-styles">
+            <a href="realism.html" role="menuitem">Realism</a>
+            <a href="black-grey.html" role="menuitem">Black &amp; Grey</a>
+            <a href="cover-up.html" role="menuitem">Cover-up</a>
+            <a href="portratt.html" role="menuitem">Porträtt</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="nav-dropdown-info" aria-haspopup="true">
+            Info
+            <span class="dropdown-icon" aria-hidden="true">▾</span>
+          </button>
+          <div class="nav-dropdown" role="menu" id="nav-dropdown-info">
+            <a href="aftercare.html" role="menuitem">Eftervård</a>
+            <a href="pris.html" role="menuitem">Pris &amp; konsultation</a>
+            <a href="faq.html" role="menuitem">FAQ</a>
+            <a href="kungsholmen.html" role="menuitem">Hitta hit</a>
+          </div>
+        </div>
+        <a class="nav-book btn btn-primary" href="https://www.tabooinkstockholm.com/book-online" target="_blank" rel="noopener">Boka</a>
       </nav>
       <button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
         <span class="sr-only">Öppna meny</span>
@@ -143,6 +162,15 @@
   </header>
 
   <main>
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Brödsmulor">
+        <a href="index.html">Hem</a>
+        <span class="separator">/</span>
+        <a href="index.html#styles">Stilar</a>
+        <span class="separator">/</span>
+        <span aria-current="page">Realism</span>
+      </nav>
+    </div>
     <section class="page-hero" aria-labelledby="page-title">
       <div class="container page-hero__content">
         <div class="page-hero__text">
@@ -164,7 +192,7 @@
         <h2>Detaljer som känns levande</h2>
         <p>En realism tatuering handlar om att fånga ljus, textur och uttryck med precision. I Stockholm finns många studios, men hos Taboo Ink får du en arbetsprocess som är lika noggrann som motivet. Vi går igenom referenser och pratar om vad som ska kännas viktigt i bilden. Det kan vara en blick, en specifik skugga eller en detalj som gör motivet personligt för dig. När motivet är förankrat kan vi planera storlek och placering så att tatueringen får rätt balans på kroppen.</p>
         <p>Realism kräver ett lugnt tempo. Vi bygger kontraster steg för steg för att få fram djupet utan att linjerna blir hårda. Det gör att motivet åldras bra och behåller sin struktur. För många kunder blir realism en berättelse på huden. Det kan vara ett porträtt av någon viktig, ett naturmotiv eller en symbolisk bild som ska kännas nära. Vi fokuserar alltid på att skapa en tatuering som är vacker både på nära håll och på avstånd.</p>
-        <p>Vi arbetar i en trygg miljö med tydlig kommunikation genom hela processen. Du får veta vad som händer i varje steg, hur länge vi sitter och vilka förväntningar du kan ha på läkning och eftervård. Om du vill fördjupa dig i andra stilar kan du även läsa om <a href="black-grey.html">Black &amp; Grey</a>, <a href="portratt.html">Porträtt-tatueringar</a> och <a href="cover-up.html">Cover-up</a>. För fler exempel går du vidare till vårt <a href="portfolio.html">portfolio</a>.</p>
+        <p>Vi arbetar i en trygg miljö med tydlig kommunikation genom hela processen. Inför bokning kan du läsa mer om <a href="aftercare.html">eftervård</a> och <a href="pris.html">pris &amp; konsultation</a>. För fler exempel går du vidare till vårt <a href="portfolio.html">portfolio</a>.</p>
       </div>
     </section>
 
@@ -294,6 +322,26 @@
       <div>
         <h4>Kontakt</h4>
         <p>Telefon: <a href="tel:+46704455619">+46 70 445 56 19</a><br>Mail: <a href="mailto:info@tabooinkstockholm.com">info@tabooinkstockholm.com</a><br>Adress: <a href="kungsholmen.html">Hantverkargatan 83, 112 38 Stockholm</a><br>Eftervård: <a href="aftercare.html">Eftervård</a><br>Pris: <a href="pris.html">Pris</a><br>FAQ: <a href="faq.html">FAQ</a></p>
+      </div>
+      <div>
+        <h4>Snabblänkar</h4>
+        <ul class="footer-links">
+          <li><a href="aftercare.html">Eftervård</a></li>
+          <li><a href="pris.html">Pris</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="kungsholmen.html">Hitta hit</a></li>
+          <li><a href="https://www.tabooinkstockholm.com/book-online" target="_blank" rel="noopener">Boka</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Stilar</h4>
+        <ul class="footer-links">
+          <li><a href="realism.html">Realism</a></li>
+          <li><a href="black-grey.html">Black &amp; Grey</a></li>
+          <li><a href="cover-up.html">Cover-up</a></li>
+          <li><a href="portratt.html">Porträtt</a></li>
+        </ul>
+        <a class="footer-portfolio" href="portfolio.html">Portfolio</a>
       </div>
       <div>
         <h4>Öppettider</h4>
