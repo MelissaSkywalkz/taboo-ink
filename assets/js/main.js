@@ -122,3 +122,21 @@ if (filterButtons.length) {
     });
   });
 }
+
+const faqToggles = document.querySelectorAll('.faq-toggle');
+faqToggles.forEach((toggle) => {
+  const item = toggle.closest('.faq-item');
+  const answer = item ? item.querySelector('.faq-answer') : null;
+  if (!answer) {
+    return;
+  }
+  toggle.addEventListener('click', () => {
+    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+    const icon = toggle.querySelector('.faq-toggle__icon');
+    toggle.setAttribute('aria-expanded', String(!isExpanded));
+    answer.hidden = isExpanded;
+    if (icon) {
+      icon.textContent = isExpanded ? '+' : '–';
+    }
+  });
+});
