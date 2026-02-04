@@ -5,19 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tatuerare i Stockholm – Taboo Ink | Realism &amp; Black &amp; Grey</title>
   <meta name="description" content="Taboo Ink Stockholm – studio för realism, porträtt och Black &amp; Grey. Över 20 års erfarenhet, personliga motiv och omsorg i varje detalj. Boka konsultation.">
-  <link rel="canonical" href="https://example.com/">
+  <!-- TODO: Uppdatera canonical till riktig domän -->
+  <link rel="canonical" href="https://melissaskywalkz.github.io/taboo-ink/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
   <meta property="og:title" content="Tatuerare i Stockholm – Taboo Ink | Realism &amp; Black &amp; Grey">
   <meta property="og:description" content="Taboo Ink Stockholm – studio för realism, porträtt och Black &amp; Grey med över 20 års erfarenhet. Personliga motiv och konsultationer.">
-  <meta property="og:image" content="https://example.com/assets/img/og.jpg">
+  <meta property="og:image" content="https://melissaskywalkz.github.io/taboo-ink/assets/img/og.jpg">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://example.com/">
+  <meta property="og:url" content="https://melissaskywalkz.github.io/taboo-ink/">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Tatuerare i Stockholm – Taboo Ink | Realism &amp; Black &amp; Grey">
   <meta name="twitter:description" content="Taboo Ink Stockholm – studio för realism, porträtt och Black &amp; Grey med över 20 års erfarenhet. Personliga motiv och konsultationer.">
-  <meta name="twitter:image" content="https://example.com/assets/img/og.jpg">
+  <meta name="twitter:image" content="https://melissaskywalkz.github.io/taboo-ink/assets/img/og.jpg">
   <link rel="icon" type="image/png" href="assets/img/logo-favicon.png">
   <link rel="apple-touch-icon" href="assets/img/logo-favicon.png">
   <meta name="theme-color" content="#0a0a0a">
@@ -27,7 +28,7 @@
     "@context": "https://schema.org",
     "@type": "TattooParlor",
     "name": "Taboo Ink Stockholm",
-    "url": "https://example.com/",
+    "url": "https://melissaskywalkz.github.io/taboo-ink/",
     "telephone": "+46704455619",
     "email": "info@tabooinkstockholm.com",
     "address": {
@@ -74,14 +75,32 @@
           class="logo-img"
         >
       </a>
-      <nav class="nav" id="primary-nav" aria-label="Huvudmeny">
+            <nav class="nav" id="primary-nav" aria-label="Huvudmeny">
         <a href="index.html">Hem</a>
         <a href="portfolio.html">Portfolio</a>
-        <a href="realism.html">Realism</a>
-        <a href="black-grey.html">Black &amp; Grey</a>
-        <a href="cover-up.html">Cover-up</a>
-        <a href="kungsholmen.html">Hitta hit</a>
-        <a href="index.html#book">Kontakt/Boka</a>
+        <div class="dropdown">
+          <button class="dropbtn" type="button" aria-expanded="false" aria-controls="dropdown-styles">
+            Stilar
+          </button>
+          <div class="dropdown-content" id="dropdown-styles">
+            <a href="realism.html">Realism</a>
+            <a href="black-grey.html">Black &amp; Grey</a>
+            <a href="cover-up.html">Cover-up</a>
+            <a href="portratt.html">Porträtt</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn" type="button" aria-expanded="false" aria-controls="dropdown-info">
+            Info
+          </button>
+          <div class="dropdown-content" id="dropdown-info">
+            <a href="aftercare.html">Eftervård</a>
+            <a href="pris.html">Pris &amp; konsultation</a>
+            <a href="faq.html">FAQ</a>
+            <a href="kungsholmen.html">Hitta hit</a>
+          </div>
+        </div>
+        <a class="nav-book btn btn-primary" href="https://www.tabooinkstockholm.com/book-online" target="_blank" rel="noopener">Boka</a>
       </nav>
       <button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
         <span class="sr-only">Öppna meny</span>
@@ -189,6 +208,11 @@
             <p>Geometri, mandala och noga utvalda färgprojekt.</p>
           </article>
         </div>
+        <div class="section-links">
+          <a href="aftercare.html">Eftervård</a>
+          <a href="pris.html">Pris</a>
+          <a href="faq.html">FAQ</a>
+        </div>
       </div>
     </section>
 
@@ -211,6 +235,35 @@
             <p>“Lukas fångade exakt vad jag ville ha och cover-upen känns helt klockren.”</p>
             <span>— Johanna P.</span>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section explore-section" id="explore" data-reveal>
+      <div class="container">
+        <div class="section-heading">
+          <h2>Utforska</h2>
+          <p>Snabba genvägar till stilar och praktisk info.</p>
+        </div>
+        <div class="explore-grid">
+          <div class="explore-card">
+            <h3>Stilar</h3>
+            <ul class="explore-links">
+              <li><a href="realism.html">Realism</a></li>
+              <li><a href="black-grey.html">Black &amp; Grey</a></li>
+              <li><a href="cover-up.html">Cover-up</a></li>
+              <li><a href="portratt.html">Porträtt</a></li>
+            </ul>
+          </div>
+          <div class="explore-card">
+            <h3>Info</h3>
+            <ul class="explore-links">
+              <li><a href="aftercare.html">Eftervård</a></li>
+              <li><a href="pris.html">Pris &amp; konsultation</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="kungsholmen.html">Hitta hit</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -260,11 +313,27 @@
       </div>
       <div>
         <h4>Kontakt</h4>
-        <p>Telefon: <a href="tel:+46704455619">+46 70 445 56 19</a><br>Mail: <a href="mailto:info@tabooinkstockholm.com">info@tabooinkstockholm.com</a><br>Adress: <a href="kungsholmen.html">Hantverkargatan 83, 112 38 Stockholm</a></p>
+        <p>Telefon: <a href="tel:+46704455619">+46 70 445 56 19</a><br>Mail: <a href="mailto:info@tabooinkstockholm.com">info@tabooinkstockholm.com</a><br>Adress: <a href="kungsholmen.html">Hantverkargatan 83, 112 38 Stockholm</a><br>Eftervård: <a href="aftercare.html">Eftervård</a><br>Pris: <a href="pris.html">Pris</a><br>FAQ: <a href="faq.html">FAQ</a></p>
+      </div>
+            
+            <div>
+        <h4>Snabblänkar</h4>
+        <ul class="footer-links">
+          <li><a href="realism.html">Realism</a></li>
+          <li><a href="black-grey.html">Black &amp; Grey</a></li>
+          <li><a href="cover-up.html">Cover-up</a></li>
+          <li><a href="portratt.html">Porträtt</a></li>
+          <li><a href="aftercare.html">Eftervård</a></li>
+          <li><a href="pris.html">Pris</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="kungsholmen.html">Hitta hit</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="https://www.tabooinkstockholm.com/book-online" target="_blank" rel="noopener">Boka</a></li>
+        </ul>
       </div>
       <div>
         <h4>Öppettider</h4>
-        <p>Mån–Fre 11:00–17:00<br>Helg: enligt överenskommelse</p>
+        <p>Mån–Fre 11:00–17:00<br>Helg enligt överenskommelse</p>
       </div>
     </div>
     <p class="footer-note">© Taboo Ink Stockholm</p>
