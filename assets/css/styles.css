@@ -186,11 +186,15 @@ textarea:focus-visible {
   text-transform: uppercase;
 }
 
-.dropdown {
+.nav-item {
   position: relative;
 }
 
-.dropbtn {
+.nav-item.has-dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
   background: transparent;
   border: none;
   color: inherit;
@@ -203,7 +207,7 @@ textarea:focus-visible {
   padding-bottom: 4px;
 }
 
-.dropdown-content {
+.dropdown-menu {
   position: absolute;
   top: calc(100% + 10px);
   left: 0;
@@ -219,7 +223,16 @@ textarea:focus-visible {
   z-index: 20;
 }
 
-.dropdown-content a {
+.dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 12px;
+}
+
+.dropdown-menu a {
   padding: 6px 8px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -227,21 +240,33 @@ textarea:focus-visible {
   color: var(--text);
 }
 
-.dropdown-content a:hover,
-.dropdown-content a:focus-visible {
+.dropdown-menu a:hover,
+.dropdown-menu a:focus-visible {
   color: var(--accent);
 }
 
-.dropdown:hover .dropdown-content,
-.dropdown:focus-within .dropdown-content,
-.dropdown.is-open .dropdown-content {
+.nav-item.has-dropdown:hover .dropdown-menu,
+.nav-item.has-dropdown:focus-within .dropdown-menu,
+.nav-item.has-dropdown [aria-expanded="true"] + .dropdown-menu,
+.nav-item.has-dropdown.is-open .dropdown-menu {
   display: flex;
 }
 
 .nav-book {
-  padding: 10px 20px;
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 4px;
+  display: inline-flex;
+}
+
+.nav-book::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
 }
 
 .nav a {
@@ -271,6 +296,10 @@ textarea:focus-visible {
 
 .nav a.is-active {
   color: #fff;
+}
+
+.nav .nav-book::after {
+  width: 100%;
 }
 
 .menu-toggle {
@@ -1302,7 +1331,7 @@ input::file-selector-button {
     transition: opacity 0.2s ease, transform 0.2s ease;
   }
 
-  .dropdown-content {
+  .dropdown-menu {
     position: static;
     padding: 8px 0 0 12px;
     border: none;
@@ -1311,15 +1340,16 @@ input::file-selector-button {
     display: none;
   }
 
-  .dropdown.is-open .dropdown-content {
+  .nav-item.has-dropdown [aria-expanded="true"] + .dropdown-menu,
+  .nav-item.has-dropdown.is-open .dropdown-menu {
     display: flex;
   }
 
-  .dropdown-content a {
+  .dropdown-menu a {
     padding: 6px 0;
   }
 
-  .dropbtn {
+  .dropdown-toggle {
     width: 100%;
     justify-content: space-between;
   }
