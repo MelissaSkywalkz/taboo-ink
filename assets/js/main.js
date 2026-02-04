@@ -1,8 +1,8 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
 const navLinks = nav ? nav.querySelectorAll('a') : [];
-const dropdownToggles = nav ? nav.querySelectorAll('.nav-dropdown-toggle') : [];
-const dropdownItems = nav ? nav.querySelectorAll('.nav-item.has-dropdown') : [];
+const dropdownToggles = nav ? nav.querySelectorAll('.dropdown-toggle') : [];
+const dropdownItems = nav ? nav.querySelectorAll('[data-dropdown]') : [];
 const body = document.body;
 
 const currentPath = window.location.pathname.split('/').pop() || 'index.html';
@@ -26,7 +26,7 @@ const closeMenu = () => {
 const closeDropdowns = () => {
   dropdownItems.forEach((item) => {
     item.classList.remove('is-open');
-    const toggle = item.querySelector('.nav-dropdown-toggle');
+    const toggle = item.querySelector('.dropdown-toggle');
     if (toggle) {
       toggle.setAttribute('aria-expanded', 'false');
     }
@@ -55,7 +55,7 @@ if (menuToggle && nav) {
   dropdownToggles.forEach((toggle) => {
     toggle.addEventListener('click', (event) => {
       event.stopPropagation();
-      const item = toggle.closest('.nav-item');
+      const item = toggle.closest('[data-dropdown]');
       if (!item) {
         return;
       }

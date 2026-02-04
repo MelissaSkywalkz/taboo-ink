@@ -123,34 +123,28 @@
           class="logo-img"
         >
       </a>
-      <nav class="nav" id="primary-nav" aria-label="Huvudmeny">
+                  <nav class="nav" id="primary-nav" aria-label="Huvudmeny">
         <a href="index.html">Hem</a>
         <a href="portfolio.html">Portfolio</a>
-        <div class="nav-item has-dropdown">
-          <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="nav-dropdown-styles" aria-haspopup="true">
-            Stilar
-            <span class="dropdown-icon" aria-hidden="true">▾</span>
-          </button>
-          <div class="nav-dropdown" role="menu" id="nav-dropdown-styles">
-            <a href="realism.html" role="menuitem">Realism</a>
-            <a href="black-grey.html" role="menuitem">Black &amp; Grey</a>
-            <a href="cover-up.html" role="menuitem">Cover-up</a>
-            <a href="portratt.html" role="menuitem">Porträtt</a>
+        <div class="nav-item has-dropdown" data-dropdown>
+          <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="dropdown-styles">Stilar</button>
+          <div class="dropdown-menu" id="dropdown-styles">
+            <a href="realism.html">Realism</a>
+            <a href="black-grey.html">Black &amp; Grey</a>
+            <a href="cover-up.html">Cover-up</a>
+            <a href="portratt.html">Porträtt</a>
           </div>
         </div>
-        <div class="nav-item has-dropdown">
-          <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="nav-dropdown-info" aria-haspopup="true">
-            Info
-            <span class="dropdown-icon" aria-hidden="true">▾</span>
-          </button>
-          <div class="nav-dropdown" role="menu" id="nav-dropdown-info">
-            <a href="aftercare.html" role="menuitem">Eftervård</a>
-            <a href="pris.html" role="menuitem">Pris &amp; konsultation</a>
-            <a href="faq.html" role="menuitem">FAQ</a>
-            <a href="kungsholmen.html" role="menuitem">Hitta hit</a>
+        <div class="nav-item has-dropdown" data-dropdown>
+          <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="dropdown-info">Info</button>
+          <div class="dropdown-menu" id="dropdown-info">
+            <a href="aftercare.html">Eftervård</a>
+            <a href="pris.html">Pris &amp; konsultation</a>
+            <a href="faq.html">FAQ</a>
+            <a href="kungsholmen.html">Hitta hit</a>
           </div>
         </div>
-        <a class="nav-book btn btn-primary" href="https://www.tabooinkstockholm.com/book-online" target="_blank" rel="noopener">Boka</a>
+        <a class="nav-link nav-book" href="https://www.tabooinkstockholm.com/book-online" target="_blank" rel="noopener">Boka</a>
       </nav>
       <button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
         <span class="sr-only">Öppna meny</span>
@@ -163,12 +157,10 @@
 
   <main>
     <div class="container">
-      <nav class="breadcrumbs" aria-label="Brödsmulor">
-        <a href="index.html">Hem</a>
-        <span class="separator">/</span>
-        <a href="index.html#styles">Stilar</a>
-        <span class="separator">/</span>
-        <span aria-current="page">Black &amp; Grey</span>
+      <nav class="breadcrumbs">
+        <a href="index.html">Hem</a> / 
+        <a href="#">Stilar</a> / 
+        Black &amp; Grey
       </nav>
     </div>
     <section class="page-hero" aria-labelledby="page-title">
@@ -313,25 +305,12 @@
     </section>
   </main>
 
-  <footer class="site-footer">
+    <footer class="site-footer">
     <div class="container footer-grid">
       <div>
         <h3>Taboo Ink Stockholm</h3>
         <p>Studio för realism och Black &amp; Grey i Stockholm.</p>
-      </div>
-      <div>
-        <h4>Kontakt</h4>
-        <p>Telefon: <a href="tel:+46704455619">+46 70 445 56 19</a><br>Mail: <a href="mailto:info@tabooinkstockholm.com">info@tabooinkstockholm.com</a><br>Adress: <a href="kungsholmen.html">Hantverkargatan 83, 112 38 Stockholm</a><br>Eftervård: <a href="aftercare.html">Eftervård</a><br>Pris: <a href="pris.html">Pris</a><br>FAQ: <a href="faq.html">FAQ</a></p>
-      </div>
-      <div>
-        <h4>Snabblänkar</h4>
-        <ul class="footer-links">
-          <li><a href="aftercare.html">Eftervård</a></li>
-          <li><a href="pris.html">Pris</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="kungsholmen.html">Hitta hit</a></li>
-          <li><a href="https://www.tabooinkstockholm.com/book-online" target="_blank" rel="noopener">Boka</a></li>
-        </ul>
+        <a class="nav-link nav-book" href="https://www.tabooinkstockholm.com/book-online" target="_blank" rel="noopener">Boka</a>
       </div>
       <div>
         <h4>Stilar</h4>
@@ -341,11 +320,19 @@
           <li><a href="cover-up.html">Cover-up</a></li>
           <li><a href="portratt.html">Porträtt</a></li>
         </ul>
-        <a class="footer-portfolio" href="portfolio.html">Portfolio</a>
       </div>
       <div>
-        <h4>Öppettider</h4>
-        <p>Mån–Fre 11:00–17:00<br>Helg enligt överenskommelse</p>
+        <h4>Info</h4>
+        <ul class="footer-links">
+          <li><a href="aftercare.html">Eftervård</a></li>
+          <li><a href="pris.html">Pris &amp; konsultation</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="kungsholmen.html">Hitta hit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <p>Telefon: <a href="tel:+46704455619">+46 70 445 56 19</a><br>Mail: <a href="mailto:info@tabooinkstockholm.com">info@tabooinkstockholm.com</a><br>Adress: <a href="kungsholmen.html">Hantverkargatan 83, 112 38 Stockholm</a><br>Öppettider: Mån–Fre 11:00–17:00</p>
       </div>
     </div>
     <p class="footer-note">© Taboo Ink Stockholm</p>
