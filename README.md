@@ -32,3 +32,11 @@ Statisk hemsida för Taboo Ink Stockholm byggd i HTML/CSS/JS utan build-step. An
 
 - Lägg till riktiga bilder och faviconer.
 - Uppdatera canonical/og:url till korrekt domän.
+
+## SEO-checklista (on-page)
+
+- Kontrollera att varje sida har unik `<title>` och `meta name="description"`.
+- Säkerställ H1 samt logisk H2/H3-struktur per sida.
+- Lägg in interna länkar i brödtext (inte bara i navigation).
+- Verifiera Open Graph/Twitter-meta och canonical.
+- Om relevant, lägg till JSON-LD för Organization + WebSite (undvik Product om priser/lager saknas).
