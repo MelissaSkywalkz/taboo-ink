@@ -146,21 +146,41 @@ if (sortSelect) {
 
 applyFilterAndSort();
 
-if (modal) {
-  modal.addEventListener('click', (event) => {
-    if (event.target.matches('[data-modal-close]')) {
-      closeModal();
-    }
+let modalListenersInitialized = false;
+
+const initModalListeners = () => {
+  if (!modal || modalListenersInitialized) {
+    return;
+  }
+  modalListenersInitialized = true;
+  const overlay = modal.querySelector('.mr-modal__overlay');
+  const closeButtons = modal.querySelectorAll('[data-modal-close]');
+  const content = modal.querySelector('.mr-modal__content');
+
+  if (overlay) {
+    overlay.addEventListener('click', () => closeModal());
+  }
+
+  closeButtons.forEach((button) => {
+    button.addEventListener('click', () => closeModal());
   });
 
+  if (content) {
+    content.addEventListener('click', (event) => {
+      event.stopPropagation();
+    });
+  }
+
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && !modal.hidden) {
+    if (event.key === 'Escape' && modal && !modal.hidden) {
       closeModal();
     }
   });
 
   modal.addEventListener('keydown', trapFocus);
-}
+};
+
+initModalListeners();
 
 if (modalCta) {
   modalCta.addEventListener('click', () => {
