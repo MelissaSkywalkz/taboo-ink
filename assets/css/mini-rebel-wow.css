@@ -206,6 +206,57 @@ body.mini-rebel .mr-club__form {
   gap: 18px;
 }
 
+body.mini-rebel .mr-ugc-cta {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+body.mini-rebel .mr-ugc-text {
+  margin: 0;
+  color: #3f3f46;
+}
+
+body.mini-rebel .mr-ugc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+body.mini-rebel .mr-hashtag-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(14, 14, 16, 0.08);
+  color: var(--mr-black);
+  font-weight: 700;
+}
+
+body.mini-rebel .mr-ugc-contest {
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px dashed rgba(14, 14, 16, 0.2);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+body.mini-rebel .mr-ugc-contest h3 {
+  margin: 0 0 8px;
+}
+
+body.mini-rebel .mr-ugc-contest ul {
+  margin: 8px 0 12px 18px;
+  padding: 0;
+}
+
+body.mini-rebel .mr-ugc-terms {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #5b4b3d;
+}
+
 body.mini-rebel a:focus-visible,
 body.mini-rebel button:focus-visible,
 body.mini-rebel select:focus-visible,
@@ -237,6 +288,11 @@ body.mini-rebel input:focus-visible {
 
   body.mini-rebel .mr-club__form {
     grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  body.mini-rebel .mr-ugc-cta {
+    grid-template-columns: 1fr auto;
     align-items: center;
   }
 }
