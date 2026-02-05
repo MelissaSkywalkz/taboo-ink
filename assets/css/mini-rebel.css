@@ -31,14 +31,17 @@ body.mini-rebel .site-header {
 }
 
 body.mini-rebel .nav a,
-body.mini-rebel .nav .dropdown-toggle {
+body.mini-rebel .nav .dropdown-toggle,
+body.mini-rebel .nav .nav__toggle {
   color: #fff;
 }
 
 body.mini-rebel .nav a:hover,
 body.mini-rebel .nav a:focus-visible,
 body.mini-rebel .nav .dropdown-toggle:hover,
-body.mini-rebel .nav .dropdown-toggle:focus-visible {
+body.mini-rebel .nav .dropdown-toggle:focus-visible,
+body.mini-rebel .nav .nav__toggle:hover,
+body.mini-rebel .nav .nav__toggle:focus-visible {
   color: #f3ede4;
   text-decoration: underline;
   text-underline-offset: 6px;
