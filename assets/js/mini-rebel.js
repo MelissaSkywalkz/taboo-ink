@@ -26,6 +26,19 @@ const initMiniRebel = () => {
   let highlightTimeout = null;
 
   const mailtoAddress = 'info@tabooinkstockholm.com';
+  const fallbackImage = 'assets/img/mini-rebel/products/5.png';
+
+  const applyImageFallback = (img) => {
+    if (!img) {
+      return;
+    }
+    img.addEventListener('error', () => {
+      if (img.getAttribute('src') === fallbackImage) {
+        return;
+      }
+      img.setAttribute('src', fallbackImage);
+    });
+  };
 
   if (formSuccess) {
     formSuccess.hidden = true;
@@ -44,7 +57,7 @@ const initMiniRebel = () => {
 
   const productDetails = {
     'Mini Rebel Tee – Barn (Cream)': {
-      image: 'assets/img/mini-rebel/product-1.svg',
+      image: 'assets/img/mini-rebel/products/5.png',
       fit: 'Barn, normal passform',
       material: '100% bomull',
       story: 'En liten rebell med stort hjärta i varm cream.',
@@ -53,7 +66,7 @@ const initMiniRebel = () => {
       related: ['Matchande set', 'Vuxen', 'Cream'],
     },
     'Mini Rebel Tee – Barn (Black)': {
-      image: 'assets/img/mini-rebel/product-2.svg',
+      image: 'assets/img/mini-rebel/products/4.png',
       fit: 'Barn, normal passform',
       material: '100% bomull',
       story: 'Rebel black med klassisk tattoo-känsla.',
@@ -62,7 +75,7 @@ const initMiniRebel = () => {
       related: ['Matchande set', 'Vuxen', 'Black'],
     },
     'Mini Rebel Tee – Vuxen (Cream)': {
-      image: 'assets/img/mini-rebel/product-3.svg',
+      image: 'assets/img/mini-rebel/products/5.png',
       fit: 'Unisex, normal passform',
       material: '100% bomull',
       story: 'Cream med mjuk finish för stora berättelser.',
@@ -71,7 +84,7 @@ const initMiniRebel = () => {
       related: ['Matchande set', 'Barn', 'Cream'],
     },
     'Mini Rebel Tee – Vuxen (Black)': {
-      image: 'assets/img/mini-rebel/product-4.svg',
+      image: 'assets/img/mini-rebel/products/4.png',
       fit: 'Unisex, normal passform',
       material: '100% bomull',
       story: 'Rebel black för en tydlig, trygg statement.',
@@ -80,7 +93,7 @@ const initMiniRebel = () => {
       related: ['Matchande set', 'Barn', 'Black'],
     },
     'Matchande set – Barn + Vuxen (Cream)': {
-      image: 'assets/img/mini-rebel/product-1.svg',
+      image: 'assets/img/mini-rebel/products/5.png',
       fit: 'Barn + Vuxen, normal passform',
       material: '100% bomull',
       story: 'Ett matchande set för stora & små rebels.',
@@ -89,7 +102,7 @@ const initMiniRebel = () => {
       related: ['Barn', 'Vuxen', 'Cream'],
     },
     'Matchande set – Barn + Vuxen (Black)': {
-      image: 'assets/img/mini-rebel/product-2.svg',
+      image: 'assets/img/mini-rebel/products/4.png',
       fit: 'Barn + Vuxen, normal passform',
       material: '100% bomull',
       story: 'Rebel black set för matchning direkt.',
@@ -113,8 +126,9 @@ const initMiniRebel = () => {
     modalPrice.textContent = price;
     modalColor.value = color;
     if (modalImage) {
-      modalImage.src = details.image || card.querySelector('img')?.getAttribute('src') || 'assets/img/mini-rebel/product-1.svg';
+      modalImage.src = details.image || card.querySelector('img')?.getAttribute('src') || fallbackImage;
       modalImage.alt = `Produktbild för ${name}`;
+      applyImageFallback(modalImage);
     }
     if (modalDescription) {
       modalDescription.textContent = details.story || 'Mjuk t-shirt i varm cream eller rebel black. En liten berättelse att bära tillsammans.';
@@ -241,6 +255,10 @@ const initMiniRebel = () => {
         parts.push(categoryLabel);
       }
       meta.textContent = parts.join(' • ');
+    }
+    const cardImage = card.querySelector('img');
+    if (cardImage) {
+      applyImageFallback(cardImage);
     }
     if (openBtn) {
       openBtn.addEventListener('click', () => openModal(card));
