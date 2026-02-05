@@ -34,6 +34,7 @@ const initMiniRebel = () => {
     if ('inert' in el) {
       el.inert = true;
     }
+    el.classList.remove('is-open');
     el.setAttribute('aria-hidden', 'true');
     el.hidden = true;
   };
@@ -46,6 +47,7 @@ const initMiniRebel = () => {
       el.inert = false;
     }
     el.hidden = false;
+    el.classList.add('is-open');
     el.setAttribute('aria-hidden', 'false');
   };
 

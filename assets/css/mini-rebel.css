@@ -426,6 +426,10 @@ body.mini-rebel .site-header {
   z-index: 9999;
 }
 
+.mr-modal[hidden] {
+  display: none !important;
+}
+
 .mr-modal__overlay {
   position: absolute;
   inset: 0;
@@ -443,6 +447,7 @@ body.mini-rebel .site-header {
   display: grid;
   gap: 14px;
   z-index: 1;
+  pointer-events: auto;
 }
 
 .mr-modal__close {
