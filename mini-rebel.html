@@ -23,6 +23,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Chewy&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/mini-rebel.css">
+  <link rel="stylesheet" href="assets/css/mini-rebel-wow.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -95,8 +96,9 @@
 
   <main>
     <!-- Mini Rebel wow-skeleton: paneler/ramar, scen-kort och microinteractions (scopas i mini-rebel.css). -->
-    <section class="mr-hero" aria-labelledby="mr-hero-title">
+    <section class="mr-hero mr-wow-grain" aria-labelledby="mr-hero-title">
       <div class="mr-hero__overlay"></div>
+      <div class="mr-wow-rope" aria-hidden="true"></div>
       <div class="mr-container mr-hero__content">
         <object class="mr-logo" data="assets/img/mini-rebel/logo.svg" type="image/svg+xml" aria-label="Mini Rebel logotyp">
           <span class="mr-logo__fallback">Mini Rebel</span>
@@ -114,12 +116,17 @@
           <a class="mr-btn mr-btn--ghost" href="#intresse">Intresseanmälan</a>
         </div>
         <div class="mr-hero__badges">Tryckt i EU • On-demand • Matcha med mini</div>
+        <div class="mr-stamps" aria-label="Mini Rebel kvalitetsstämplar">
+          <span class="mr-stamp">Tryckt i EU</span>
+          <span class="mr-stamp">On-demand</span>
+          <span class="mr-stamp">Mjuk kvalitet</span>
+        </div>
         <div class="mr-hero__note">Tryckt för handkänsla. Skapad för små rebeller &amp; stora hjärtan.</div>
       </div>
     </section>
 
     <section class="mr-section" id="kollektion">
-      <div class="mr-container">
+      <div class="mr-container mr-wow-panel">
         <header class="mr-section__header">
           <p class="mr-section__kicker">Kollektion 1</p>
           <h2>
@@ -151,6 +158,7 @@
             <div class="mr-card__body">
               <h3>Mini Rebel Tee – Barn (Cream)</h3>
               <p class="mr-card__price">299 kr</p>
+              <span class="mr-card__status">Kommer snart</span>
               <p class="mr-card__meta" data-card-meta></p>
               <p class="mr-card__text">Mjuk t-shirt i varm cream eller rebel black. En liten berättelse att bära tillsammans.</p>
               <div class="mr-card__actions">
@@ -164,6 +172,7 @@
             <div class="mr-card__body">
               <h3>Mini Rebel Tee – Barn (Black)</h3>
               <p class="mr-card__price">299 kr</p>
+              <span class="mr-card__status">Kommer snart</span>
               <p class="mr-card__meta" data-card-meta></p>
               <p class="mr-card__text">Mjuk t-shirt i varm cream eller rebel black. En liten berättelse att bära tillsammans.</p>
               <div class="mr-card__actions">
@@ -177,6 +186,7 @@
             <div class="mr-card__body">
               <h3>Mini Rebel Tee – Vuxen (Cream)</h3>
               <p class="mr-card__price">349 kr</p>
+              <span class="mr-card__status">Kommer snart</span>
               <p class="mr-card__meta" data-card-meta></p>
               <p class="mr-card__text">Mjuk t-shirt i varm cream eller rebel black. En liten berättelse att bära tillsammans.</p>
               <div class="mr-card__actions">
@@ -190,6 +200,7 @@
             <div class="mr-card__body">
               <h3>Mini Rebel Tee – Vuxen (Black)</h3>
               <p class="mr-card__price">349 kr</p>
+              <span class="mr-card__status">Kommer snart</span>
               <p class="mr-card__meta" data-card-meta></p>
               <p class="mr-card__text">Mjuk t-shirt i varm cream eller rebel black. En liten berättelse att bära tillsammans.</p>
               <div class="mr-card__actions">
@@ -203,6 +214,7 @@
             <div class="mr-card__body">
               <h3>Matchande set – Barn + Vuxen (Cream)</h3>
               <p class="mr-card__price">599 kr</p>
+              <span class="mr-card__status">Kommer snart</span>
               <p class="mr-card__meta" data-card-meta></p>
               <p class="mr-card__text">Mjuk t-shirt i varm cream eller rebel black. En liten berättelse att bära tillsammans.</p>
               <div class="mr-card__actions">
@@ -216,6 +228,7 @@
             <div class="mr-card__body">
               <h3>Matchande set – Barn + Vuxen (Black)</h3>
               <p class="mr-card__price">599 kr</p>
+              <span class="mr-card__status">Kommer snart</span>
               <p class="mr-card__meta" data-card-meta></p>
               <p class="mr-card__text">Mjuk t-shirt i varm cream eller rebel black. En liten berättelse att bära tillsammans.</p>
               <div class="mr-card__actions">
@@ -229,7 +242,7 @@
     </section>
 
     <section class="mr-section mr-section--tight">
-      <div class="mr-container mr-benefits">
+      <div class="mr-container mr-benefits mr-wow-panel">
         <div class="mr-benefit">
           <span class="mr-benefit__icon" aria-hidden="true">🪡</span>
           <p>Tryckt i EU</p>
@@ -246,7 +259,7 @@
     </section>
 
     <section class="mr-section mr-section--muted" id="family">
-      <div class="mr-container">
+      <div class="mr-container mr-wow-panel">
         <header class="mr-section__header">
           <p class="mr-section__kicker">MiniRebelFamily</p>
           <h2>
@@ -268,7 +281,7 @@
     </section>
 
     <section class="mr-section" id="intresse">
-      <div class="mr-container mr-form-wrap">
+      <div class="mr-container mr-form-wrap mr-wow-panel">
         <div>
           <p class="mr-section__kicker">Intresseanmälan</p>
           <h2>
