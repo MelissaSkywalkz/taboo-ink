@@ -101,6 +101,52 @@ body.mini-rebel .mr-card {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+body.mini-rebel .mr-card--shop {
+  border-radius: 28px;
+}
+
+body.mini-rebel .mr-card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+body.mini-rebel .mr-card__badge {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px dashed rgba(161, 18, 18, 0.45);
+  color: var(--mr-brown);
+  background: rgba(243, 237, 228, 0.7);
+  font-weight: 700;
+}
+
+body.mini-rebel .mr-card__quick {
+  font-size: 0.82rem;
+  color: #5b4b3d;
+  background: rgba(14, 14, 16, 0.04);
+  padding: 8px 10px;
+  border-radius: 12px;
+}
+
+body.mini-rebel .mr-card--shop .mr-card__quick {
+  margin-top: 6px;
+}
+
+body.mini-rebel .mr-card--shop .mr-card__status {
+  margin-top: 4px;
+}
+
+body.mini-rebel .mr-card__body {
+  gap: 12px;
+}
+
+body.mini-rebel .mr-card--shop .mr-card__actions {
+  margin-top: 4px;
+}
+
 body.mini-rebel .mr-card:hover,
 body.mini-rebel .mr-card:focus-within {
   transform: translateY(-4px) rotate(-0.3deg);
