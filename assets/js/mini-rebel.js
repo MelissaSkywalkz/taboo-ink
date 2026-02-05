@@ -4,6 +4,14 @@ const initMiniRebel = () => {
   const modalPrice = document.getElementById('mr-modal-price');
   const modalColor = document.getElementById('mr-modal-color');
   const modalCta = document.getElementById('mr-modal-cta');
+  const modalImage = document.getElementById('mr-modal-image');
+  const modalDescription = document.getElementById('mr-modal-description');
+  const modalFit = document.getElementById('mr-modal-fit');
+  const modalMaterial = document.getElementById('mr-modal-material');
+  const modalStory = document.getElementById('mr-modal-story');
+  const modalCare = document.getElementById('mr-modal-care');
+  const modalShipping = document.getElementById('mr-modal-shipping');
+  const modalRelated = document.getElementById('mr-modal-related');
   const productField = document.getElementById('mr-product-field');
   const selectedProduct = document.getElementById('mr-selected-product');
   const interestForm = document.getElementById('mr-interest-form');
@@ -23,6 +31,63 @@ const initMiniRebel = () => {
     }
   };
 
+  const productDetails = {
+    'Mini Rebel Tee – Barn (Cream)': {
+      image: 'assets/img/mini-rebel/product-1.svg',
+      fit: 'Barn, normal passform',
+      material: '100% bomull',
+      story: 'En liten rebell med stort hjärta i varm cream.',
+      care: 'Tvätta ut och in på 30°, låg värme.',
+      shipping: 'Trycks on-demand i EU. Leverans 5–8 arbetsdagar.',
+      related: ['Matchande set', 'Vuxen', 'Cream'],
+    },
+    'Mini Rebel Tee – Barn (Black)': {
+      image: 'assets/img/mini-rebel/product-2.svg',
+      fit: 'Barn, normal passform',
+      material: '100% bomull',
+      story: 'Rebel black med klassisk tattoo-känsla.',
+      care: 'Tvätta ut och in på 30°, låg värme.',
+      shipping: 'Trycks on-demand i EU. Leverans 5–8 arbetsdagar.',
+      related: ['Matchande set', 'Vuxen', 'Black'],
+    },
+    'Mini Rebel Tee – Vuxen (Cream)': {
+      image: 'assets/img/mini-rebel/product-3.svg',
+      fit: 'Unisex, normal passform',
+      material: '100% bomull',
+      story: 'Cream med mjuk finish för stora berättelser.',
+      care: 'Tvätta ut och in på 30°, låg värme.',
+      shipping: 'Trycks on-demand i EU. Leverans 5–8 arbetsdagar.',
+      related: ['Matchande set', 'Barn', 'Cream'],
+    },
+    'Mini Rebel Tee – Vuxen (Black)': {
+      image: 'assets/img/mini-rebel/product-4.svg',
+      fit: 'Unisex, normal passform',
+      material: '100% bomull',
+      story: 'Rebel black för en tydlig, trygg statement.',
+      care: 'Tvätta ut och in på 30°, låg värme.',
+      shipping: 'Trycks on-demand i EU. Leverans 5–8 arbetsdagar.',
+      related: ['Matchande set', 'Barn', 'Black'],
+    },
+    'Matchande set – Barn + Vuxen (Cream)': {
+      image: 'assets/img/mini-rebel/product-1.svg',
+      fit: 'Barn + Vuxen, normal passform',
+      material: '100% bomull',
+      story: 'Ett matchande set för stora & små rebels.',
+      care: 'Tvätta ut och in på 30°, låg värme.',
+      shipping: 'Trycks on-demand i EU. Leverans 5–8 arbetsdagar.',
+      related: ['Barn', 'Vuxen', 'Cream'],
+    },
+    'Matchande set – Barn + Vuxen (Black)': {
+      image: 'assets/img/mini-rebel/product-2.svg',
+      fit: 'Barn + Vuxen, normal passform',
+      material: '100% bomull',
+      story: 'Rebel black set för matchning direkt.',
+      care: 'Tvätta ut och in på 30°, låg värme.',
+      shipping: 'Trycks on-demand i EU. Leverans 5–8 arbetsdagar.',
+      related: ['Barn', 'Vuxen', 'Black'],
+    },
+  };
+
   const openModal = (card) => {
     if (!modal || !card) {
       return;
@@ -31,10 +96,37 @@ const initMiniRebel = () => {
     const name = card.dataset.product || 'Mini Rebel Tee';
     const price = card.dataset.price || '299 kr';
     const color = card.dataset.color || 'Cream';
+    const details = productDetails[name] || {};
 
     modalTitle.textContent = name;
     modalPrice.textContent = price;
     modalColor.value = color;
+    if (modalImage) {
+      modalImage.src = details.image || card.querySelector('img')?.getAttribute('src') || 'assets/img/mini-rebel/product-1.svg';
+      modalImage.alt = `Produktbild för ${name}`;
+    }
+    if (modalDescription) {
+      modalDescription.textContent = details.story || 'Mjuk t-shirt i varm cream eller rebel black. En liten berättelse att bära tillsammans.';
+    }
+    if (modalFit) {
+      modalFit.textContent = details.fit || 'Normal passform';
+    }
+    if (modalMaterial) {
+      modalMaterial.textContent = details.material || '100% bomull';
+    }
+    if (modalStory) {
+      modalStory.textContent = details.story || 'En liten rebell med stort hjärta. Inspirerad av klassisk flash.';
+    }
+    if (modalCare) {
+      modalCare.textContent = details.care || 'Tvätta ut och in på 30°, låg värme. Undvik torktumlare.';
+    }
+    if (modalShipping) {
+      modalShipping.textContent = details.shipping || 'Trycks on-demand i EU. Leverans 5–8 arbetsdagar.';
+    }
+    if (modalRelated) {
+      const related = details.related || ['Matcha set', 'Barn', 'Vuxen'];
+      modalRelated.innerHTML = related.map((item) => `<span class="mr-modal__related-card">${item}</span>`).join('');
+    }
     modal.hidden = false;
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
