@@ -17,6 +17,7 @@ const initMiniRebel = () => {
   const interestForm = document.getElementById('mr-interest-form');
   const formSuccess = document.getElementById('mr-form-success');
   const resetButton = document.getElementById('mr-reset');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   let lastFocusedElement = null;
   let modalListenersInitialized = false;
@@ -175,11 +176,15 @@ const initMiniRebel = () => {
     closeModal();
     const formSection = document.getElementById('intresse');
     if (formSection) {
-      formSection.scrollIntoView({ behavior: 'smooth' });
+      formSection.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
     }
     const formInput = interestForm ? interestForm.querySelector('input[name="name"]') : null;
     if (formInput) {
-      setTimeout(() => formInput.focus(), 400);
+      if (prefersReducedMotion) {
+        formInput.focus();
+      } else {
+        setTimeout(() => formInput.focus(), 400);
+      }
     }
   };
 
@@ -264,11 +269,15 @@ const initMiniRebel = () => {
   if (collectionCta && productGrid) {
     collectionCta.addEventListener('click', (event) => {
       event.preventDefault();
-      productGrid.scrollIntoView({ behavior: 'smooth' });
+      productGrid.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
       const firstCard = productGrid.querySelector('.mr-card');
       if (firstCard) {
         firstCard.setAttribute('tabindex', '-1');
-        setTimeout(() => firstCard.focus(), 300);
+        if (prefersReducedMotion) {
+          firstCard.focus();
+        } else {
+          setTimeout(() => firstCard.focus(), 300);
+        }
       }
     });
   }

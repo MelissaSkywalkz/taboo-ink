@@ -266,6 +266,14 @@ body.mini-rebel input:focus-visible {
   outline-offset: 3px;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  body.mini-rebel .mr-card,
+  body.mini-rebel .mr-ugc-card {
+    transition: none;
+    transform: none;
+  }
+}
+
 @media (max-width: 720px) {
   body.mini-rebel .mr-wow-panel {
     padding: 22px;

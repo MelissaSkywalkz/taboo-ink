@@ -611,3 +611,12 @@ body.mini-rebel .nav .dropdown-toggle:focus-visible {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  body.mini-rebel .nav a,
+  body.mini-rebel .nav .dropdown-toggle,
+  body.mini-rebel .mr-btn {
+    transition: none;
+    transform: none;
+  }
+}
