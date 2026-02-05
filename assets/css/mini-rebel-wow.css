@@ -32,6 +32,10 @@ body.mini-rebel .mr-wow-panel > * {
   z-index: 1;
 }
 
+body.mini-rebel .mr-grid--featured {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
 body.mini-rebel .mr-wow-grain {
   position: relative;
 }
@@ -97,6 +101,52 @@ body.mini-rebel .mr-card {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+body.mini-rebel .mr-card--shop {
+  border-radius: 28px;
+}
+
+body.mini-rebel .mr-card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+body.mini-rebel .mr-card__badge {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px dashed rgba(161, 18, 18, 0.45);
+  color: var(--mr-brown);
+  background: rgba(243, 237, 228, 0.7);
+  font-weight: 700;
+}
+
+body.mini-rebel .mr-card__quick {
+  font-size: 0.82rem;
+  color: #5b4b3d;
+  background: rgba(14, 14, 16, 0.04);
+  padding: 8px 10px;
+  border-radius: 12px;
+}
+
+body.mini-rebel .mr-card--shop .mr-card__quick {
+  margin-top: 6px;
+}
+
+body.mini-rebel .mr-card--shop .mr-card__status {
+  margin-top: 4px;
+}
+
+body.mini-rebel .mr-card__body {
+  gap: 12px;
+}
+
+body.mini-rebel .mr-card--shop .mr-card__actions {
+  margin-top: 4px;
+}
+
 body.mini-rebel .mr-card:hover,
 body.mini-rebel .mr-card:focus-within {
   transform: translateY(-4px) rotate(-0.3deg);
@@ -120,6 +170,93 @@ body.mini-rebel .mr-card__status::before {
   font-size: 0.8rem;
 }
 
+body.mini-rebel .mr-designer {
+  display: grid;
+  gap: 20px;
+}
+
+body.mini-rebel .mr-designer__text {
+  display: grid;
+  gap: 12px;
+}
+
+body.mini-rebel .mr-flash-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+body.mini-rebel .mr-flash-card {
+  padding: 18px 16px;
+  border-radius: 18px;
+  border: 1px dashed rgba(161, 18, 18, 0.35);
+  background: rgba(255, 255, 255, 0.65);
+  font-weight: 700;
+  text-align: center;
+  color: var(--mr-black);
+}
+
+body.mini-rebel .mr-club {
+  display: grid;
+  gap: 24px;
+}
+
+body.mini-rebel .mr-club__form {
+  display: grid;
+  gap: 18px;
+}
+
+body.mini-rebel .mr-ugc-cta {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+body.mini-rebel .mr-ugc-text {
+  margin: 0;
+  color: #3f3f46;
+}
+
+body.mini-rebel .mr-ugc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+body.mini-rebel .mr-hashtag-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(14, 14, 16, 0.08);
+  color: var(--mr-black);
+  font-weight: 700;
+}
+
+body.mini-rebel .mr-ugc-contest {
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px dashed rgba(14, 14, 16, 0.2);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+body.mini-rebel .mr-ugc-contest h3 {
+  margin: 0 0 8px;
+}
+
+body.mini-rebel .mr-ugc-contest ul {
+  margin: 8px 0 12px 18px;
+  padding: 0;
+}
+
+body.mini-rebel .mr-ugc-terms {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #5b4b3d;
+}
+
 body.mini-rebel a:focus-visible,
 body.mini-rebel button:focus-visible,
 body.mini-rebel select:focus-visible,
@@ -136,5 +273,26 @@ body.mini-rebel input:focus-visible {
   body.mini-rebel .mr-wow-rope {
     left: 6%;
     right: 6%;
+  }
+}
+
+@media (min-width: 720px) {
+  body.mini-rebel .mr-designer {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  body.mini-rebel .mr-flash-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  body.mini-rebel .mr-club__form {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  body.mini-rebel .mr-ugc-cta {
+    grid-template-columns: 1fr auto;
+    align-items: center;
   }
 }
