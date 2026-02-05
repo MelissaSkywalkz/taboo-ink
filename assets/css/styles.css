@@ -220,7 +220,8 @@ textarea:focus-visible {
   gap: 8px;
 }
 
-.dropdown-toggle {
+.dropdown-toggle,
+.nav__toggle {
   background: transparent;
   border: none;
   color: inherit;
@@ -233,14 +234,18 @@ textarea:focus-visible {
   padding-bottom: 4px;
 }
 
-.dropdown-toggle--icon {
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 999px;
-  padding: 2px 8px;
+.dropdown-toggle--icon,
+.nav__toggle--icon {
+  border: none;
+  background: transparent;
+  border-radius: 0;
+  padding: 0 4px;
   line-height: 1;
+  color: inherit;
 }
 
-.dropdown-menu {
+.dropdown-menu,
+.nav__dropdown {
   position: absolute;
   top: calc(100% + 10px);
   left: 0;
@@ -256,7 +261,8 @@ textarea:focus-visible {
   z-index: 20;
 }
 
-.dropdown-menu::before {
+.dropdown-menu::before,
+.nav__dropdown::before {
   content: "";
   position: absolute;
   top: -12px;
@@ -265,7 +271,8 @@ textarea:focus-visible {
   height: 12px;
 }
 
-.dropdown-menu a {
+.dropdown-menu a,
+.nav__dropdown a {
   padding: 6px 8px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -274,14 +281,20 @@ textarea:focus-visible {
 }
 
 .dropdown-menu a:hover,
-.dropdown-menu a:focus-visible {
+.dropdown-menu a:focus-visible,
+.nav__dropdown a:hover,
+.nav__dropdown a:focus-visible {
   color: var(--accent);
 }
 
 .nav-item.has-dropdown:hover .dropdown-menu,
+.nav-item.has-dropdown:hover .nav__dropdown,
 .nav-item.has-dropdown:focus-within .dropdown-menu,
+.nav-item.has-dropdown:focus-within .nav__dropdown,
 .nav-item.has-dropdown [aria-expanded="true"] + .dropdown-menu,
-.nav-item.has-dropdown.is-open .dropdown-menu {
+.nav-item.has-dropdown [aria-expanded="true"] + .nav__dropdown,
+.nav-item.has-dropdown.is-open .dropdown-menu,
+.nav-item.has-dropdown.is-open .nav__dropdown {
   display: flex;
 }
 
@@ -1367,7 +1380,8 @@ input::file-selector-button {
     -webkit-overflow-scrolling: touch;
   }
 
-  .dropdown-menu {
+  .dropdown-menu,
+  .nav__dropdown {
     position: static;
     padding: 8px 0 0 12px;
     border: none;
@@ -1377,15 +1391,19 @@ input::file-selector-button {
   }
 
   .nav-item.has-dropdown [aria-expanded="true"] + .dropdown-menu,
-  .nav-item.has-dropdown.is-open .dropdown-menu {
+  .nav-item.has-dropdown [aria-expanded="true"] + .nav__dropdown,
+  .nav-item.has-dropdown.is-open .dropdown-menu,
+  .nav-item.has-dropdown.is-open .nav__dropdown {
     display: flex;
   }
 
-  .dropdown-menu a {
+  .dropdown-menu a,
+  .nav__dropdown a {
     padding: 6px 0;
   }
 
-  .dropdown-toggle {
+  .dropdown-toggle,
+  .nav__toggle {
     width: 100%;
     justify-content: space-between;
   }

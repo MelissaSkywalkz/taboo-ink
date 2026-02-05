@@ -62,12 +62,12 @@
           class="logo-img"
         >
       </a>
-      <nav class="nav" id="primary-nav" aria-label="Huvudmeny">
-        <a href="index.html">Hem</a>
-        <a href="portfolio.html">Portfolio</a>
+            <nav class="nav" id="primary-nav" aria-label="Huvudmeny">
+        <a class="nav__link" href="index.html">Hem</a>
+        <a class="nav__link" href="portfolio.html">Portfolio</a>
         <div class="nav-item has-dropdown" data-dropdown>
-          <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="dropdown-styles">Stilar</button>
-          <div class="dropdown-menu" id="dropdown-styles">
+          <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="dropdown-styles">Stilar</button>
+          <div class="nav__dropdown dropdown-menu" id="dropdown-styles">
             <a href="realism.html">Realism</a>
             <a href="black-grey.html">Black &amp; Grey</a>
             <a href="cover-up.html">Cover-up</a>
@@ -75,8 +75,8 @@
           </div>
         </div>
         <div class="nav-item has-dropdown" data-dropdown>
-          <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="dropdown-info">Info</button>
-          <div class="dropdown-menu" id="dropdown-info">
+          <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="dropdown-info">Info</button>
+          <div class="nav__dropdown dropdown-menu" id="dropdown-info">
             <a href="aftercare.html">Eftervård</a>
             <a href="pris.html">Pris &amp; konsultation</a>
             <a href="faq.html">FAQ</a>
@@ -85,13 +85,14 @@
         </div>
         <div class="nav-item has-dropdown" data-dropdown>
           <div class="dropdown-trigger">
-            <a class="dropdown-link" href="mini-rebel.html">Mini Rebel</a>
-            <button class="dropdown-toggle dropdown-toggle--icon" type="button" aria-expanded="false" aria-controls="dropdown-mini-rebel">
+            <a class="nav__link" href="mini-rebel.html">Mini Rebel</a>
+            <button class="nav__toggle nav__toggle--icon" type="button" aria-expanded="false" aria-controls="dropdown-mini-rebel">
               <span class="sr-only">Öppna Mini Rebel-menyn</span>
               <span aria-hidden="true">▾</span>
             </button>
           </div>
-          <div class="dropdown-menu" id="dropdown-mini-rebel">
+          <div class="nav__dropdown dropdown-menu" id="dropdown-mini-rebel">
+            <a href="mini-rebel.html">Översikt</a>
             <a href="mini-rebel.html#kollektion">Shop</a>
             <a href="flashbook.html">Motiv (Flashbook)</a>
             <a href="mini-rebel.html#popular">Plushies</a>
@@ -115,12 +116,8 @@
     <!-- Mini Rebel wow-skeleton: paneler/ramar, scen-kort och microinteractions (scopas i mini-rebel.css). -->
     <section class="mr-hero mr-wow-grain" aria-labelledby="mr-hero-title">
       <div class="mr-hero__overlay"></div>
-      <div class="mr-rope" aria-hidden="true"></div>
       <div class="mr-container">
-        <div class="mr-panel mr-hero__content">
-          <object class="mr-logo" data="assets/img/mini-rebel/logo.svg" type="image/svg+xml" aria-hidden="true">
-            <span class="mr-logo__fallback">Mini Rebel</span>
-          </object>
+        <div class="mr-panel mr-panel--hero mr-hero__content">
           <svg class="mr-sparkle mr-sparkle--hero" viewBox="0 0 120 120" aria-hidden="true">
             <path d="M60 10l8 26 26 8-26 8-8 26-8-26-26-8 26-8z" />
             <circle cx="96" cy="24" r="6" />
@@ -243,7 +240,6 @@
         <div class="mr-panel">
           <header class="mr-section__header">
             <p class="mr-section__kicker">Kollektion 1</p>
-            <p class="mr-section__note">Card-API: .mr-card--shop, .mr-card__badges, .mr-card__badge, .mr-card__quick, .mr-card__meta.</p>
             <h2>
               Mini Rebel Tee
               <svg class="mr-sparkle mr-sparkle--title" viewBox="0 0 120 120" aria-hidden="true">
@@ -537,7 +533,7 @@
             <p class="mr-ugc-text">En trygg plats för små rebeller. Dela er story när ni är redo.</p>
             <div class="mr-ugc-actions">
               <span class="mr-hashtag-badge">#minirebelfamily</span>
-              <a class="mr-btn mr-btn--ghost" href="mailto:info@tabooinkstockholm.com?subject=Mini%20Rebel%20-%20Skicka%20in%20bild">Skicka in bild</a>
+              <a class="mr-btn mr-btn--secondary" href="mailto:info@tabooinkstockholm.com?subject=Mini%20Rebel%20-%20Skicka%20in%20bild">Skicka in bild</a>
               <a class="mr-btn mr-btn--primary" href="https://instagram.com/tabooink" target="_blank" rel="noopener">Tagga oss</a>
             </div>
           </div>
@@ -588,7 +584,7 @@
             <p class="mr-form__error" id="mr-form-error" role="alert" hidden></p>
             <p class="mr-form__note">När du klickar öppnas ditt e-postprogram med ett färdigt meddelande.</p>
           </form>
-          <div class="mr-form-success" id="mr-form-success" hidden>
+          <div class="mr-form-success" id="mr-form-success" role="status" aria-live="polite" aria-hidden="true" hidden>
             <h3>Tack! 🖤</h3>
             <p>Ett mailutkast har öppnats. Skicka det så återkommer vi när Mini Rebel släpps.</p>
             <p>Om inget händer kan du maila oss direkt på <a href="mailto:info@tabooinkstockholm.com">info@tabooinkstockholm.com</a>.</p>

@@ -27,6 +27,11 @@ const initMiniRebel = () => {
 
   const mailtoAddress = 'info@tabooinkstockholm.com';
 
+  if (formSuccess) {
+    formSuccess.hidden = true;
+    formSuccess.setAttribute('aria-hidden', 'true');
+  }
+
   const updateSelectedProduct = (name) => {
     const label = selectedProduct ? selectedProduct.querySelector('span') : null;
     if (label) {
@@ -423,8 +428,10 @@ const initMiniRebel = () => {
       window.location.href = `mailto:${mailtoAddress}?subject=${subject}&body=${body}`;
 
       interestForm.hidden = true;
+      interestForm.setAttribute('aria-hidden', 'true');
       if (formSuccess) {
         formSuccess.hidden = false;
+        formSuccess.setAttribute('aria-hidden', 'false');
       }
     });
   }
@@ -432,9 +439,11 @@ const initMiniRebel = () => {
   if (resetButton && interestForm && formSuccess) {
     resetButton.addEventListener('click', () => {
       formSuccess.hidden = true;
+      formSuccess.setAttribute('aria-hidden', 'true');
       interestForm.reset();
       updateSelectedProduct('');
       interestForm.hidden = false;
+      interestForm.setAttribute('aria-hidden', 'false');
     });
   }
 };
