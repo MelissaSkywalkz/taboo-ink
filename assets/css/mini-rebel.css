@@ -26,6 +26,20 @@ body.mini-rebel .site-header {
   z-index: 10;
 }
 
+body.mini-rebel .nav a,
+body.mini-rebel .nav .dropdown-toggle {
+  color: #fff;
+}
+
+body.mini-rebel .nav a:hover,
+body.mini-rebel .nav a:focus-visible,
+body.mini-rebel .nav .dropdown-toggle:hover,
+body.mini-rebel .nav .dropdown-toggle:focus-visible {
+  color: #f3ede4;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
 .mr-container {
   width: min(1120px, 92%);
   margin: 0 auto;
@@ -39,7 +53,7 @@ body.mini-rebel .site-header {
   padding: 130px 0 100px;
   color: #fff;
   background: linear-gradient(130deg, rgba(14, 14, 16, 0.95), rgba(14, 14, 16, 0.6)),
-    url('../img/mini-rebel/hero.svg') center/cover no-repeat;
+    url('../img/hero.png') center/cover no-repeat;
   background-color: var(--mr-black);
 }
 
@@ -84,14 +98,6 @@ body.mini-rebel .site-header {
   display: inline-block;
 }
 
-.mr-hero__kicker {
-  font-size: 0.9rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
-  margin: 0;
-}
-
 .mr-hero__title {
   font-family: var(--mr-script);
   font-size: clamp(3rem, 6.4vw, 4.8rem);
@@ -115,6 +121,13 @@ body.mini-rebel .site-header {
   flex-wrap: wrap;
   gap: 14px;
   margin-top: 16px;
+}
+
+.mr-hero__badges {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .mr-hero__note {
@@ -284,6 +297,12 @@ body.mini-rebel .site-header {
 .mr-card__price {
   font-weight: 700;
   color: var(--mr-red);
+  margin: 0;
+}
+
+.mr-card__meta {
+  font-size: 0.85rem;
+  color: #6b5b4a;
   margin: 0;
 }
 

@@ -95,6 +95,7 @@ const initMiniRebel = () => {
   const filterButtons = document.querySelectorAll('.mr-chip');
   const sortSelect = document.getElementById('mr-sort-select');
   const productGrid = document.getElementById('mr-product-grid');
+  const collectionCta = document.querySelector('.mr-hero__actions a[href="#kollektion"]');
   const cardData = Array.from(cards).map((card, index) => ({
     card,
     index,
@@ -106,6 +107,24 @@ const initMiniRebel = () => {
   cards.forEach((card) => {
     const openBtn = card.querySelector('[data-modal-open]');
     const interestBtn = card.querySelector('[data-interest]');
+    const meta = card.querySelector('[data-card-meta]');
+    if (meta) {
+      const color = card.dataset.color || '';
+      const category = card.dataset.category || '';
+      const categoryLabel = {
+        barn: 'Barn',
+        vuxen: 'Vuxen',
+        set: 'Set',
+      }[category] || '';
+      const parts = [];
+      if (color) {
+        parts.push(`Färg: ${color}`);
+      }
+      if (categoryLabel) {
+        parts.push(categoryLabel);
+      }
+      meta.textContent = parts.join(' • ');
+    }
     if (openBtn) {
       openBtn.addEventListener('click', () => openModal(card));
     }
@@ -149,6 +168,18 @@ const initMiniRebel = () => {
   }
 
   applyFilterAndSort();
+
+  if (collectionCta && productGrid) {
+    collectionCta.addEventListener('click', (event) => {
+      event.preventDefault();
+      productGrid.scrollIntoView({ behavior: 'smooth' });
+      const firstCard = productGrid.querySelector('.mr-card');
+      if (firstCard) {
+        firstCard.setAttribute('tabindex', '-1');
+        setTimeout(() => firstCard.focus(), 300);
+      }
+    });
+  }
 
   const initModalListeners = () => {
     if (!modal || modalListenersInitialized) {
