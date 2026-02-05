@@ -193,7 +193,8 @@ const initMiniRebel = () => {
   const sortSelect = document.getElementById('mr-sort-select');
   const productGrid = document.getElementById('mr-product-grid');
   const collectionCta = document.querySelector('.mr-hero__actions a[href="#kollektion"]');
-  const cardData = Array.from(cards).map((card, index) => ({
+  const gridCards = productGrid ? productGrid.querySelectorAll('.mr-card') : [];
+  const cardData = Array.from(gridCards).map((card, index) => ({
     card,
     index,
     category: card.dataset.category || 'all',
