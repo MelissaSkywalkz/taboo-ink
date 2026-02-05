@@ -193,7 +193,8 @@ const initMiniRebel = () => {
   const sortSelect = document.getElementById('mr-sort-select');
   const productGrid = document.getElementById('mr-product-grid');
   const collectionCta = document.querySelector('.mr-hero__actions a[href="#kollektion"]');
-  const cardData = Array.from(cards).map((card, index) => ({
+  const gridCards = productGrid ? productGrid.querySelectorAll('.mr-card') : [];
+  const cardData = Array.from(gridCards).map((card, index) => ({
     card,
     index,
     category: card.dataset.category || 'all',
@@ -251,17 +252,57 @@ const initMiniRebel = () => {
     });
   };
 
+  const setFilterState = (activeButton) => {
+    filterButtons.forEach((chip) => {
+      chip.classList.toggle('is-active', chip === activeButton);
+      chip.setAttribute('aria-pressed', chip === activeButton ? 'true' : 'false');
+    });
+  };
+
   filterButtons.forEach((button) => {
     button.addEventListener('click', () => {
-      filterButtons.forEach((chip) => chip.classList.remove('is-active'));
-      button.classList.add('is-active');
+      setFilterState(button);
       activeFilter = button.dataset.filter || 'all';
       applyFilterAndSort();
+    });
+
+    button.addEventListener('keydown', (event) => {
+      const keys = ['ArrowLeft', 'ArrowRight', 'Home', 'End'];
+      if (!keys.includes(event.key)) {
+        return;
+      }
+      const group = button.closest('.mr-filter');
+      if (!group) {
+        return;
+      }
+      const groupButtons = Array.from(group.querySelectorAll('.mr-chip'));
+      const currentIndex = groupButtons.indexOf(button);
+      if (currentIndex === -1) {
+        return;
+      }
+      event.preventDefault();
+      let nextIndex = currentIndex;
+      if (event.key === 'ArrowRight') {
+        nextIndex = (currentIndex + 1) % groupButtons.length;
+      } else if (event.key === 'ArrowLeft') {
+        nextIndex = (currentIndex - 1 + groupButtons.length) % groupButtons.length;
+      } else if (event.key === 'Home') {
+        nextIndex = 0;
+      } else if (event.key === 'End') {
+        nextIndex = groupButtons.length - 1;
+      }
+      groupButtons[nextIndex].focus();
     });
   });
 
   if (sortSelect) {
     sortSelect.addEventListener('change', applyFilterAndSort);
+  }
+
+  const initialActive = Array.from(filterButtons).find((chip) => chip.classList.contains('is-active')) || filterButtons[0];
+  if (initialActive) {
+    setFilterState(initialActive);
+    activeFilter = initialActive.dataset.filter || 'all';
   }
 
   applyFilterAndSort();

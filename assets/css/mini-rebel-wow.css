@@ -5,6 +5,7 @@ body.mini-rebel {
 }
 
 /* Mini Rebel wow-skin utilities: panel + rope + badge/stamp */
+body.mini-rebel .mr-panel,
 body.mini-rebel .mr-wow-panel {
   position: relative;
   padding: 28px;
@@ -15,6 +16,7 @@ body.mini-rebel .mr-wow-panel {
   overflow: hidden;
 }
 
+body.mini-rebel .mr-panel::before,
 body.mini-rebel .mr-wow-panel::before {
   content: '';
   position: absolute;
@@ -27,6 +29,7 @@ body.mini-rebel .mr-wow-panel::before {
   pointer-events: none;
 }
 
+body.mini-rebel .mr-panel > *,
 body.mini-rebel .mr-wow-panel > * {
   position: relative;
   z-index: 1;
@@ -51,6 +54,7 @@ body.mini-rebel .mr-wow-grain::after {
   pointer-events: none;
 }
 
+body.mini-rebel .mr-rope,
 body.mini-rebel .mr-wow-rope {
   position: absolute;
   top: 18px;
@@ -72,6 +76,7 @@ body.mini-rebel .mr-stamps {
   gap: 10px;
 }
 
+body.mini-rebel .mr-badge,
 body.mini-rebel .mr-stamp {
   display: inline-flex;
   align-items: center;
@@ -88,6 +93,7 @@ body.mini-rebel .mr-stamp {
   position: relative;
 }
 
+body.mini-rebel .mr-badge::after,
 body.mini-rebel .mr-stamp::after {
   content: '';
   width: 6px;
@@ -275,9 +281,11 @@ body.mini-rebel input:focus-visible {
 }
 
 @media (max-width: 720px) {
+  body.mini-rebel .mr-panel,
   body.mini-rebel .mr-wow-panel {
     padding: 22px;
   }
+  body.mini-rebel .mr-rope,
   body.mini-rebel .mr-wow-rope {
     left: 6%;
     right: 6%;

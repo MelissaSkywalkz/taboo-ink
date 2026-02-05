@@ -223,11 +223,22 @@ body.mini-rebel .nav .dropdown-toggle:focus-visible {
 }
 
 .mr-sort select {
+  appearance: none;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(243, 237, 228, 0.9)),
+    linear-gradient(45deg, transparent 50%, rgba(14, 14, 16, 0.6) 50%),
+    linear-gradient(135deg, rgba(14, 14, 16, 0.6) 50%, transparent 50%);
+  background-position:
+    0 0,
+    calc(100% - 18px) 55%,
+    calc(100% - 12px) 55%;
+  background-size: auto, 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
   border-radius: 14px;
   border: 1px solid #d7c9b7;
-  padding: 10px 12px;
+  padding: 10px 36px 10px 12px;
   font-family: var(--mr-ui);
-  background: #fff;
+  box-shadow: 0 8px 16px rgba(14, 14, 16, 0.12);
 }
 
 .mr-section__kicker {
@@ -274,12 +285,44 @@ body.mini-rebel .nav .dropdown-toggle:focus-visible {
   gap: 24px;
 }
 
+.mr-scroll-row {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(220px, 1fr);
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mr-scroll-row .mr-card {
+  scroll-snap-align: start;
+}
+
 .mr-card {
   background: #fff;
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 14px 32px rgba(14, 14, 16, 0.08);
   display: grid;
+  position: relative;
+}
+
+.mr-card__label {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 2px dashed rgba(161, 18, 18, 0.6);
+  background: rgba(243, 237, 228, 0.9);
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mr-brown);
+  z-index: 1;
 }
 
 .mr-card img {
@@ -315,6 +358,10 @@ body.mini-rebel .nav .dropdown-toggle:focus-visible {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
+}
+
+.mr-panel + .mr-panel {
+  margin-top: 24px;
 }
 
 .mr-link {
@@ -573,6 +620,14 @@ body.mini-rebel .nav .dropdown-toggle:focus-visible {
     align-items: center;
   }
 
+  .mr-scroll-row {
+    grid-auto-flow: row;
+    grid-auto-columns: unset;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
   .mr-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -609,6 +664,10 @@ body.mini-rebel .nav .dropdown-toggle:focus-visible {
 
   .mr-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .mr-scroll-row {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
