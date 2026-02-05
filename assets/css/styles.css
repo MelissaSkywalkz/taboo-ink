@@ -61,6 +61,26 @@ textarea:focus-visible {
   outline-offset: 3px;
 }
 
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  background: #fff;
+  color: #0a0a0a;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transform: translateY(-200%);
+  transition: transform 0.2s ease;
+  z-index: 100;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
 .container {
   width: min(1200px, 100%);
   padding: 0 24px;
@@ -194,6 +214,12 @@ textarea:focus-visible {
   position: relative;
 }
 
+.dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .dropdown-toggle {
   background: transparent;
   border: none;
@@ -205,6 +231,15 @@ textarea:focus-visible {
   align-items: center;
   cursor: pointer;
   padding-bottom: 4px;
+}
+
+.dropdown-toggle--icon {
+  border: none;
+  background: transparent;
+  border-radius: 0;
+  padding: 0 4px;
+  line-height: 1;
+  color: inherit;
 }
 
 .dropdown-menu {
@@ -1329,6 +1364,9 @@ input::file-selector-button {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.2s ease, transform 0.2s ease;
+    max-height: 80vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .dropdown-menu {
@@ -1352,6 +1390,16 @@ input::file-selector-button {
   .dropdown-toggle {
     width: 100%;
     justify-content: space-between;
+  }
+
+  .dropdown-trigger {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .dropdown-toggle--icon {
+    width: auto;
+    flex: 0 0 auto;
   }
 
   .nav.is-open {

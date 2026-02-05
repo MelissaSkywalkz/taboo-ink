@@ -89,6 +89,13 @@ if (menuToggle && nav) {
       }
     }
   });
+
+  window.addEventListener('hashchange', () => {
+    closeDropdowns();
+    if (nav.classList.contains('is-open')) {
+      closeMenu();
+    }
+  });
 }
 
 const sections = document.querySelectorAll('main section[id]');
