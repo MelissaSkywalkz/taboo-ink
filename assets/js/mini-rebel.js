@@ -23,6 +23,32 @@ const initMiniRebel = () => {
     }
   };
 
+  const safelyHide = (el) => {
+    if (!el) {
+      return;
+    }
+    const focused = el.querySelector(':focus');
+    if (focused) {
+      focused.blur();
+    }
+    if ('inert' in el) {
+      el.inert = true;
+    }
+    el.setAttribute('aria-hidden', 'true');
+    el.hidden = true;
+  };
+
+  const safelyShow = (el) => {
+    if (!el) {
+      return;
+    }
+    if ('inert' in el) {
+      el.inert = false;
+    }
+    el.hidden = false;
+    el.setAttribute('aria-hidden', 'false');
+  };
+
   const openModal = (card) => {
     if (!modal || !card) {
       return;
@@ -35,8 +61,7 @@ const initMiniRebel = () => {
     modalTitle.textContent = name;
     modalPrice.textContent = price;
     modalColor.value = color;
-    modal.hidden = false;
-    modal.setAttribute('aria-hidden', 'false');
+    safelyShow(modal);
     document.body.classList.add('mr-modal-open');
 
     const focusTarget = modal.querySelector('button, select, input, [href]');
@@ -49,8 +74,7 @@ const initMiniRebel = () => {
     if (!modal) {
       return;
     }
-    modal.hidden = true;
-    modal.setAttribute('aria-hidden', 'true');
+    safelyHide(modal);
     document.body.classList.remove('mr-modal-open');
     if (lastFocusedElement) {
       lastFocusedElement.focus();
