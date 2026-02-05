@@ -155,13 +155,14 @@ const initMiniRebel = () => {
     modalListenersInitialized = true;
 
     modal.addEventListener('click', (event) => {
-      if (event.target.closest('.mr-modal__content')) {
-        return;
-      }
       const closeTrigger = event.target.closest('[data-modal-close]');
       if (closeTrigger) {
         event.preventDefault();
         closeModal();
+        return;
+      }
+      if (event.target.closest('.mr-modal__content')) {
+        return;
       }
     });
 
