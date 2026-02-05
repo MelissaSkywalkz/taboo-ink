@@ -60,6 +60,13 @@ if (menuToggle && nav) {
         return;
       }
       const isOpen = item.classList.contains('is-open');
+      const isLink = toggle.tagName === 'A';
+      if (isLink && isOpen) {
+        return;
+      }
+      if (isLink) {
+        event.preventDefault();
+      }
       closeDropdowns();
       if (!isOpen) {
         item.classList.add('is-open');
