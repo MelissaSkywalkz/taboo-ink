@@ -52,6 +52,7 @@
   </script>
 </head>
 <body class="mini-rebel">
+  <a class="skip-link" href="#main-content">Hoppa till innehåll</a>
   <header class="site-header" id="top">
     <div class="container header-inner">
       <a class="logo" href="index.html" aria-label="Taboo Ink Stockholm">
@@ -83,18 +84,19 @@
           </div>
         </div>
         <div class="nav-item has-dropdown" data-dropdown>
-          <a class="dropdown-toggle" href="mini-rebel.html" aria-expanded="false" aria-controls="dropdown-mini-rebel">Mini Rebel</a>
+          <div class="dropdown-trigger">
+            <a class="dropdown-link" href="mini-rebel.html">Mini Rebel</a>
+            <button class="dropdown-toggle dropdown-toggle--icon" type="button" aria-expanded="false" aria-controls="dropdown-mini-rebel">
+              <span class="sr-only">Öppna Mini Rebel-menyn</span>
+              <span aria-hidden="true">▾</span>
+            </button>
+          </div>
           <div class="dropdown-menu" id="dropdown-mini-rebel">
-            <a href="mini-rebel.html#kollektion">Shop – Barn</a>
-            <a href="mini-rebel.html#kollektion">Shop – Vuxen</a>
-            <a href="mini-rebel.html#kollektion">Shop – Set/Matcha</a>
-            <a href="mini-rebel.html#kollektion">Shop – Hoodies</a>
-            <a href="mini-rebel.html#kollektion">Shop – Tees</a>
-            <a href="mini-rebel.html#kollektion">Shop – Accessoarer</a>
+            <a href="mini-rebel.html#kollektion">Shop</a>
             <a href="flashbook.html">Motiv (Flashbook)</a>
             <a href="mini-rebel.html#popular">Plushies</a>
             <a href="mini-rebel.html#designer">Om oss</a>
-            <a href="faq.html">Storleksguide</a>
+            <a href="mini-rebel.html#storleksguide">Storleksguide</a>
             <a href="mini-rebel.html#sa-funkar-det">Tryck &amp; kvalitet</a>
           </div>
         </div>
@@ -109,14 +111,14 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <!-- Mini Rebel wow-skeleton: paneler/ramar, scen-kort och microinteractions (scopas i mini-rebel.css). -->
     <section class="mr-hero mr-wow-grain" aria-labelledby="mr-hero-title">
       <div class="mr-hero__overlay"></div>
       <div class="mr-rope" aria-hidden="true"></div>
       <div class="mr-container">
         <div class="mr-panel mr-hero__content">
-          <object class="mr-logo" data="assets/img/mini-rebel/logo.svg" type="image/svg+xml" aria-label="Mini Rebel logotyp">
+          <object class="mr-logo" data="assets/img/mini-rebel/logo.svg" type="image/svg+xml" aria-hidden="true">
             <span class="mr-logo__fallback">Mini Rebel</span>
           </object>
           <svg class="mr-sparkle mr-sparkle--hero" viewBox="0 0 120 120" aria-hidden="true">
@@ -166,7 +168,7 @@
                 <p class="mr-card__meta" data-card-meta></p>
                 <div class="mr-card__quick">Snabbinfo: Matcha med mini • 100% bomull</div>
                 <div class="mr-card__actions">
-                  <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt</button>
+                  <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt <span aria-hidden="true">↗</span></button>
                   <button class="mr-btn mr-btn--primary" type="button" data-interest>Intresseanmäl</button>
                 </div>
               </div>
@@ -186,7 +188,7 @@
                 <p class="mr-card__meta" data-card-meta></p>
                 <div class="mr-card__quick">Snabbinfo: Barnstorlek • Rebel black</div>
                 <div class="mr-card__actions">
-                  <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt</button>
+                  <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt <span aria-hidden="true">↗</span></button>
                   <button class="mr-btn mr-btn--primary" type="button" data-interest>Intresseanmäl</button>
                 </div>
               </div>
@@ -206,7 +208,7 @@
                 <p class="mr-card__meta" data-card-meta></p>
                 <div class="mr-card__quick">Snabbinfo: Unisex fit • 100% bomull</div>
                 <div class="mr-card__actions">
-                  <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt</button>
+                  <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt <span aria-hidden="true">↗</span></button>
                   <button class="mr-btn mr-btn--primary" type="button" data-interest>Intresseanmäl</button>
                 </div>
               </div>
@@ -226,7 +228,7 @@
                 <p class="mr-card__meta" data-card-meta></p>
                 <div class="mr-card__quick">Snabbinfo: Setpris • Matcha direkt</div>
                 <div class="mr-card__actions">
-                  <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt</button>
+                  <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt <span aria-hidden="true">↗</span></button>
                   <button class="mr-btn mr-btn--primary" type="button" data-interest>Intresseanmäl</button>
                 </div>
               </div>
@@ -281,7 +283,7 @@
               <p class="mr-card__meta" data-card-meta></p>
               <div class="mr-card__quick">Snabbinfo: Barnstorlek • 100% bomull</div>
               <div class="mr-card__actions">
-                <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt</button>
+                <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt <span aria-hidden="true">↗</span></button>
                 <button class="mr-btn mr-btn--primary" type="button" data-interest>Intresseanmäl</button>
               </div>
             </div>
@@ -301,7 +303,7 @@
               <p class="mr-card__meta" data-card-meta></p>
               <div class="mr-card__quick">Snabbinfo: Barnstorlek • Rebel black</div>
               <div class="mr-card__actions">
-                <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt</button>
+                <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt <span aria-hidden="true">↗</span></button>
                 <button class="mr-btn mr-btn--primary" type="button" data-interest>Intresseanmäl</button>
               </div>
             </div>
@@ -321,7 +323,7 @@
               <p class="mr-card__meta" data-card-meta></p>
               <div class="mr-card__quick">Snabbinfo: Unisex • Cream</div>
               <div class="mr-card__actions">
-                <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt</button>
+                <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt <span aria-hidden="true">↗</span></button>
                 <button class="mr-btn mr-btn--primary" type="button" data-interest>Intresseanmäl</button>
               </div>
             </div>
@@ -341,7 +343,7 @@
               <p class="mr-card__meta" data-card-meta></p>
               <div class="mr-card__quick">Snabbinfo: Unisex • Rebel black</div>
               <div class="mr-card__actions">
-                <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt</button>
+                <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt <span aria-hidden="true">↗</span></button>
                 <button class="mr-btn mr-btn--primary" type="button" data-interest>Intresseanmäl</button>
               </div>
             </div>
@@ -361,7 +363,7 @@
               <p class="mr-card__meta" data-card-meta></p>
               <div class="mr-card__quick">Snabbinfo: Setpris • Cream</div>
               <div class="mr-card__actions">
-                <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt</button>
+                <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt <span aria-hidden="true">↗</span></button>
                 <button class="mr-btn mr-btn--primary" type="button" data-interest>Intresseanmäl</button>
               </div>
             </div>
@@ -381,7 +383,7 @@
               <p class="mr-card__meta" data-card-meta></p>
               <div class="mr-card__quick">Snabbinfo: Setpris • Rebel black</div>
               <div class="mr-card__actions">
-                <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt</button>
+                <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt <span aria-hidden="true">↗</span></button>
                 <button class="mr-btn mr-btn--primary" type="button" data-interest>Intresseanmäl</button>
               </div>
             </div>
@@ -396,7 +398,7 @@
         <header class="mr-section__header">
           <p class="mr-section__kicker">Så funkar det</p>
           <h2>Tryggt, enkelt och on-demand</h2>
-          <p>Läs mer om <a href="faq.html">leverans &amp; retur</a> och <a href="faq.html">storleksguide</a> innan släpp.</p>
+          <p>Läs mer om <a href="faq.html">leverans &amp; retur</a> och <a href="#storleksguide">storleksguide</a> innan släpp.</p>
         </header>
         <div class="mr-benefit">
           <span class="mr-benefit__icon" aria-hidden="true">🪡</span>
@@ -412,6 +414,84 @@
           <span class="mr-benefit__icon" aria-hidden="true">🧸</span>
           <p>Mjuk kvalitet för stor &amp; liten</p>
           <span class="mr-stamp">Mjuk kvalitet</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="mr-section mr-section--muted" id="storleksguide">
+      <div class="mr-container">
+        <div class="mr-panel">
+          <header class="mr-section__header">
+            <p class="mr-section__kicker">Storleksguide</p>
+            <h2>Hitta rätt storlek för små &amp; stora rebels</h2>
+            <p>Storlekarna är unisex och följer standardmått. Hör av er om ni vill dubbelkolla passform innan släpp.</p>
+          </header>
+          <div class="mr-size-guide">
+            <div>
+              <h3>Barn</h3>
+              <table class="mr-size-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Storlek</th>
+                    <th scope="col">Ålder (ca)</th>
+                    <th scope="col">Bröst (cm)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>98/104</td>
+                    <td>2–4 år</td>
+                    <td>56–58</td>
+                  </tr>
+                  <tr>
+                    <td>110/116</td>
+                    <td>4–6 år</td>
+                    <td>60–64</td>
+                  </tr>
+                  <tr>
+                    <td>122/128</td>
+                    <td>6–8 år</td>
+                    <td>66–70</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div>
+              <h3>Vuxen</h3>
+              <table class="mr-size-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Storlek</th>
+                    <th scope="col">Bröst (cm)</th>
+                    <th scope="col">Längd (cm)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>XS</td>
+                    <td>82–86</td>
+                    <td>64</td>
+                  </tr>
+                  <tr>
+                    <td>S</td>
+                    <td>86–94</td>
+                    <td>66</td>
+                  </tr>
+                  <tr>
+                    <td>M</td>
+                    <td>94–102</td>
+                    <td>69</td>
+                  </tr>
+                  <tr>
+                    <td>L</td>
+                    <td>102–110</td>
+                    <td>72</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p class="mr-size-note">Tips: gillar ni en oversize-look, gå upp en storlek.</p>
         </div>
       </div>
     </section>
@@ -505,11 +585,13 @@
             </label>
             <input type="hidden" name="produkt" id="mr-product-field">
             <button class="mr-btn mr-btn--primary" type="submit">Skicka intresse</button>
-            <p class="mr-form__note">Vi skickar 1 mail vid släpp. Inget mer.</p>
+            <p class="mr-form__error" id="mr-form-error" role="alert" hidden></p>
+            <p class="mr-form__note">När du klickar öppnas ditt e-postprogram med ett färdigt meddelande.</p>
           </form>
           <div class="mr-form-success" id="mr-form-success" hidden>
             <h3>Tack! 🖤</h3>
-            <p>Vi har sparat din intresseanmälan och pingar dig när Mini Rebel släpps.</p>
+            <p>Ett mailutkast har öppnats. Skicka det så återkommer vi när Mini Rebel släpps.</p>
+            <p>Om inget händer kan du maila oss direkt på <a href="mailto:info@tabooinkstockholm.com">info@tabooinkstockholm.com</a>.</p>
             <button class="mr-btn mr-btn--ghost" type="button" id="mr-reset">Skicka en ny</button>
           </div>
         </div>
@@ -602,7 +684,7 @@
     </div>
   </div>
 
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/mini-rebel.js"></script>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/mini-rebel.js" defer></script>
 </body>
 </html>
