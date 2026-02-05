@@ -17,10 +17,15 @@ const initMiniRebel = () => {
   const interestForm = document.getElementById('mr-interest-form');
   const formSuccess = document.getElementById('mr-form-success');
   const resetButton = document.getElementById('mr-reset');
+  const formError = document.getElementById('mr-form-error');
+  const formPanel = document.querySelector('.mr-club__form');
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   let lastFocusedElement = null;
   let modalListenersInitialized = false;
+  let highlightTimeout = null;
+
+  const mailtoAddress = 'info@tabooinkstockholm.com';
 
   const updateSelectedProduct = (name) => {
     const label = selectedProduct ? selectedProduct.querySelector('span') : null;
@@ -177,6 +182,15 @@ const initMiniRebel = () => {
     const formSection = document.getElementById('intresse');
     if (formSection) {
       formSection.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+    }
+    if (formPanel) {
+      formPanel.classList.add('is-highlighted');
+      if (highlightTimeout) {
+        clearTimeout(highlightTimeout);
+      }
+      highlightTimeout = window.setTimeout(() => {
+        formPanel.classList.remove('is-highlighted');
+      }, 1500);
     }
     const formInput = interestForm ? interestForm.querySelector('input[name="name"]') : null;
     if (formInput) {
@@ -358,23 +372,56 @@ const initMiniRebel = () => {
     });
   }
 
-  const stored = window.localStorage.getItem('mini-rebel-interest');
-  if (stored && formSuccess && interestForm) {
-    interestForm.hidden = true;
-    formSuccess.hidden = false;
-  }
-
   if (interestForm) {
     interestForm.addEventListener('submit', (event) => {
       event.preventDefault();
+      const nameInput = interestForm.querySelector('input[name="name"]');
+      const emailInput = interestForm.querySelector('input[name="email"]');
+      const commentInput = interestForm.querySelector('textarea[name="comment"]');
+
+      if (formError) {
+        formError.hidden = true;
+        formError.textContent = '';
+      }
+
+      const nameValue = nameInput ? nameInput.value.trim() : '';
+      const emailValue = emailInput ? emailInput.value.trim() : '';
+      const isEmailValid = emailInput ? emailInput.checkValidity() : false;
+
+      if (nameInput) {
+        nameInput.setAttribute('aria-invalid', nameValue ? 'false' : 'true');
+      }
+      if (emailInput) {
+        emailInput.setAttribute('aria-invalid', emailValue && isEmailValid ? 'false' : 'true');
+      }
+
+      if (!nameValue || !emailValue || !isEmailValid) {
+        if (formError) {
+          formError.textContent = 'Fyll i namn och en giltig e-postadress så öppnar vi ett mailutkast.';
+          formError.hidden = false;
+        }
+        return;
+      }
+
       const formData = new FormData(interestForm);
       const payload = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        comment: formData.get('comment'),
+        name: nameValue,
+        email: emailValue,
+        comment: (commentInput ? commentInput.value.trim() : '') || '',
         product: formData.get('produkt'),
       };
-      window.localStorage.setItem('mini-rebel-interest', JSON.stringify(payload));
+      const subject = encodeURIComponent('Mini Rebel - Intresseanmälan');
+      const bodyLines = [
+        `Namn: ${payload.name}`,
+        `E-post: ${payload.email}`,
+        `Produkt: ${payload.product || 'Ej vald'}`,
+      ];
+      if (payload.comment) {
+        bodyLines.push(`Kommentar: ${payload.comment}`);
+      }
+      const body = encodeURIComponent(bodyLines.join('\n'));
+      window.location.href = `mailto:${mailtoAddress}?subject=${subject}&body=${body}`;
+
       interestForm.hidden = true;
       if (formSuccess) {
         formSuccess.hidden = false;
@@ -384,7 +431,6 @@ const initMiniRebel = () => {
 
   if (resetButton && interestForm && formSuccess) {
     resetButton.addEventListener('click', () => {
-      window.localStorage.removeItem('mini-rebel-interest');
       formSuccess.hidden = true;
       interestForm.reset();
       updateSelectedProduct('');
