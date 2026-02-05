@@ -423,13 +423,14 @@ body.mini-rebel .site-header {
   align-items: center;
   justify-content: center;
   padding: 20px;
-  z-index: 20;
+  z-index: 9999;
 }
 
 .mr-modal__overlay {
   position: absolute;
   inset: 0;
   background: rgba(14, 14, 16, 0.7);
+  pointer-events: auto;
 }
 
 .mr-modal__content {
