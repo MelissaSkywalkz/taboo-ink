@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 body.mini-rebel {
   --mr-black: #0e0e10;
   --mr-red: #a11212;
@@ -17,37 +21,43 @@ body.mini-rebel {
   line-height: 1.6;
 }
 
-body.mini-rebel::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: url('../img/mini-rebel/hero-mini-rebel.png') center/cover no-repeat;
-  z-index: -2;
-  pointer-events: none;
-  transform: scale(1.02);
-  filter: saturate(1.05) contrast(1.05);
-}
-
-body.mini-rebel::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 50% 18%,
-      rgba(0, 0, 0, 0.35) 0%,
-      rgba(0, 0, 0, 0.55) 38%,
-      rgba(0, 0, 0, 0.72) 72%,
-      rgba(0, 0, 0, 0.82) 100%);
-}
-
 body.mini-rebel main {
   width: min(1180px, calc(100% - 40px));
   margin: 0 auto;
   padding: clamp(20px, 3vw, 56px) 0;
   position: relative;
   z-index: 1;
+}
+
+.mr-page {
+  position: relative;
+  z-index: 1;
+}
+
+.mr-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.mr-bg__image {
+  position: absolute;
+  inset: 0;
+  background: url('../img/mini-rebel/hero-mini-rebel.png') center/cover no-repeat;
+  transform: scale(1.02);
+  filter: saturate(1.05) contrast(1.05);
+}
+
+.mr-bg__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 18%,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.45) 40%,
+      rgba(0, 0, 0, 0.70) 75%,
+      rgba(0, 0, 0, 0.82) 100%);
 }
 
 body.mini-rebel.mr-modal-open {
@@ -623,15 +633,6 @@ body.mini-rebel .nav .nav__toggle:focus-visible {
   font-size: 0.9rem;
 }
 
-.mr-form__error {
-  background: rgba(161, 18, 18, 0.08);
-  border: 1px solid rgba(161, 18, 18, 0.25);
-  border-radius: 12px;
-  padding: 10px 12px;
-  color: #7a0d0d;
-  font-size: 0.9rem;
-}
-
 .mr-footer {
   background: var(--mr-black);
   color: #fff;
@@ -925,16 +926,11 @@ body.mini-rebel .nav .nav__toggle:focus-visible {
 }
 
 @media (max-width: 720px) {
-  body.mini-rebel::before {
-    transform: none;
-    filter: saturate(1.02) contrast(1.02);
-  }
-
-  body.mini-rebel::after {
+  .mr-bg__overlay {
     background:
       radial-gradient(circle at 50% 12%,
-        rgba(0, 0, 0, 0.5) 0%,
-        rgba(0, 0, 0, 0.7) 55%,
+        rgba(0, 0, 0, 0.45) 0%,
+        rgba(0, 0, 0, 0.68) 55%,
         rgba(0, 0, 0, 0.86) 100%);
   }
 }
