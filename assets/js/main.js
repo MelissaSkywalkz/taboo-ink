@@ -1,7 +1,7 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
 const navLinks = nav ? nav.querySelectorAll('a') : [];
-const dropdownToggles = nav ? nav.querySelectorAll('.dropdown-toggle') : [];
+const dropdownToggles = nav ? nav.querySelectorAll('.nav__toggle') : [];
 const dropdownItems = nav ? nav.querySelectorAll('[data-dropdown]') : [];
 const body = document.body;
 
@@ -26,7 +26,7 @@ const closeMenu = () => {
 const closeDropdowns = () => {
   dropdownItems.forEach((item) => {
     item.classList.remove('is-open');
-    const toggle = item.querySelector('.dropdown-toggle');
+    const toggle = item.querySelector('.nav__toggle');
     if (toggle) {
       toggle.setAttribute('aria-expanded', 'false');
     }
@@ -60,13 +60,6 @@ if (menuToggle && nav) {
         return;
       }
       const isOpen = item.classList.contains('is-open');
-      const isLink = toggle.tagName === 'A';
-      if (isLink && isOpen) {
-        return;
-      }
-      if (isLink) {
-        event.preventDefault();
-      }
       closeDropdowns();
       if (!isOpen) {
         item.classList.add('is-open');
@@ -87,6 +80,25 @@ if (menuToggle && nav) {
       if (nav.classList.contains('is-open')) {
         closeMenu();
       }
+    }
+  });
+
+  const mobileQuery = window.matchMedia('(max-width: 760px)');
+  if (mobileQuery.addEventListener) {
+    mobileQuery.addEventListener('change', (event) => {
+      if (!event.matches) {
+        closeDropdowns();
+        if (nav.classList.contains('is-open')) {
+          closeMenu();
+        }
+      }
+    });
+  }
+
+  window.addEventListener('hashchange', () => {
+    closeDropdowns();
+    if (nav.classList.contains('is-open')) {
+      closeMenu();
     }
   });
 }
