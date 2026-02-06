@@ -116,6 +116,7 @@ const initMiniRebel = () => {
     if (modalImage) {
       modalImage.src = details.image || card.querySelector('img')?.getAttribute('src') || 'assets/img/mini-rebel/products/5.png';
       modalImage.alt = `Produktbild för ${name}`;
+      applyImageFallback(modalImage);
     }
     if (modalDescription) {
       modalDescription.textContent = details.story || 'Mjuk t-shirt i varm cream eller rebel black. En liten berättelse att bära tillsammans.';
@@ -235,6 +236,10 @@ const initMiniRebel = () => {
         set: 'Set',
       }[category] || '';
       meta.textContent = categoryLabel;
+    }
+    const cardImage = card.querySelector('img');
+    if (cardImage) {
+      applyImageFallback(cardImage);
     }
     if (openBtn) {
       openBtn.addEventListener('click', () => openModal(card));
