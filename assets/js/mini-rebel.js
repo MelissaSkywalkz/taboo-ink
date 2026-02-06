@@ -31,6 +31,7 @@ const initMiniRebel = () => {
   if (formSuccess) {
     formSuccess.hidden = true;
     formSuccess.setAttribute('aria-hidden', 'true');
+    formSuccess.classList.add('is-hidden');
   }
 
   const updateSelectedProduct = (name) => {
@@ -438,6 +439,7 @@ const initMiniRebel = () => {
       if (formSuccess) {
         formSuccess.hidden = false;
         formSuccess.setAttribute('aria-hidden', 'false');
+        formSuccess.classList.remove('is-hidden');
       }
     });
   }
@@ -446,6 +448,7 @@ const initMiniRebel = () => {
     resetButton.addEventListener('click', () => {
       formSuccess.hidden = true;
       formSuccess.setAttribute('aria-hidden', 'true');
+      formSuccess.classList.add('is-hidden');
       interestForm.reset();
       updateSelectedProduct('');
       interestForm.hidden = false;
