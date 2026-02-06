@@ -17,6 +17,7 @@ const initMiniRebel = () => {
   const interestForm = document.getElementById('mr-interest-form');
   const formSuccess = document.getElementById('mr-form-success');
   const resetButton = document.getElementById('mr-reset');
+  const backToCollection = document.getElementById('mr-back-to-collection');
   const formError = document.getElementById('mr-form-error');
   const formPanel = document.querySelector('.mr-club__form');
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -44,7 +45,7 @@ const initMiniRebel = () => {
 
   const productDetails = {
     'Mini Rebel Tee – Barn (Cream)': {
-      image: 'assets/img/mini-rebel/products/5.png',
+      image: 'assets/img/mini-rebel/products/1.png',
       fit: 'Barn, normal passform',
       material: '100% bomull',
       story: 'En liten rebell med stort hjärta i varm cream.',
@@ -62,7 +63,7 @@ const initMiniRebel = () => {
       related: ['Matchande set', 'Vuxen', 'Black'],
     },
     'Mini Rebel Tee – Vuxen (Cream)': {
-      image: 'assets/img/mini-rebel/products/5.png',
+      image: 'assets/img/mini-rebel/products/3.png',
       fit: 'Unisex, normal passform',
       material: '100% bomull',
       story: 'Cream med mjuk finish för stora berättelser.',
@@ -80,7 +81,7 @@ const initMiniRebel = () => {
       related: ['Matchande set', 'Barn', 'Black'],
     },
     'Matchande set – Barn + Vuxen (Cream)': {
-      image: 'assets/img/mini-rebel/products/5.png',
+      image: 'assets/img/mini-rebel/products/2.png',
       fit: 'Barn + Vuxen, normal passform',
       material: '100% bomull',
       story: 'Ett matchande set för stora & små rebels.',
@@ -113,7 +114,7 @@ const initMiniRebel = () => {
     modalPrice.textContent = price;
     modalColor.value = color;
     if (modalImage) {
-      modalImage.src = details.image || card.querySelector('img')?.getAttribute('src') || fallbackImage;
+      modalImage.src = details.image || card.querySelector('img')?.getAttribute('src') || 'assets/img/mini-rebel/products/5.png';
       modalImage.alt = `Produktbild för ${name}`;
       applyImageFallback(modalImage);
     }
@@ -190,12 +191,12 @@ const initMiniRebel = () => {
       formSection.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
     }
     if (formPanel) {
-      formPanel.classList.add('is-highlighted');
+      formPanel.classList.add('is-highlight');
       if (highlightTimeout) {
         clearTimeout(highlightTimeout);
       }
       highlightTimeout = window.setTimeout(() => {
-        formPanel.classList.remove('is-highlighted');
+        formPanel.classList.remove('is-highlight');
       }, 1500);
     }
     const formInput = interestForm ? interestForm.querySelector('input[name="name"]') : null;
@@ -212,6 +213,7 @@ const initMiniRebel = () => {
   const filterButtons = document.querySelectorAll('.mr-chip');
   const sortSelect = document.getElementById('mr-sort-select');
   const productGrid = document.getElementById('mr-product-grid');
+  const resultsCount = document.getElementById('mr-results-count');
   const collectionCta = document.querySelector('.mr-hero__actions a[href="#kollektion"]');
   const gridCards = productGrid ? productGrid.querySelectorAll('.mr-card') : [];
   const cardData = Array.from(gridCards).map((card, index) => ({
@@ -227,21 +229,13 @@ const initMiniRebel = () => {
     const interestBtn = card.querySelector('[data-interest]');
     const meta = card.querySelector('[data-card-meta]');
     if (meta) {
-      const color = card.dataset.color || '';
       const category = card.dataset.category || '';
       const categoryLabel = {
         barn: 'Barn',
         vuxen: 'Vuxen',
         set: 'Set',
       }[category] || '';
-      const parts = [];
-      if (color) {
-        parts.push(`Färg: ${color}`);
-      }
-      if (categoryLabel) {
-        parts.push(categoryLabel);
-      }
-      meta.textContent = parts.join(' • ');
+      meta.textContent = categoryLabel;
     }
     const cardImage = card.querySelector('img');
     if (cardImage) {
@@ -274,6 +268,9 @@ const initMiniRebel = () => {
     cardData.forEach((item) => {
       item.card.style.display = filtered.includes(item) ? 'grid' : 'none';
     });
+    if (resultsCount) {
+      resultsCount.textContent = `Visar ${filtered.length} produkter`;
+    }
   };
 
   const setFilterState = (activeButton) => {
@@ -407,7 +404,15 @@ const initMiniRebel = () => {
 
       if (!nameValue || !emailValue || !isEmailValid) {
         if (formError) {
-          formError.textContent = 'Fyll i namn och en giltig e-postadress så öppnar vi ett mailutkast.';
+          if (!nameValue && !emailValue) {
+            formError.textContent = 'Fyll i namn och e-postadress så öppnar vi ett mailutkast.';
+          } else if (!nameValue) {
+            formError.textContent = 'Fyll i ditt namn för att gå vidare.';
+          } else if (!emailValue) {
+            formError.textContent = 'Fyll i din e-postadress för att gå vidare.';
+          } else {
+            formError.textContent = 'Ange en giltig e-postadress för att gå vidare.';
+          }
           formError.hidden = false;
         }
         return;
@@ -449,6 +454,12 @@ const initMiniRebel = () => {
       updateSelectedProduct('');
       interestForm.hidden = false;
       interestForm.setAttribute('aria-hidden', 'false');
+    });
+  }
+
+  if (backToCollection && productGrid) {
+    backToCollection.addEventListener('click', () => {
+      productGrid.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
     });
   }
 };

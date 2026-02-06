@@ -130,6 +130,13 @@ body.mini-rebel .nav .nav__toggle:focus-visible {
   margin-top: 16px;
 }
 
+.mr-drop-status {
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
 .mr-hero__badges {
   font-size: 0.85rem;
   letter-spacing: 0.08em;
@@ -203,6 +210,21 @@ body.mini-rebel .nav .nav__toggle:focus-visible {
   display: grid;
   gap: 16px;
   margin-bottom: 24px;
+}
+
+.mr-results-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.mr-results-count {
+  margin: 0;
+  font-weight: 600;
+  color: #3f3f46;
 }
 
 .mr-filter {
@@ -325,6 +347,14 @@ body.mini-rebel .nav .nav__toggle:focus-visible {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.mr-card__media {
+  background: #f1e7da;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
 .mr-card__label {
   position: absolute;
   top: 16px;
@@ -344,8 +374,9 @@ body.mini-rebel .nav .nav__toggle:focus-visible {
 .mr-card img {
   width: 100%;
   display: block;
-  background: #f1e7da;
   transition: transform 0.2s ease;
+  object-fit: contain;
+  max-height: 100%;
 }
 
 .mr-card__body {
@@ -401,7 +432,7 @@ body.mini-rebel .nav .nav__toggle:focus-visible {
   padding: 0;
 }
 
-.mr-benefits {
+.mr-benefits-grid {
   display: grid;
   gap: 16px;
   text-align: center;
@@ -411,17 +442,50 @@ body.mini-rebel .nav .nav__toggle:focus-visible {
 .mr-benefit {
   background: #fff;
   border-radius: 20px;
-  padding: 20px 18px;
+  padding: 22px 20px;
   box-shadow: 0 8px 20px rgba(14, 14, 16, 0.08);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  gap: 10px;
+  justify-items: center;
 }
 
 .mr-benefit__icon {
   font-size: 1.6rem;
   display: block;
-  margin-bottom: 8px;
+  height: 32px;
+}
+
+.mr-benefit h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.mr-benefit p {
+  margin: 0;
+  color: #5a4b3d;
+}
+
+.mr-benefits-details {
+  margin-top: 20px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 14px 18px;
+  box-shadow: 0 8px 20px rgba(14, 14, 16, 0.08);
+}
+
+.mr-benefits-details summary {
+  cursor: pointer;
+  font-weight: 700;
+  list-style: none;
+}
+
+.mr-benefits-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.mr-benefits-details p {
+  margin: 10px 0 0;
+  color: #5a4b3d;
 }
 
 .mr-ugc-grid {
@@ -578,6 +642,12 @@ body.mini-rebel .nav .nav__toggle:focus-visible {
   margin: 0;
 }
 
+.mr-modal__stamps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 .mr-modal__label {
   display: grid;
   gap: 6px;
@@ -639,6 +709,7 @@ body.mini-rebel .nav .nav__toggle:focus-visible {
   font-weight: 600;
 }
 
+.mr-club__form.is-highlight,
 .mr-club__form.is-highlighted {
   box-shadow: 0 0 0 3px rgba(161, 18, 18, 0.2), 0 16px 32px rgba(14, 14, 16, 0.15);
   transition: box-shadow 0.3s ease;
@@ -731,8 +802,12 @@ body.mini-rebel .nav .nav__toggle:focus-visible {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .mr-benefits {
-    grid-template-columns: repeat(3, 1fr);
+  .mr-benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mr-benefit {
+    min-height: 180px;
   }
 
   .mr-benefit {
@@ -770,6 +845,10 @@ body.mini-rebel .nav .nav__toggle:focus-visible {
   }
 
   .mr-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .mr-benefits-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 
