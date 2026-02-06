@@ -3,13 +3,17 @@ body.mini-rebel {
   --mr-red: #a11212;
   --mr-cream: #f3ede4;
   --mr-brown: #b87a4a;
+  --mr-brown-text: #8a5a32;
   --mr-green: #2a5f3f;
   --mr-blue: #4a6fa5;
+  --header-offset: 80px;
   --mr-script: 'Chewy', 'Nunito', cursive;
   --mr-ui: 'Nunito', system-ui, sans-serif;
   background: var(--mr-cream);
   color: var(--mr-black);
   font-family: var(--mr-ui);
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 body.mini-rebel main {
@@ -27,14 +31,17 @@ body.mini-rebel .site-header {
 }
 
 body.mini-rebel .nav a,
-body.mini-rebel .nav .dropdown-toggle {
+body.mini-rebel .nav .dropdown-toggle,
+body.mini-rebel .nav .nav__toggle {
   color: #fff;
 }
 
 body.mini-rebel .nav a:hover,
 body.mini-rebel .nav a:focus-visible,
 body.mini-rebel .nav .dropdown-toggle:hover,
-body.mini-rebel .nav .dropdown-toggle:focus-visible {
+body.mini-rebel .nav .dropdown-toggle:focus-visible,
+body.mini-rebel .nav .nav__toggle:hover,
+body.mini-rebel .nav .nav__toggle:focus-visible {
   color: #f3ede4;
   text-decoration: underline;
   text-underline-offset: 6px;
@@ -123,6 +130,13 @@ body.mini-rebel .nav .dropdown-toggle:focus-visible {
   margin-top: 16px;
 }
 
+.mr-drop-status {
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
 .mr-hero__badges {
   font-size: 0.85rem;
   letter-spacing: 0.08em;
@@ -162,6 +176,13 @@ body.mini-rebel .nav .dropdown-toggle:focus-visible {
   border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
+.mr-btn--secondary {
+  background: var(--mr-black);
+  color: var(--mr-cream);
+  border: 1px solid rgba(243, 237, 228, 0.5);
+  box-shadow: 0 10px 24px rgba(14, 14, 16, 0.25);
+}
+
 .mr-btn:hover,
 .mr-btn:focus-visible {
   transform: translateY(-2px);
@@ -191,6 +212,21 @@ body.mini-rebel .nav .dropdown-toggle:focus-visible {
   margin-bottom: 24px;
 }
 
+.mr-results-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.mr-results-count {
+  margin: 0;
+  font-weight: 600;
+  color: #3f3f46;
+}
+
 .mr-filter {
   display: flex;
   flex-wrap: wrap;
@@ -218,7 +254,7 @@ body.mini-rebel .nav .dropdown-toggle:focus-visible {
   display: grid;
   gap: 6px;
   font-weight: 600;
-  color: var(--mr-brown);
+  color: var(--mr-brown-text);
   max-width: 220px;
 }
 
@@ -244,9 +280,10 @@ body.mini-rebel .nav .dropdown-toggle:focus-visible {
 .mr-section__kicker {
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
   margin: 0;
-  color: var(--mr-brown);
+  color: var(--mr-brown-text);
 }
 
 .mr-section__header h2 {
@@ -307,6 +344,15 @@ body.mini-rebel .nav .dropdown-toggle:focus-visible {
   box-shadow: 0 14px 32px rgba(14, 14, 16, 0.08);
   display: grid;
   position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mr-card__media {
+  background: #f1e7da;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
 }
 
 .mr-card__label {
@@ -321,14 +367,16 @@ body.mini-rebel .nav .dropdown-toggle:focus-visible {
   font-size: 0.7rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--mr-brown);
+  color: var(--mr-brown-text);
   z-index: 1;
 }
 
 .mr-card img {
   width: 100%;
   display: block;
-  background: #f1e7da;
+  transition: transform 0.2s ease;
+  object-fit: contain;
+  max-height: 100%;
 }
 
 .mr-card__body {
@@ -360,6 +408,17 @@ body.mini-rebel .nav .dropdown-toggle:focus-visible {
   gap: 14px;
 }
 
+.mr-card:hover,
+.mr-card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(14, 14, 16, 0.14);
+}
+
+.mr-card:hover img,
+.mr-card:focus-within img {
+  transform: scale(1.03);
+}
+
 .mr-panel + .mr-panel {
   margin-top: 24px;
 }
@@ -373,23 +432,60 @@ body.mini-rebel .nav .dropdown-toggle:focus-visible {
   padding: 0;
 }
 
-.mr-benefits {
+.mr-benefits-grid {
   display: grid;
   gap: 16px;
   text-align: center;
+  align-items: stretch;
 }
 
 .mr-benefit {
   background: #fff;
   border-radius: 20px;
-  padding: 20px 18px;
+  padding: 22px 20px;
   box-shadow: 0 8px 20px rgba(14, 14, 16, 0.08);
+  display: grid;
+  gap: 10px;
+  justify-items: center;
 }
 
 .mr-benefit__icon {
   font-size: 1.6rem;
   display: block;
-  margin-bottom: 8px;
+  height: 32px;
+}
+
+.mr-benefit h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.mr-benefit p {
+  margin: 0;
+  color: #5a4b3d;
+}
+
+.mr-benefits-details {
+  margin-top: 20px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 14px 18px;
+  box-shadow: 0 8px 20px rgba(14, 14, 16, 0.08);
+}
+
+.mr-benefits-details summary {
+  cursor: pointer;
+  font-weight: 700;
+  list-style: none;
+}
+
+.mr-benefits-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.mr-benefits-details p {
+  margin: 10px 0 0;
+  color: #5a4b3d;
 }
 
 .mr-ugc-grid {
@@ -407,7 +503,7 @@ body.mini-rebel .nav .dropdown-toggle:focus-visible {
 .mr-hashtag {
   margin-top: 16px;
   font-weight: 700;
-  color: var(--mr-brown);
+  color: var(--mr-brown-text);
 }
 
 .mr-form-wrap {
@@ -456,6 +552,15 @@ body.mini-rebel .nav .dropdown-toggle:focus-visible {
 .mr-selected-product {
   font-weight: 600;
   color: var(--mr-green);
+}
+
+.mr-form__error {
+  background: rgba(161, 18, 18, 0.08);
+  border: 1px solid rgba(161, 18, 18, 0.25);
+  border-radius: 12px;
+  padding: 10px 12px;
+  color: #7a0d0d;
+  font-size: 0.9rem;
 }
 
 .mr-footer {
@@ -514,6 +619,9 @@ body.mini-rebel .nav .dropdown-toggle:focus-visible {
   gap: 14px;
   z-index: 1;
   pointer-events: auto;
+  max-height: 90vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .mr-modal__close {
@@ -523,8 +631,8 @@ body.mini-rebel .nav .dropdown-toggle:focus-visible {
   border: none;
   background: #f3ede4;
   border-radius: 999px;
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
 }
 
@@ -532,6 +640,12 @@ body.mini-rebel .nav .dropdown-toggle:focus-visible {
   font-weight: 700;
   color: var(--mr-red);
   margin: 0;
+}
+
+.mr-modal__stamps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .mr-modal__label {
@@ -595,6 +709,52 @@ body.mini-rebel .nav .dropdown-toggle:focus-visible {
   font-weight: 600;
 }
 
+.mr-club__form.is-highlight,
+.mr-club__form.is-highlighted {
+  box-shadow: 0 0 0 3px rgba(161, 18, 18, 0.2), 0 16px 32px rgba(14, 14, 16, 0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+.mr-size-guide {
+  display: grid;
+  gap: 24px;
+}
+
+.mr-size-guide h3 {
+  margin-bottom: 12px;
+}
+
+.mr-size-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(14, 14, 16, 0.08);
+}
+
+.mr-size-table th,
+.mr-size-table td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid #efe4d6;
+  font-size: 0.95rem;
+}
+
+.mr-size-table th {
+  background: #f8f2ea;
+  font-weight: 700;
+}
+
+.mr-size-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.mr-size-note {
+  margin-top: 16px;
+  color: #5a4b3d;
+}
+
 .mr-modal[hidden] {
   display: none !important;
 }
@@ -608,6 +768,16 @@ body.mini-rebel .nav .dropdown-toggle:focus-visible {
 
 .mr-modal.is-open {
   display: block;
+}
+
+#kollektion,
+#popular,
+#designer,
+#sa-funkar-det,
+#intresse,
+#minirebelfamily,
+#storleksguide {
+  scroll-margin-top: var(--header-offset);
 }
 
 @media (min-width: 720px) {
@@ -632,8 +802,12 @@ body.mini-rebel .nav .dropdown-toggle:focus-visible {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .mr-benefits {
-    grid-template-columns: repeat(3, 1fr);
+  .mr-benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mr-benefit {
+    min-height: 180px;
   }
 
   .mr-ugc-grid {
@@ -655,6 +829,10 @@ body.mini-rebel .nav .dropdown-toggle:focus-visible {
     align-items: start;
     max-width: 840px;
   }
+
+  .mr-size-guide {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 1024px) {
@@ -663,6 +841,10 @@ body.mini-rebel .nav .dropdown-toggle:focus-visible {
   }
 
   .mr-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .mr-benefits-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 
@@ -675,6 +857,12 @@ body.mini-rebel .nav .dropdown-toggle:focus-visible {
   body.mini-rebel .nav a,
   body.mini-rebel .nav .dropdown-toggle,
   body.mini-rebel .mr-btn {
+    transition: none;
+    transform: none;
+  }
+
+  .mr-card,
+  .mr-card img {
     transition: none;
     transform: none;
   }
