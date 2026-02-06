@@ -26,19 +26,6 @@ const initMiniRebel = () => {
   let highlightTimeout = null;
 
   const mailtoAddress = 'info@tabooinkstockholm.com';
-  const fallbackImage = 'assets/img/mini-rebel/products/5.png';
-
-  const applyImageFallback = (img) => {
-    if (!img) {
-      return;
-    }
-    img.addEventListener('error', () => {
-      if (img.getAttribute('src') === fallbackImage) {
-        return;
-      }
-      img.setAttribute('src', fallbackImage);
-    });
-  };
 
   if (formSuccess) {
     formSuccess.hidden = true;
