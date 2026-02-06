@@ -237,10 +237,6 @@ const initMiniRebel = () => {
       }[category] || '';
       meta.textContent = categoryLabel;
     }
-    const cardImage = card.querySelector('img');
-    if (cardImage) {
-      applyImageFallback(cardImage);
-    }
     if (openBtn) {
       openBtn.addEventListener('click', () => openModal(card));
     }

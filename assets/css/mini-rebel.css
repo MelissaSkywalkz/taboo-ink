@@ -55,13 +55,16 @@ body.mini-rebel .nav .nav__toggle:focus-visible {
 .mr-hero {
   position: relative;
   min-height: 80vh;
+  aspect-ratio: 16 / 9;
   display: flex;
   align-items: center;
   padding: 130px 0 100px;
   color: #fff;
-  background: linear-gradient(130deg, rgba(14, 14, 16, 0.95), rgba(14, 14, 16, 0.6)),
-    url('../img/hero.png') center/cover no-repeat;
+  background:
+    linear-gradient(rgba(18, 16, 15, 0.72), rgba(18, 16, 15, 0.72)),
+    url('../img/mini-rebel/hero-mini-rebel.png') center/cover no-repeat;
   background-color: var(--mr-black);
+  background-attachment: fixed;
 }
 
 .mr-hero::after {
@@ -90,6 +93,11 @@ body.mini-rebel .nav .nav__toggle:focus-visible {
   z-index: 1;
   display: grid;
   gap: 18px;
+  max-width: 720px;
+  background: rgba(12, 11, 10, 0.32);
+  backdrop-filter: blur(3px);
+  border-radius: 14px;
+  padding: 1.4rem;
 }
 
 .mr-logo {
@@ -782,7 +790,7 @@ body.mini-rebel .nav .nav__toggle:focus-visible {
 
 @media (min-width: 720px) {
   .mr-hero__content {
-    max-width: 600px;
+    max-width: 720px;
   }
 
   .mr-shop-controls {
@@ -804,10 +812,6 @@ body.mini-rebel .nav .nav__toggle:focus-visible {
 
   .mr-benefits-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .mr-benefit {
-    min-height: 180px;
   }
 
   .mr-benefit {
@@ -854,6 +858,12 @@ body.mini-rebel .nav .nav__toggle:focus-visible {
 
   .mr-scroll-row {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .mr-hero {
+    background-attachment: scroll;
   }
 }
 
