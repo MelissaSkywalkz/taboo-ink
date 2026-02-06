@@ -65,7 +65,7 @@
   }
   </script>
 </head>
-<body>
+<body class="home">
   <header class="site-header" id="top">
     <div class="container header-inner">
       <a class="logo" href="index.html" aria-label="Taboo Ink Stockholm">
@@ -75,12 +75,12 @@
           class="logo-img"
         >
       </a>
-                  <nav class="nav" id="primary-nav" aria-label="Huvudmeny">
-        <a href="index.html">Hem</a>
-        <a href="portfolio.html">Portfolio</a>
+                        <nav class="nav" id="primary-nav" aria-label="Huvudmeny">
+        <a class="nav__link" href="index.html">Hem</a>
+        <a class="nav__link" href="portfolio.html">Portfolio</a>
         <div class="nav-item has-dropdown" data-dropdown>
-          <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="dropdown-styles">Stilar</button>
-          <div class="dropdown-menu" id="dropdown-styles">
+          <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="dropdown-styles">Stilar</button>
+          <div class="nav__dropdown dropdown-menu" id="dropdown-styles">
             <a href="realism.html">Realism</a>
             <a href="black-grey.html">Black &amp; Grey</a>
             <a href="cover-up.html">Cover-up</a>
@@ -88,27 +88,29 @@
           </div>
         </div>
         <div class="nav-item has-dropdown" data-dropdown>
-          <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="dropdown-info">Info</button>
-          <div class="dropdown-menu" id="dropdown-info">
+          <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="dropdown-info">Info</button>
+          <div class="nav__dropdown dropdown-menu" id="dropdown-info">
             <a href="aftercare.html">Eftervård</a>
             <a href="pris.html">Pris &amp; konsultation</a>
             <a href="faq.html">FAQ</a>
             <a href="kungsholmen.html">Hitta hit</a>
           </div>
         </div>
-                <div class="nav-item has-dropdown" data-dropdown>
-          <a class="dropdown-toggle" href="mini-rebel.html" aria-expanded="false" aria-controls="dropdown-mini-rebel">Mini Rebel</a>
-          <div class="dropdown-menu" id="dropdown-mini-rebel">
-            <a href="mini-rebel.html#kollektion">Shop – Barn</a>
-            <a href="mini-rebel.html#kollektion">Shop – Vuxen</a>
-            <a href="mini-rebel.html#kollektion">Shop – Set/Matcha</a>
-            <a href="mini-rebel.html#kollektion">Shop – Hoodies</a>
-            <a href="mini-rebel.html#kollektion">Shop – Tees</a>
-            <a href="mini-rebel.html#kollektion">Shop – Accessoarer</a>
+        <div class="nav-item has-dropdown" data-dropdown>
+          <div class="dropdown-trigger">
+            <a class="nav__link" href="mini-rebel.html">Mini Rebel</a>
+            <button class="nav__toggle nav__toggle--icon" type="button" aria-expanded="false" aria-controls="dropdown-mini-rebel">
+              <span class="sr-only">Öppna Mini Rebel-menyn</span>
+              <span aria-hidden="true">▾</span>
+            </button>
+          </div>
+          <div class="nav__dropdown dropdown-menu" id="dropdown-mini-rebel">
+            <a href="mini-rebel.html">Översikt</a>
+            <a href="mini-rebel.html#kollektion">Shop</a>
             <a href="flashbook.html">Motiv (Flashbook)</a>
             <a href="mini-rebel.html#popular">Plushies</a>
             <a href="mini-rebel.html#designer">Om oss</a>
-            <a href="faq.html">Storleksguide</a>
+            <a href="mini-rebel.html#storleksguide">Storleksguide</a>
             <a href="mini-rebel.html#sa-funkar-det">Tryck &amp; kvalitet</a>
           </div>
         </div>
@@ -176,6 +178,33 @@
       </div>
     </section>
 
+    <section class="section mini-rebel-teaser" id="mini-rebel-teaser" data-reveal>
+      <div class="container mini-rebel-teaser__panel">
+        <div class="section-heading mini-rebel-teaser__heading">
+          <h2>Mini Rebel</h2>
+          <p>Tattoo vibes för små rebeller. Mjuk kvalitet, trycks on-demand i EU.</p>
+        </div>
+        <div class="mini-rebel-teaser__grid" role="list">
+          <figure class="mini-rebel-card" role="listitem">
+            <img src="assets/img/mini-rebel/products/1.png" alt="Mini Rebel patch med nalle" loading="lazy" width="240" height="240">
+            <figcaption>Patch</figcaption>
+          </figure>
+          <figure class="mini-rebel-card" role="listitem">
+            <img src="assets/img/mini-rebel/products/4.png" alt="Mini Rebel tee i svart" loading="lazy" width="240" height="240">
+            <figcaption>Black tee</figcaption>
+          </figure>
+          <figure class="mini-rebel-card" role="listitem">
+            <img src="assets/img/mini-rebel/products/5.png" alt="Mini Rebel tee i cream" loading="lazy" width="240" height="240">
+            <figcaption>Cream tee</figcaption>
+          </figure>
+        </div>
+        <div class="section-actions mini-rebel-teaser__actions">
+          <a class="btn btn-primary" href="mini-rebel.html">BESÖK MINI REBEL</a>
+          <a class="btn btn-secondary" href="mini-rebel.html#kollektion">KOMMANDE DROP</a>
+        </div>
+      </div>
+    </section>
+
     <section class="section section-split" id="about" data-reveal>
       <div class="container split">
         <div class="split-media">
@@ -232,21 +261,33 @@
       <div class="container">
         <div class="section-heading">
           <h2>RECENSIONER</h2>
-          <p>Tre ord från kunder som valt Taboo Ink för sin nästa tatuering.</p>
+          <p>Ord från kunder som valt Taboo Ink för sin nästa tatuering.</p>
         </div>
         <div class="review-grid">
           <article class="review-card">
+            <div class="review-stars" aria-label="5 av 5 stjärnor">★★★★★</div>
             <p>“Detaljerna och ljussättningen är helt otroliga. Kände mig trygg hela vägen.”</p>
             <span>— Sofia L.</span>
           </article>
           <article class="review-card">
+            <div class="review-stars" aria-label="5 av 5 stjärnor">★★★★★</div>
             <p>“Supertydlig process, proffsigt bemötande och resultat som överträffade allt.”</p>
             <span>— Adam K.</span>
           </article>
           <article class="review-card">
+            <div class="review-stars" aria-label="5 av 5 stjärnor">★★★★★</div>
             <p>“Lukas fångade exakt vad jag ville ha och cover-upen känns helt klockren.”</p>
             <span>— Johanna P.</span>
           </article>
+          <article class="review-card">
+            <div class="review-stars" aria-label="5 av 5 stjärnor">★★★★★</div>
+            <p>“Lugn atmosfär, perfekt placering och riktigt bra eftervård. Kommer tillbaka.”</p>
+            <span>— Amir D.</span>
+          </article>
+        </div>
+        <div class="section-actions">
+          <!-- TODO: Länka till riktig reviewsida -->
+          <a class="btn btn-secondary" href="https://www.google.com/search?q=Taboo+Ink+Stockholm+recensioner" target="_blank" rel="noopener">LÄS FLER</a>
         </div>
       </div>
     </section>
@@ -359,6 +400,8 @@
     </div>
     <p class="footer-note">© Taboo Ink Stockholm</p>
   </footer>
+
+  <a id="booking-pill" class="booking-pill is-hidden" href="https://www.tabooinkstockholm.com/book-online" target="_blank" rel="noopener">Boka tid</a>
 
   <script src="assets/js/main.js"></script>
 </body>

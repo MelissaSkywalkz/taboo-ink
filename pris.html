@@ -122,12 +122,12 @@
           class="logo-img"
         >
       </a>
-                  <nav class="nav" id="primary-nav" aria-label="Huvudmeny">
-        <a href="index.html">Hem</a>
-        <a href="portfolio.html">Portfolio</a>
+                        <nav class="nav" id="primary-nav" aria-label="Huvudmeny">
+        <a class="nav__link" href="index.html">Hem</a>
+        <a class="nav__link" href="portfolio.html">Portfolio</a>
         <div class="nav-item has-dropdown" data-dropdown>
-          <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="dropdown-styles">Stilar</button>
-          <div class="dropdown-menu" id="dropdown-styles">
+          <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="dropdown-styles">Stilar</button>
+          <div class="nav__dropdown dropdown-menu" id="dropdown-styles">
             <a href="realism.html">Realism</a>
             <a href="black-grey.html">Black &amp; Grey</a>
             <a href="cover-up.html">Cover-up</a>
@@ -135,27 +135,29 @@
           </div>
         </div>
         <div class="nav-item has-dropdown" data-dropdown>
-          <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="dropdown-info">Info</button>
-          <div class="dropdown-menu" id="dropdown-info">
+          <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="dropdown-info">Info</button>
+          <div class="nav__dropdown dropdown-menu" id="dropdown-info">
             <a href="aftercare.html">Eftervård</a>
             <a href="pris.html">Pris &amp; konsultation</a>
             <a href="faq.html">FAQ</a>
             <a href="kungsholmen.html">Hitta hit</a>
           </div>
         </div>
-                <div class="nav-item has-dropdown" data-dropdown>
-          <a class="dropdown-toggle" href="mini-rebel.html" aria-expanded="false" aria-controls="dropdown-mini-rebel">Mini Rebel</a>
-          <div class="dropdown-menu" id="dropdown-mini-rebel">
-            <a href="mini-rebel.html#kollektion">Shop – Barn</a>
-            <a href="mini-rebel.html#kollektion">Shop – Vuxen</a>
-            <a href="mini-rebel.html#kollektion">Shop – Set/Matcha</a>
-            <a href="mini-rebel.html#kollektion">Shop – Hoodies</a>
-            <a href="mini-rebel.html#kollektion">Shop – Tees</a>
-            <a href="mini-rebel.html#kollektion">Shop – Accessoarer</a>
+        <div class="nav-item has-dropdown" data-dropdown>
+          <div class="dropdown-trigger">
+            <a class="nav__link" href="mini-rebel.html">Mini Rebel</a>
+            <button class="nav__toggle nav__toggle--icon" type="button" aria-expanded="false" aria-controls="dropdown-mini-rebel">
+              <span class="sr-only">Öppna Mini Rebel-menyn</span>
+              <span aria-hidden="true">▾</span>
+            </button>
+          </div>
+          <div class="nav__dropdown dropdown-menu" id="dropdown-mini-rebel">
+            <a href="mini-rebel.html">Översikt</a>
+            <a href="mini-rebel.html#kollektion">Shop</a>
             <a href="flashbook.html">Motiv (Flashbook)</a>
             <a href="mini-rebel.html#popular">Plushies</a>
             <a href="mini-rebel.html#designer">Om oss</a>
-            <a href="faq.html">Storleksguide</a>
+            <a href="mini-rebel.html#storleksguide">Storleksguide</a>
             <a href="mini-rebel.html#sa-funkar-det">Tryck &amp; kvalitet</a>
           </div>
         </div>

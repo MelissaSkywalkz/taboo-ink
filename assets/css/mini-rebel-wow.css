@@ -56,6 +56,7 @@ body.mini-rebel .mr-wow-grain::after {
 
 body.mini-rebel .mr-rope,
 body.mini-rebel .mr-wow-rope {
+  display: none;
   position: absolute;
   top: 18px;
   left: 8%;
@@ -68,6 +69,16 @@ body.mini-rebel .mr-wow-rope {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
   opacity: 0.8;
   pointer-events: none;
+}
+
+body.mini-rebel .mr-panel--hero {
+  background: rgba(243, 237, 228, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
+body.mini-rebel .mr-panel--hero::before {
+  opacity: 0;
 }
 
 body.mini-rebel .mr-stamps {
