@@ -200,3 +200,26 @@ faqToggles.forEach((toggle) => {
     }
   });
 });
+
+const bookingPill = document.getElementById('booking-pill');
+if (bookingPill) {
+  const threshold = 220;
+  let isTicking = false;
+
+  const updateBookingPill = () => {
+    const shouldShow = window.scrollY > threshold;
+    bookingPill.classList.toggle('is-visible', shouldShow);
+    bookingPill.classList.toggle('is-hidden', !shouldShow);
+    isTicking = false;
+  };
+
+  const onScroll = () => {
+    if (!isTicking) {
+      window.requestAnimationFrame(updateBookingPill);
+      isTicking = true;
+    }
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  updateBookingPill();
+}
