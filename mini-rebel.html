@@ -15,6 +15,7 @@
   <meta name="twitter:title" content="Mini Rebel | Matchande tees för stora &amp; små">
   <meta name="twitter:description" content="Matcha med mini. Designad av tatuerare. Trycks on-demand i EU. Skriv upp dig för kommande drop.">
   <meta name="twitter:image" content="https://melissaskywalkz.github.io/taboo-ink/assets/img/mini-rebel/og-mini-rebel.svg">
+  <link rel="preload" as="image" href="assets/img/mini-rebel/hero-mini-rebel.png">
   <link rel="icon" type="image/png" href="assets/img/logo-favicon.png">
   <link rel="apple-touch-icon" href="assets/img/logo-favicon.png">
   <meta name="theme-color" content="#0e0e10">
@@ -52,6 +53,7 @@
   </script>
 </head>
 <body class="mini-rebel">
+  <a class="skip-link" href="#main-content">Hoppa till innehåll</a>
   <header class="site-header" id="top">
     <div class="container header-inner">
       <a class="logo" href="index.html" aria-label="Taboo Ink Stockholm">
@@ -61,12 +63,12 @@
           class="logo-img"
         >
       </a>
-      <nav class="nav" id="primary-nav" aria-label="Huvudmeny">
-        <a href="index.html">Hem</a>
-        <a href="portfolio.html">Portfolio</a>
+            <nav class="nav" id="primary-nav" aria-label="Huvudmeny">
+        <a class="nav__link" href="index.html">Hem</a>
+        <a class="nav__link" href="portfolio.html">Portfolio</a>
         <div class="nav-item has-dropdown" data-dropdown>
-          <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="dropdown-styles">Stilar</button>
-          <div class="dropdown-menu" id="dropdown-styles">
+          <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="dropdown-styles">Stilar</button>
+          <div class="nav__dropdown dropdown-menu" id="dropdown-styles">
             <a href="realism.html">Realism</a>
             <a href="black-grey.html">Black &amp; Grey</a>
             <a href="cover-up.html">Cover-up</a>
@@ -74,8 +76,8 @@
           </div>
         </div>
         <div class="nav-item has-dropdown" data-dropdown>
-          <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="dropdown-info">Info</button>
-          <div class="dropdown-menu" id="dropdown-info">
+          <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="dropdown-info">Info</button>
+          <div class="nav__dropdown dropdown-menu" id="dropdown-info">
             <a href="aftercare.html">Eftervård</a>
             <a href="pris.html">Pris &amp; konsultation</a>
             <a href="faq.html">FAQ</a>
@@ -83,18 +85,20 @@
           </div>
         </div>
         <div class="nav-item has-dropdown" data-dropdown>
-          <a class="dropdown-toggle" href="mini-rebel.html" aria-expanded="false" aria-controls="dropdown-mini-rebel">Mini Rebel</a>
-          <div class="dropdown-menu" id="dropdown-mini-rebel">
-            <a href="mini-rebel.html#kollektion">Shop – Barn</a>
-            <a href="mini-rebel.html#kollektion">Shop – Vuxen</a>
-            <a href="mini-rebel.html#kollektion">Shop – Set/Matcha</a>
-            <a href="mini-rebel.html#kollektion">Shop – Hoodies</a>
-            <a href="mini-rebel.html#kollektion">Shop – Tees</a>
-            <a href="mini-rebel.html#kollektion">Shop – Accessoarer</a>
+          <div class="dropdown-trigger">
+            <a class="nav__link" href="mini-rebel.html">Mini Rebel</a>
+            <button class="nav__toggle nav__toggle--icon" type="button" aria-expanded="false" aria-controls="dropdown-mini-rebel">
+              <span class="sr-only">Öppna Mini Rebel-menyn</span>
+              <span aria-hidden="true">▾</span>
+            </button>
+          </div>
+          <div class="nav__dropdown dropdown-menu" id="dropdown-mini-rebel">
+            <a href="mini-rebel.html">Översikt</a>
+            <a href="mini-rebel.html#kollektion">Shop</a>
             <a href="flashbook.html">Motiv (Flashbook)</a>
             <a href="mini-rebel.html#popular">Plushies</a>
             <a href="mini-rebel.html#designer">Om oss</a>
-            <a href="faq.html">Storleksguide</a>
+            <a href="mini-rebel.html#storleksguide">Storleksguide</a>
             <a href="mini-rebel.html#sa-funkar-det">Tryck &amp; kvalitet</a>
           </div>
         </div>
@@ -109,35 +113,30 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <!-- Mini Rebel wow-skeleton: paneler/ramar, scen-kort och microinteractions (scopas i mini-rebel.css). -->
     <section class="mr-hero mr-wow-grain" aria-labelledby="mr-hero-title">
       <div class="mr-hero__overlay"></div>
-      <div class="mr-rope" aria-hidden="true"></div>
       <div class="mr-container">
-        <div class="mr-panel mr-hero__content">
-          <object class="mr-logo" data="assets/img/mini-rebel/logo.svg" type="image/svg+xml" aria-label="Mini Rebel logotyp">
-            <span class="mr-logo__fallback">Mini Rebel</span>
-          </object>
+        <div class="mr-panel mr-panel--hero mr-hero__content">
           <svg class="mr-sparkle mr-sparkle--hero" viewBox="0 0 120 120" aria-hidden="true">
             <path d="M60 10l8 26 26 8-26 8-8 26-8-26-26-8 26-8z" />
             <circle cx="96" cy="24" r="6" />
             <circle cx="18" cy="86" r="4" />
           </svg>
           <h1 class="mr-hero__title" id="mr-hero-title">Mini Rebel</h1>
-          <p class="mr-hero__subtitle">Små tatueringar. Stora berättelser.</p>
-          <p class="mr-hero__intro">Designad av tatuerare. Matchande set för stora &amp; små. Trycks on-demand i EU. Se <a href="#kollektion">kollektionen</a> eller skriv upp dig för nästa drop.</p>
+          <p class="mr-hero__intro">Tattoo vibes för små rebeller. Mjuk kvalitet, trycks on-demand i EU.</p>
           <div class="mr-hero__actions">
             <a class="mr-btn mr-btn--primary" href="#kollektion">Se kollektionen</a>
             <a class="mr-btn mr-btn--ghost" href="#intresse">Intresseanmälan</a>
           </div>
-          <div class="mr-hero__badges">Tryckt i EU • On-demand • Matcha med mini</div>
+          <div class="mr-drop-status">Drop 01 • Sneak peek • Lanseras snart</div>
+          <div class="mr-hero__badges">Tryckt i EU • On-demand • Mjuk kvalitet</div>
           <div class="mr-stamps" aria-label="Mini Rebel kvalitetsstämplar">
             <span class="mr-stamp">Tryckt i EU</span>
             <span class="mr-stamp">On-demand</span>
             <span class="mr-stamp">Mjuk kvalitet</span>
           </div>
-          <div class="mr-hero__note">Tryckt för handkänsla. Skapad för små rebeller &amp; stora hjärtan.</div>
         </div>
       </div>
     </section>
@@ -153,7 +152,9 @@
           <div class="mr-scroll-row" role="region" aria-label="Populära Mini Rebel produkter">
             <article class="mr-card mr-card--shop" data-product="Mini Rebel Tee – Barn (Cream)" data-price="299 kr" data-color="Cream" data-category="barn">
               <span class="mr-card__label">Kommer snart</span>
-              <img src="assets/img/mini-rebel/product-1.svg" alt="Mini Rebel Tee för barn i cream" loading="lazy" width="320" height="320">
+              <div class="mr-card__media">
+                <img src="assets/img/mini-rebel/products/1.png" alt="Mini Rebel Tee för barn i cream" loading="lazy" width="320" height="320">
+              </div>
               <div class="mr-card__body">
                 <h3>Mini Rebel Tee – Barn (Cream)</h3>
                 <p class="mr-card__price">299 kr</p>
@@ -166,14 +167,16 @@
                 <p class="mr-card__meta" data-card-meta></p>
                 <div class="mr-card__quick">Snabbinfo: Matcha med mini • 100% bomull</div>
                 <div class="mr-card__actions">
-                  <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt</button>
                   <button class="mr-btn mr-btn--primary" type="button" data-interest>Intresseanmäl</button>
+                  <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt <span aria-hidden="true">↗</span></button>
                 </div>
               </div>
             </article>
             <article class="mr-card mr-card--shop" data-product="Mini Rebel Tee – Barn (Black)" data-price="299 kr" data-color="Black" data-category="barn">
               <span class="mr-card__label">Kommer snart</span>
-              <img src="assets/img/mini-rebel/product-2.svg" alt="Mini Rebel Tee för barn i svart" loading="lazy" width="320" height="320">
+              <div class="mr-card__media">
+                <img src="assets/img/mini-rebel/products/4.png" alt="Mini Rebel Tee för barn i svart" loading="lazy" width="320" height="320">
+              </div>
               <div class="mr-card__body">
                 <h3>Mini Rebel Tee – Barn (Black)</h3>
                 <p class="mr-card__price">299 kr</p>
@@ -186,14 +189,16 @@
                 <p class="mr-card__meta" data-card-meta></p>
                 <div class="mr-card__quick">Snabbinfo: Barnstorlek • Rebel black</div>
                 <div class="mr-card__actions">
-                  <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt</button>
                   <button class="mr-btn mr-btn--primary" type="button" data-interest>Intresseanmäl</button>
+                  <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt <span aria-hidden="true">↗</span></button>
                 </div>
               </div>
             </article>
             <article class="mr-card mr-card--shop" data-product="Mini Rebel Tee – Vuxen (Black)" data-price="349 kr" data-color="Black" data-category="vuxen">
               <span class="mr-card__label">Kommer snart</span>
-              <img src="assets/img/mini-rebel/product-4.svg" alt="Mini Rebel Tee för vuxen i svart" loading="lazy" width="320" height="320">
+              <div class="mr-card__media">
+                <img src="assets/img/mini-rebel/products/4.png" alt="Mini Rebel Tee för vuxen i svart" loading="lazy" width="320" height="320">
+              </div>
               <div class="mr-card__body">
                 <h3>Mini Rebel Tee – Vuxen (Black)</h3>
                 <p class="mr-card__price">349 kr</p>
@@ -206,14 +211,16 @@
                 <p class="mr-card__meta" data-card-meta></p>
                 <div class="mr-card__quick">Snabbinfo: Unisex fit • 100% bomull</div>
                 <div class="mr-card__actions">
-                  <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt</button>
                   <button class="mr-btn mr-btn--primary" type="button" data-interest>Intresseanmäl</button>
+                  <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt <span aria-hidden="true">↗</span></button>
                 </div>
               </div>
             </article>
             <article class="mr-card mr-card--shop" data-product="Matchande set – Barn + Vuxen (Cream)" data-price="599 kr" data-color="Cream" data-category="set">
               <span class="mr-card__label">Kommer snart</span>
-              <img src="assets/img/mini-rebel/product-1.svg" alt="Matchande set i cream" loading="lazy" width="320" height="320">
+              <div class="mr-card__media">
+                <img src="assets/img/mini-rebel/products/2.png" alt="Matchande set i cream" loading="lazy" width="320" height="320">
+              </div>
               <div class="mr-card__body">
                 <h3>Matchande set – Barn + Vuxen (Cream)</h3>
                 <p class="mr-card__price">599 kr</p>
@@ -226,8 +233,8 @@
                 <p class="mr-card__meta" data-card-meta></p>
                 <div class="mr-card__quick">Snabbinfo: Setpris • Matcha direkt</div>
                 <div class="mr-card__actions">
-                  <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt</button>
                   <button class="mr-btn mr-btn--primary" type="button" data-interest>Intresseanmäl</button>
+                  <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt <span aria-hidden="true">↗</span></button>
                 </div>
               </div>
             </article>
@@ -241,7 +248,6 @@
         <div class="mr-panel">
           <header class="mr-section__header">
             <p class="mr-section__kicker">Kollektion 1</p>
-            <p class="mr-section__note">Card-API: .mr-card--shop, .mr-card__badges, .mr-card__badge, .mr-card__quick, .mr-card__meta.</p>
             <h2>
               Mini Rebel Tee
               <svg class="mr-sparkle mr-sparkle--title" viewBox="0 0 120 120" aria-hidden="true">
@@ -257,6 +263,9 @@
               <button class="mr-chip" type="button" data-filter="vuxen" aria-pressed="false">Vuxen</button>
               <button class="mr-chip" type="button" data-filter="set" aria-pressed="false">Set</button>
             </div>
+          </div>
+          <div class="mr-results-row">
+            <p class="mr-results-count" id="mr-results-count" aria-live="polite">Visar 0 produkter</p>
             <label class="mr-sort">
               Sortera
               <select id="mr-sort-select">
@@ -268,7 +277,9 @@
           <div class="mr-grid" id="mr-product-grid">
           <article class="mr-card mr-card--shop" data-product="Mini Rebel Tee – Barn (Cream)" data-price="299 kr" data-color="Cream" data-category="barn">
             <span class="mr-card__label">Kommer snart</span>
-            <img src="assets/img/mini-rebel/product-1.svg" alt="Mini Rebel Tee för barn i cream" loading="lazy" width="320" height="320">
+            <div class="mr-card__media">
+              <img src="assets/img/mini-rebel/products/1.png" alt="Mini Rebel Tee för barn i cream" loading="lazy" width="320" height="320">
+            </div>
             <div class="mr-card__body">
               <h3>Mini Rebel Tee – Barn (Cream)</h3>
               <p class="mr-card__price">299 kr</p>
@@ -281,14 +292,16 @@
               <p class="mr-card__meta" data-card-meta></p>
               <div class="mr-card__quick">Snabbinfo: Barnstorlek • 100% bomull</div>
               <div class="mr-card__actions">
-                <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt</button>
                 <button class="mr-btn mr-btn--primary" type="button" data-interest>Intresseanmäl</button>
+                <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt <span aria-hidden="true">↗</span></button>
               </div>
             </div>
           </article>
           <article class="mr-card mr-card--shop" data-product="Mini Rebel Tee – Barn (Black)" data-price="299 kr" data-color="Black" data-category="barn">
             <span class="mr-card__label">Kommer snart</span>
-            <img src="assets/img/mini-rebel/product-2.svg" alt="Mini Rebel Tee för barn i svart" loading="lazy" width="320" height="320">
+            <div class="mr-card__media">
+              <img src="assets/img/mini-rebel/products/4.png" alt="Mini Rebel Tee för barn i svart" loading="lazy" width="320" height="320">
+            </div>
             <div class="mr-card__body">
               <h3>Mini Rebel Tee – Barn (Black)</h3>
               <p class="mr-card__price">299 kr</p>
@@ -301,14 +314,16 @@
               <p class="mr-card__meta" data-card-meta></p>
               <div class="mr-card__quick">Snabbinfo: Barnstorlek • Rebel black</div>
               <div class="mr-card__actions">
-                <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt</button>
                 <button class="mr-btn mr-btn--primary" type="button" data-interest>Intresseanmäl</button>
+                <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt <span aria-hidden="true">↗</span></button>
               </div>
             </div>
           </article>
           <article class="mr-card mr-card--shop" data-product="Mini Rebel Tee – Vuxen (Cream)" data-price="349 kr" data-color="Cream" data-category="vuxen">
             <span class="mr-card__label">Kommer snart</span>
-            <img src="assets/img/mini-rebel/product-3.svg" alt="Mini Rebel Tee för vuxen i cream" loading="lazy" width="320" height="320">
+            <div class="mr-card__media">
+              <img src="assets/img/mini-rebel/products/3.png" alt="Mini Rebel Tee för vuxen i cream" loading="lazy" width="320" height="320">
+            </div>
             <div class="mr-card__body">
               <h3>Mini Rebel Tee – Vuxen (Cream)</h3>
               <p class="mr-card__price">349 kr</p>
@@ -321,14 +336,16 @@
               <p class="mr-card__meta" data-card-meta></p>
               <div class="mr-card__quick">Snabbinfo: Unisex • Cream</div>
               <div class="mr-card__actions">
-                <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt</button>
                 <button class="mr-btn mr-btn--primary" type="button" data-interest>Intresseanmäl</button>
+                <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt <span aria-hidden="true">↗</span></button>
               </div>
             </div>
           </article>
           <article class="mr-card mr-card--shop" data-product="Mini Rebel Tee – Vuxen (Black)" data-price="349 kr" data-color="Black" data-category="vuxen">
             <span class="mr-card__label">Kommer snart</span>
-            <img src="assets/img/mini-rebel/product-4.svg" alt="Mini Rebel Tee för vuxen i svart" loading="lazy" width="320" height="320">
+            <div class="mr-card__media">
+              <img src="assets/img/mini-rebel/products/4.png" alt="Mini Rebel Tee för vuxen i svart" loading="lazy" width="320" height="320">
+            </div>
             <div class="mr-card__body">
               <h3>Mini Rebel Tee – Vuxen (Black)</h3>
               <p class="mr-card__price">349 kr</p>
@@ -341,14 +358,16 @@
               <p class="mr-card__meta" data-card-meta></p>
               <div class="mr-card__quick">Snabbinfo: Unisex • Rebel black</div>
               <div class="mr-card__actions">
-                <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt</button>
                 <button class="mr-btn mr-btn--primary" type="button" data-interest>Intresseanmäl</button>
+                <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt <span aria-hidden="true">↗</span></button>
               </div>
             </div>
           </article>
           <article class="mr-card mr-card--shop" data-product="Matchande set – Barn + Vuxen (Cream)" data-price="599 kr" data-color="Cream" data-category="set">
             <span class="mr-card__label">Kommer snart</span>
-            <img src="assets/img/mini-rebel/product-1.svg" alt="Matchande set i cream" loading="lazy" width="320" height="320">
+            <div class="mr-card__media">
+              <img src="assets/img/mini-rebel/products/2.png" alt="Matchande set i cream" loading="lazy" width="320" height="320">
+            </div>
             <div class="mr-card__body">
               <h3>Matchande set – Barn + Vuxen (Cream)</h3>
               <p class="mr-card__price">599 kr</p>
@@ -361,14 +380,16 @@
               <p class="mr-card__meta" data-card-meta></p>
               <div class="mr-card__quick">Snabbinfo: Setpris • Cream</div>
               <div class="mr-card__actions">
-                <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt</button>
                 <button class="mr-btn mr-btn--primary" type="button" data-interest>Intresseanmäl</button>
+                <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt <span aria-hidden="true">↗</span></button>
               </div>
             </div>
           </article>
           <article class="mr-card mr-card--shop" data-product="Matchande set – Barn + Vuxen (Black)" data-price="599 kr" data-color="Black" data-category="set">
             <span class="mr-card__label">Kommer snart</span>
-            <img src="assets/img/mini-rebel/product-2.svg" alt="Matchande set i svart" loading="lazy" width="320" height="320">
+            <div class="mr-card__media">
+              <img src="assets/img/mini-rebel/products/4.png" alt="Matchande set i svart" loading="lazy" width="320" height="320">
+            </div>
             <div class="mr-card__body">
               <h3>Matchande set – Barn + Vuxen (Black)</h3>
               <p class="mr-card__price">599 kr</p>
@@ -381,8 +402,8 @@
               <p class="mr-card__meta" data-card-meta></p>
               <div class="mr-card__quick">Snabbinfo: Setpris • Rebel black</div>
               <div class="mr-card__actions">
-                <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt</button>
                 <button class="mr-btn mr-btn--primary" type="button" data-interest>Intresseanmäl</button>
+                <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt <span aria-hidden="true">↗</span></button>
               </div>
             </div>
           </article>
@@ -392,26 +413,110 @@
     </section>
 
     <section class="mr-section mr-section--tight" id="sa-funkar-det">
-      <div class="mr-container mr-benefits mr-panel">
+      <div class="mr-container mr-panel">
         <header class="mr-section__header">
           <p class="mr-section__kicker">Så funkar det</p>
           <h2>Tryggt, enkelt och on-demand</h2>
-          <p>Läs mer om <a href="faq.html">leverans &amp; retur</a> och <a href="faq.html">storleksguide</a> innan släpp.</p>
+          <p>Läs mer om <a href="faq.html">leverans &amp; retur</a> och <a href="#storleksguide">storleksguide</a> innan släpp.</p>
         </header>
-        <div class="mr-benefit">
-          <span class="mr-benefit__icon" aria-hidden="true">🪡</span>
-          <p>Tryckt i EU</p>
-          <span class="mr-stamp">Tryckt i EU</span>
+        <div class="mr-benefits-grid">
+          <div class="mr-benefit">
+            <span class="mr-benefit__icon" aria-hidden="true">🪡</span>
+            <h3>Tryckt i EU</h3>
+            <p>Trycks nära dig för snabbare leverans.</p>
+          </div>
+          <div class="mr-benefit">
+            <span class="mr-benefit__icon" aria-hidden="true">🌱</span>
+            <h3>On-demand</h3>
+            <p>Vi producerar först när ni beställer.</p>
+          </div>
+          <div class="mr-benefit">
+            <span class="mr-benefit__icon" aria-hidden="true">🧸</span>
+            <h3>Mjuk kvalitet</h3>
+            <p>Skön bomull för både små &amp; stora.</p>
+          </div>
         </div>
-        <div class="mr-benefit">
-          <span class="mr-benefit__icon" aria-hidden="true">🌱</span>
-          <p>On-demand – ingen överproduktion</p>
-          <span class="mr-stamp">On-demand</span>
-        </div>
-        <div class="mr-benefit">
-          <span class="mr-benefit__icon" aria-hidden="true">🧸</span>
-          <p>Mjuk kvalitet för stor &amp; liten</p>
-          <span class="mr-stamp">Mjuk kvalitet</span>
+        <details class="mr-benefits-details">
+          <summary>Läs mer om drop &amp; leverans</summary>
+          <p>Varje produkt trycks on-demand i EU. När droppet öppnar skickar vi uppdateringar med leveranstider och storleksinfo.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="mr-section mr-section--muted" id="storleksguide">
+      <div class="mr-container">
+        <div class="mr-panel">
+          <header class="mr-section__header">
+            <p class="mr-section__kicker">Storleksguide</p>
+            <h2>Hitta rätt storlek för små &amp; stora rebels</h2>
+            <p>Storlekarna är unisex och följer standardmått. Hör av er om ni vill dubbelkolla passform innan släpp.</p>
+          </header>
+          <div class="mr-size-guide">
+            <div>
+              <h3>Barn</h3>
+              <table class="mr-size-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Storlek</th>
+                    <th scope="col">Ålder (ca)</th>
+                    <th scope="col">Bröst (cm)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>98/104</td>
+                    <td>2–4 år</td>
+                    <td>56–58</td>
+                  </tr>
+                  <tr>
+                    <td>110/116</td>
+                    <td>4–6 år</td>
+                    <td>60–64</td>
+                  </tr>
+                  <tr>
+                    <td>122/128</td>
+                    <td>6–8 år</td>
+                    <td>66–70</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div>
+              <h3>Vuxen</h3>
+              <table class="mr-size-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Storlek</th>
+                    <th scope="col">Bröst (cm)</th>
+                    <th scope="col">Längd (cm)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>XS</td>
+                    <td>82–86</td>
+                    <td>64</td>
+                  </tr>
+                  <tr>
+                    <td>S</td>
+                    <td>86–94</td>
+                    <td>66</td>
+                  </tr>
+                  <tr>
+                    <td>M</td>
+                    <td>94–102</td>
+                    <td>69</td>
+                  </tr>
+                  <tr>
+                    <td>L</td>
+                    <td>102–110</td>
+                    <td>72</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p class="mr-size-note">Tips: gillar ni en oversize-look, gå upp en storlek.</p>
         </div>
       </div>
     </section>
@@ -457,7 +562,7 @@
             <p class="mr-ugc-text">En trygg plats för små rebeller. Dela er story när ni är redo.</p>
             <div class="mr-ugc-actions">
               <span class="mr-hashtag-badge">#minirebelfamily</span>
-              <a class="mr-btn mr-btn--ghost" href="mailto:info@tabooinkstockholm.com?subject=Mini%20Rebel%20-%20Skicka%20in%20bild">Skicka in bild</a>
+              <a class="mr-btn mr-btn--secondary" href="mailto:info@tabooinkstockholm.com?subject=Mini%20Rebel%20-%20Skicka%20in%20bild">Skicka in bild</a>
               <a class="mr-btn mr-btn--primary" href="https://instagram.com/tabooink" target="_blank" rel="noopener">Tagga oss</a>
             </div>
           </div>
@@ -505,11 +610,14 @@
             </label>
             <input type="hidden" name="produkt" id="mr-product-field">
             <button class="mr-btn mr-btn--primary" type="submit">Skicka intresse</button>
-            <p class="mr-form__note">Vi skickar 1 mail vid släpp. Inget mer.</p>
+            <p class="mr-form__error" id="mr-form-error" role="alert" hidden></p>
+            <p class="mr-form__note">När du klickar öppnas ditt e-postprogram med ett färdigt meddelande.</p>
           </form>
-          <div class="mr-form-success" id="mr-form-success" hidden>
+          <div class="mr-form-success" id="mr-form-success" role="status" aria-live="polite" aria-hidden="true" hidden>
             <h3>Tack! 🖤</h3>
-            <p>Vi har sparat din intresseanmälan och pingar dig när Mini Rebel släpps.</p>
+            <p>Ett mailutkast har öppnats. Skicka det så hör vi av oss när droppet släpps.</p>
+            <p>Om inget händer kan du maila oss direkt på <a href="mailto:info@tabooinkstockholm.com">info@tabooinkstockholm.com</a>.</p>
+            <button class="mr-btn mr-btn--primary" type="button" id="mr-back-to-collection">Tillbaka till kollektionen</button>
             <button class="mr-btn mr-btn--ghost" type="button" id="mr-reset">Skicka en ny</button>
           </div>
         </div>
@@ -535,11 +643,16 @@
     <div class="mr-modal__content" role="document">
       <button class="mr-modal__close" type="button" data-modal-close aria-label="Stäng">✕</button>
       <div class="mr-modal__media">
-        <img id="mr-modal-image" src="assets/img/mini-rebel/product-1.svg" alt="Mini Rebel produktbild" width="360" height="360">
+        <img id="mr-modal-image" src="assets/img/mini-rebel/products/1.png" alt="Mini Rebel produktbild" width="360" height="360">
       </div>
       <div class="mr-modal__details">
         <h3 id="mr-modal-title">Mini Rebel Tee</h3>
         <p class="mr-modal__price" id="mr-modal-price">299 kr</p>
+        <div class="mr-modal__stamps" aria-label="Mini Rebel kvalitetsstämplar">
+          <span class="mr-stamp">Tryckt i EU</span>
+          <span class="mr-stamp">On-demand</span>
+          <span class="mr-stamp">Mjuk kvalitet</span>
+        </div>
         <div class="mr-modal__badges">
           <span class="mr-card__badge">Tryckt i EU</span>
           <span class="mr-card__badge">On-demand</span>
@@ -602,7 +715,7 @@
     </div>
   </div>
 
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/mini-rebel.js"></script>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/mini-rebel.js" defer></script>
 </body>
 </html>
