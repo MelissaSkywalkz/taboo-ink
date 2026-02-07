@@ -28,6 +28,12 @@ Statisk hemsida för Taboo Ink Stockholm byggd i HTML/CSS/JS utan build-step. An
 3. Välj branch och mapp (root) och spara.
 4. Vänta på att sidan publiceras.
 
+## Smoke check (GitHub Pages)
+
+- Öppna `https://melissaskywalkz.github.io/taboo-ink/index.html` och verifiera att CSS och bilder laddas.
+- Öppna `https://melissaskywalkz.github.io/taboo-ink/mini-rebel.html` och verifiera att layouten ser rätt ut.
+- Om du ser 404 på CSS eller JS, kontrollera att paths är relativa (till exempel `./assets/...`) och att casing matchar filerna i repo.
+
 ## TODO
 
 - Lägg till riktiga bilder och faviconer.
