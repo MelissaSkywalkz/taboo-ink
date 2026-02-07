@@ -472,10 +472,6 @@ body.mini-rebel.mr-nav-open {
   line-height: 1.08;
 }
 
-.mr-hero-break {
-  display: none;
-}
-
 .mr-hero-tagline {
   margin: 0;
   color: var(--ink-paper-soft);
