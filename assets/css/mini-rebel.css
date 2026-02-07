@@ -1986,38 +1986,6 @@ body.mini-rebel.mr-modal-open .mr-modal {
 }
 
 /* Designer section layout */
-.mr-designer {
-  display: grid;
-  gap: 20px;
-}
-
-.mr-designer__text {
-  display: grid;
-  gap: 12px;
-  color: var(--ink-paper-soft);
-}
-
-/* Flash grid */
-.mr-flash-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.mr-flash-card {
-  padding: 18px 16px;
-  border-radius: var(--mr-radius-lg);
-  border: 1px solid rgba(221, 193, 163, 0.2);
-  background: rgba(44, 33, 24, 0.4);
-  font-weight: 700;
-  text-align: center;
-  color: var(--ink-paper);
-  transition: transform 0.2s ease;
-}
-
-.mr-flash-card:hover {
-  transform: translateY(-2px);
-}
 
 /* Club / interest form */
 .mr-club {
