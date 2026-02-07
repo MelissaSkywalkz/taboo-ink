@@ -241,6 +241,7 @@ body.mini-rebel.mr-nav-open {
   width: 44px;
   height: 44px;
   padding: 0;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 4px;
@@ -307,7 +308,9 @@ body.mini-rebel.mr-nav-open {
 .mr-nav-drawer__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(8, 8, 10, 0.7);
+  background: rgba(8, 8, 10, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   pointer-events: none;
   z-index: 0;
 }
@@ -322,7 +325,8 @@ body.mini-rebel.mr-nav-open {
   left: 0;
   width: min(320px, 85vw);
   height: 100%;
-  background: rgba(13, 10, 8, 0.98);
+  background:
+    linear-gradient(180deg, rgba(13, 10, 8, 0.98) 0%, rgba(13, 10, 8, 0.92) 100%);
   border-right: 1px solid var(--ink-border);
   padding: var(--mr-space-lg);
   display: grid;
@@ -340,6 +344,16 @@ body.mini-rebel.mr-nav-open {
 .mr-nav-drawer__links {
   display: grid;
   gap: var(--mr-space-sm);
+  padding: 12px;
+  border-radius: var(--mr-radius-lg);
+  background: rgba(44, 33, 24, 0.35);
+  border: 1px solid rgba(221, 193, 163, 0.2);
+}
+
+.mr-header__logo--mobile {
+  display: none;
+  justify-self: center;
+  text-decoration: none;
 }
 
 .mr-nav-drawer__links a {
@@ -2192,6 +2206,11 @@ body.mini-rebel input:focus-visible {
     --mr-header-height: 56px;
   }
 
+  .mr-header {
+    background: rgba(10, 8, 6, 0.9);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+  }
+
   .mr-header__inner {
     grid-template-columns: 44px 1fr 44px;
     gap: var(--mr-space-sm);
@@ -2268,6 +2287,10 @@ body.mini-rebel input:focus-visible {
     display: inline-flex;
   }
 
+  .mr-header__logo--mobile {
+    display: inline-flex;
+  }
+
   .mr-icon-btn--mobile {
     display: inline-flex;
   }
@@ -2303,6 +2326,11 @@ body.mini-rebel input:focus-visible {
     --mr-header-height: 64px;
   }
 
+  .mr-header {
+    background: rgba(10, 8, 6, 0.88);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+  }
+
   .mr-header__inner {
     grid-template-columns: 52px 1fr 52px;
   }
@@ -2311,6 +2339,22 @@ body.mini-rebel input:focus-visible {
   .mr-nav-toggle {
     width: 46px;
     height: 46px;
+  }
+
+  .mr-nav {
+    display: none;
+  }
+
+  .mr-nav-toggle {
+    display: inline-flex;
+  }
+
+  .mr-header__logo--mobile {
+    display: inline-flex;
+  }
+
+  .mr-icon-btn--mobile {
+    display: inline-flex;
   }
 
   .mr-hero {

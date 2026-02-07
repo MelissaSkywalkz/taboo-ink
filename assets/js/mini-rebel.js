@@ -26,7 +26,11 @@ const initMiniRebel = () => {
   const formPanel = document.querySelector('.mr-club__form');
   const nameError = document.getElementById('mr-name-error');
   const emailError = document.getElementById('mr-email-error');
-  const pageRoot = document.querySelector('.mr-page');
+  const inertTargets = [
+    document.querySelector('main'),
+    document.querySelector('.mr-header__inner'),
+    document.querySelector('.mr-footer'),
+  ].filter(Boolean);
   const navToggle = document.querySelector('.mr-nav-toggle');
   const navDrawer = document.getElementById('mr-nav-drawer');
   const navDrawerPanel = navDrawer ? navDrawer.querySelector('.mr-nav-drawer__panel') : null;
@@ -49,6 +53,12 @@ const initMiniRebel = () => {
     return Array.from(root.querySelectorAll(focusableSelector)).filter((element) => !element.hasAttribute('disabled'));
   };
 
+  const setInertState = (isInert) => {
+    inertTargets.forEach((element) => {
+      element.inert = isInert;
+    });
+  };
+
   const openNavDrawer = () => {
     if (!navDrawer || !navToggle) {
       return;
@@ -59,10 +69,7 @@ const initMiniRebel = () => {
     navDrawer.setAttribute('aria-hidden', 'false');
     navToggle.setAttribute('aria-expanded', 'true');
     document.body.classList.add('mr-nav-open');
-    if (pageRoot) {
-      pageRoot.setAttribute('aria-hidden', 'true');
-      pageRoot.inert = true;
-    }
+    setInertState(true);
     const focusTarget = navDrawerLinks[0] || navDrawerPanel;
     if (focusTarget) {
       focusTarget.focus();
@@ -78,10 +85,7 @@ const initMiniRebel = () => {
     navDrawer.setAttribute('aria-hidden', 'true');
     navToggle.setAttribute('aria-expanded', 'false');
     document.body.classList.remove('mr-nav-open');
-    if (pageRoot) {
-      pageRoot.removeAttribute('aria-hidden');
-      pageRoot.inert = false;
-    }
+    setInertState(false);
     if (lastFocusedNav && typeof lastFocusedNav.focus === 'function') {
       lastFocusedNav.focus();
     }
@@ -262,11 +266,8 @@ const initMiniRebel = () => {
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('mr-modal-open');
-    if (pageRoot) {
-      // Prevent background interaction + assistive tech focus leakage when modal is open.
-      pageRoot.setAttribute('aria-hidden', 'true');
-      pageRoot.inert = true;
-    }
+    // Prevent background interaction when modal is open.
+    setInertState(true);
 
     const focusTarget = modal.querySelector('.mr-modal__close') || getFocusableElements(modal)[0];
     if (focusTarget) {
@@ -282,11 +283,8 @@ const initMiniRebel = () => {
     modal.hidden = true;
     modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('mr-modal-open');
-    if (pageRoot) {
-      // Restore page interactivity after modal close.
-      pageRoot.removeAttribute('aria-hidden');
-      pageRoot.inert = false;
-    }
+    // Restore page interactivity after modal close.
+    setInertState(false);
     if (lastFocusedElement) {
       lastFocusedElement.focus();
     }
