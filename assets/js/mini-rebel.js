@@ -36,6 +36,7 @@ const initMiniRebel = () => {
   const navDrawerPanel = navDrawer ? navDrawer.querySelector('.mr-nav-drawer__panel') : null;
   const navDrawerLinks = navDrawer ? navDrawer.querySelectorAll('a') : [];
   const navDrawerCloseButtons = navDrawer ? navDrawer.querySelectorAll('[data-drawer-close]') : [];
+  const navToggleLabel = navToggle ? navToggle.querySelector('[data-nav-toggle-label]') : null;
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const focusableSelector = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
@@ -43,6 +44,7 @@ const initMiniRebel = () => {
   let modalListenersInitialized = false;
   let highlightTimeout = null;
   let lastFocusedNav = null;
+  let navDrawerCloseTimeout = null;
 
   const mailtoAddress = 'info@tabooinkstockholm.com';
 
@@ -63,11 +65,19 @@ const initMiniRebel = () => {
     if (!navDrawer || !navToggle) {
       return;
     }
+    if (navDrawerCloseTimeout) {
+      window.clearTimeout(navDrawerCloseTimeout);
+      navDrawerCloseTimeout = null;
+    }
     lastFocusedNav = document.activeElement;
     navDrawer.hidden = false;
     navDrawer.classList.add('is-open');
     navDrawer.setAttribute('aria-hidden', 'false');
     navToggle.setAttribute('aria-expanded', 'true');
+    navToggle.classList.add('is-open');
+    if (navToggleLabel) {
+      navToggleLabel.textContent = 'Stäng meny';
+    }
     document.body.classList.add('mr-nav-open');
     setInertState(true);
     const focusTarget = navDrawerLinks[0] || navDrawerPanel;
@@ -81,14 +91,21 @@ const initMiniRebel = () => {
       return;
     }
     navDrawer.classList.remove('is-open');
-    navDrawer.hidden = true;
     navDrawer.setAttribute('aria-hidden', 'true');
     navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.classList.remove('is-open');
+    if (navToggleLabel) {
+      navToggleLabel.textContent = 'Öppna meny';
+    }
     document.body.classList.remove('mr-nav-open');
     setInertState(false);
     if (lastFocusedNav && typeof lastFocusedNav.focus === 'function') {
       lastFocusedNav.focus();
     }
+    navDrawerCloseTimeout = window.setTimeout(() => {
+      navDrawer.hidden = true;
+      navDrawerCloseTimeout = null;
+    }, prefersReducedMotion ? 0 : 220);
   };
 
   const trapDrawerFocus = (event) => {
@@ -170,7 +187,7 @@ const initMiniRebel = () => {
       image: './assets/img/mini-rebel/products/product-5.png',
       fit: 'Barn, normal passform',
       material: '100% bomull',
-      story: 'En liten rebell med stort hjärta. Inspirerad av klassisk tattoo flash, tryckt på Studio Cream.',
+      story: 'Mjuk jersey med klassisk tattoo flash, tryckt on-demand i EU.',
       care: 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.',
       shipping: 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.',
       related: ['Barn, Vuxen, Set', 'Studio Cream, Rebel Black', 'Storleksguide'],
@@ -179,7 +196,7 @@ const initMiniRebel = () => {
       image: './assets/img/mini-rebel/products/product-6.png',
       fit: 'Barn, normal passform',
       material: '100% bomull',
-      story: 'Rebel Black med trygg passform. För dagar som behöver lite mer mod.',
+      story: 'Rebel Black med tydlig kontrast och mjuk känsla mot huden.',
       care: 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.',
       shipping: 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.',
       related: ['Barn, Vuxen, Set', 'Studio Cream, Rebel Black', 'Storleksguide'],
@@ -188,7 +205,7 @@ const initMiniRebel = () => {
       image: './assets/img/mini-rebel/products/product-7.png',
       fit: 'Unisex, normal passform',
       material: '100% bomull',
-      story: 'Studio Cream för vuxna. Samma motiv som mini, tänkt att bäras ihop.',
+      story: 'Studio Cream för vuxna. Samma motiv som mini, mer luft och vardagslugn.',
       care: 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.',
       shipping: 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.',
       related: ['Barn, Vuxen, Set', 'Studio Cream, Rebel Black', 'Storleksguide'],
@@ -197,7 +214,7 @@ const initMiniRebel = () => {
       image: './assets/img/mini-rebel/products/product-1.png',
       fit: 'Unisex, normal passform',
       material: '100% bomull',
-      story: 'Rebel Black med tydlig attityd. Ett plagg som funkar varje dag.',
+      story: 'Rebel Black med diskret statement, unisex och lätt att bära.',
       care: 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.',
       shipping: 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.',
       related: ['Barn, Vuxen, Set', 'Studio Cream, Rebel Black', 'Storleksguide'],
@@ -206,7 +223,7 @@ const initMiniRebel = () => {
       image: './assets/img/mini-rebel/products/product-2.png',
       fit: 'Barn + Vuxen, normal passform',
       material: '100% bomull',
-      story: 'Studio Cream för två. Matcha utan att matcha för mycket.',
+      story: 'Två plagg, samma motiv. Matcha utan att kännas tillrättalagd.',
       care: 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.',
       shipping: 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.',
       related: ['Barn, Vuxen, Set', 'Studio Cream, Rebel Black', 'Storleksguide'],
@@ -215,7 +232,7 @@ const initMiniRebel = () => {
       image: './assets/img/mini-rebel/products/product-3.png',
       fit: 'Barn + Vuxen, normal passform',
       material: '100% bomull',
-      story: 'Rebel Black i dubbel upplaga. Samma känsla, två storlekar.',
+      story: 'Rebel Black i dubbel upplaga för familjer som vill synas lagom.',
       care: 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.',
       shipping: 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.',
       related: ['Barn, Vuxen, Set', 'Studio Cream, Rebel Black', 'Storleksguide'],
@@ -241,7 +258,7 @@ const initMiniRebel = () => {
       applyImageFallback(modalImage);
     }
     if (modalDescription) {
-      modalDescription.textContent = details.story || 'Tydlig, enkel och rak. Ett plagg som funkar varje dag.';
+      modalDescription.textContent = details.story || 'Mjuk, enkel och rak. Ett plagg som funkar varje dag.';
     }
     if (modalFit) {
       modalFit.textContent = details.fit || 'Normal passform';
@@ -250,7 +267,7 @@ const initMiniRebel = () => {
       modalMaterial.textContent = details.material || '100% bomull';
     }
     if (modalStory) {
-      modalStory.textContent = details.story || 'En liten rebell med stort hjärta. Inspirerad av klassisk tattoo flash, tryckt på Studio Cream.';
+      modalStory.textContent = details.story || 'En liten rebell med stort hjärta. Inspirerad av klassisk tattoo flash, tryckt on-demand i EU.';
     }
     if (modalCare) {
       modalCare.textContent = details.care || 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.';
