@@ -723,6 +723,36 @@ body.mini-rebel.mr-nav-open {
   border-top: 1px solid rgba(221, 193, 163, 0.12);
 }
 
+.mr-origin-panel {
+  display: grid;
+  gap: var(--mr-space-md);
+  margin-inline: auto;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(234, 218, 194, 0.12), rgba(27, 20, 15, 0.94) 58%, rgba(13, 10, 8, 0.98) 100%);
+  border: 1px solid var(--mr-border);
+  border-radius: var(--mr-radius-xl);
+  padding: clamp(18px, 4vw, 28px);
+  padding-right: clamp(20px, 3vw, 32px);
+  box-shadow:
+    0 16px 32px rgba(0, 0, 0, 0.38),
+    inset 0 0 0 1px rgba(255, 228, 196, 0.04);
+  backdrop-filter: blur(6px);
+  position: relative;
+  z-index: 2;
+}
+
+.mr-origin-panel::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(234, 218, 194, 0.05), transparent 45%),
+    repeating-linear-gradient(120deg, rgba(234, 218, 194, 0.02) 0px, rgba(234, 218, 194, 0.02) 1px, transparent 1px, transparent 3px);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
 .mr-section > .mr-container,
 .mr-section > .mr-container > .mr-panel,
 .mr-section > .mr-container.mr-panel {
@@ -824,7 +854,7 @@ body.mini-rebel.mr-nav-open {
   text-transform: uppercase;
   letter-spacing: 0.14em;
   font-size: 0.75rem;
-  color: var(--ink-paper);
+  color: var(--ink-paper-soft);
 }
 
 .mr-origin-stamp {
