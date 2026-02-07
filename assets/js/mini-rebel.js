@@ -1,4 +1,7 @@
 const initMiniRebel = () => {
+  if (!document.body || document.body.dataset.site !== 'mini-rebel') {
+    return;
+  }
   const modal = document.getElementById('mr-modal');
   const modalTitle = document.getElementById('mr-modal-title');
   const modalPrice = document.getElementById('mr-modal-price');
@@ -53,6 +56,7 @@ const initMiniRebel = () => {
     lastFocusedNav = document.activeElement;
     navDrawer.hidden = false;
     navDrawer.classList.add('is-open');
+    navDrawer.setAttribute('aria-hidden', 'false');
     navToggle.setAttribute('aria-expanded', 'true');
     document.body.classList.add('mr-nav-open');
     if (pageRoot) {
@@ -71,6 +75,7 @@ const initMiniRebel = () => {
     }
     navDrawer.classList.remove('is-open');
     navDrawer.hidden = true;
+    navDrawer.setAttribute('aria-hidden', 'true');
     navToggle.setAttribute('aria-expanded', 'false');
     document.body.classList.remove('mr-nav-open');
     if (pageRoot) {
@@ -158,7 +163,7 @@ const initMiniRebel = () => {
 
   const productDetails = {
     'Mini Rebel Wear – Barn (Studio Cream)': {
-      image: 'assets/img/mini-rebel/products/product-5.png',
+      image: './assets/img/mini-rebel/products/product-5.png',
       fit: 'Barn, normal passform',
       material: '100% bomull',
       story: 'En liten rebell med stort hjärta. Inspirerad av klassisk tattoo flash, tryckt på Studio Cream.',
@@ -167,7 +172,7 @@ const initMiniRebel = () => {
       related: ['Barn, Vuxen, Set', 'Studio Cream, Rebel Black', 'Storleksguide'],
     },
     'Mini Rebel Wear – Barn (Rebel Black)': {
-      image: 'assets/img/mini-rebel/products/product-6.png',
+      image: './assets/img/mini-rebel/products/product-6.png',
       fit: 'Barn, normal passform',
       material: '100% bomull',
       story: 'Rebel Black med trygg passform. För dagar som behöver lite mer mod.',
@@ -176,7 +181,7 @@ const initMiniRebel = () => {
       related: ['Barn, Vuxen, Set', 'Studio Cream, Rebel Black', 'Storleksguide'],
     },
     'Mini Rebel Wear – Vuxen (Studio Cream)': {
-      image: 'assets/img/mini-rebel/products/product-7.png',
+      image: './assets/img/mini-rebel/products/product-7.png',
       fit: 'Unisex, normal passform',
       material: '100% bomull',
       story: 'Studio Cream för vuxna. Samma motiv som mini, tänkt att bäras ihop.',
@@ -185,7 +190,7 @@ const initMiniRebel = () => {
       related: ['Barn, Vuxen, Set', 'Studio Cream, Rebel Black', 'Storleksguide'],
     },
     'Mini Rebel Wear – Vuxen (Rebel Black)': {
-      image: 'assets/img/mini-rebel/products/product-1.png',
+      image: './assets/img/mini-rebel/products/product-1.png',
       fit: 'Unisex, normal passform',
       material: '100% bomull',
       story: 'Rebel Black med tydlig attityd. Ett plagg som funkar varje dag.',
@@ -194,7 +199,7 @@ const initMiniRebel = () => {
       related: ['Barn, Vuxen, Set', 'Studio Cream, Rebel Black', 'Storleksguide'],
     },
     'Matchande set – Barn + Vuxen (Studio Cream)': {
-      image: 'assets/img/mini-rebel/products/product-2.png',
+      image: './assets/img/mini-rebel/products/product-2.png',
       fit: 'Barn + Vuxen, normal passform',
       material: '100% bomull',
       story: 'Studio Cream för två. Matcha utan att matcha för mycket.',
@@ -203,7 +208,7 @@ const initMiniRebel = () => {
       related: ['Barn, Vuxen, Set', 'Studio Cream, Rebel Black', 'Storleksguide'],
     },
     'Matchande set – Barn + Vuxen (Rebel Black)': {
-      image: 'assets/img/mini-rebel/products/product-3.png',
+      image: './assets/img/mini-rebel/products/product-3.png',
       fit: 'Barn + Vuxen, normal passform',
       material: '100% bomull',
       story: 'Rebel Black i dubbel upplaga. Samma känsla, två storlekar.',
@@ -227,7 +232,7 @@ const initMiniRebel = () => {
     modalPrice.textContent = price;
     modalColor.value = color;
     if (modalImage) {
-      modalImage.src = details.image || card.querySelector('img')?.getAttribute('src') || 'assets/img/mini-rebel/products/5.png';
+      modalImage.src = details.image || card.querySelector('img')?.getAttribute('src') || './assets/img/mini-rebel/products/5.png';
       modalImage.alt = `Produktbild för ${name}`;
       applyImageFallback(modalImage);
     }

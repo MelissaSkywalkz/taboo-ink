@@ -1231,6 +1231,99 @@ input::file-selector-button {
   background: #050505;
 }
 
+.ti-footer {
+  padding: 48px 0 32px;
+  background: #050505;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  z-index: 2;
+}
+
+.ti-footer__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 32px;
+  align-items: center;
+}
+
+.ti-footer__content h3 {
+  font-family: "Oswald", "Bebas Neue", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin: 0 0 12px;
+}
+
+.ti-footer__content p {
+  color: var(--muted);
+  margin: 0 0 16px;
+  max-width: 42ch;
+}
+
+.ti-footer__meta {
+  display: grid;
+  gap: 4px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.ti-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+}
+
+.ti-footer__links a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+.ti-footer__links a:hover,
+.ti-footer__links a:focus-visible {
+  border-bottom-color: var(--accent);
+}
+
+.ti-footer__logo {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ti-footer__logo img {
+  width: min(240px, 60vw);
+  height: auto;
+  opacity: 0.95;
+}
+
+.ti-footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-top: 20px;
+  margin-top: 24px;
+  border-top: 1px solid var(--border-subtle);
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.ti-footer__legal {
+  display: flex;
+  gap: 16px;
+}
+
+.ti-footer__legal a {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.7rem;
+}
+
+.ti-footer__legal a:hover,
+.ti-footer__legal a:focus-visible {
+  color: var(--text);
+}
+
 .taboo-footer__inner {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -1474,6 +1567,19 @@ input::file-selector-button {
 
   .mini-rebel-teaser__panel {
     padding: 36px;
+  }
+
+  .ti-footer__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .ti-footer__logo {
+    justify-content: flex-start;
+  }
+
+  .ti-footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .split,
