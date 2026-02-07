@@ -1,7 +1,7 @@
 body.mini-rebel {
-  --mr-wow-shadow: 0 18px 36px rgba(14, 14, 16, 0.18);
-  --mr-wow-border: rgba(14, 14, 16, 0.14);
-  --mr-wow-paper: rgba(232, 224, 214, 0.85);
+  --mr-wow-shadow: 0 18px 36px rgba(0, 0, 0, 0.45);
+  --mr-wow-border: var(--ink-border);
+  --mr-wow-paper: var(--ink-surface);
 }
 
 /* Mini Rebel wow utilities (base panel/card styles live in mini-rebel.css). */
@@ -20,10 +20,10 @@ body.mini-rebel .mr-wow-panel::before {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 15% 25%, rgba(14, 14, 16, 0.04) 0%, transparent 45%),
-    radial-gradient(circle at 85% 15%, rgba(14, 14, 16, 0.04) 0%, transparent 45%),
-    repeating-linear-gradient(120deg, rgba(14, 14, 16, 0.02) 0px, rgba(14, 14, 16, 0.02) 1px, transparent 1px, transparent 4px);
-  opacity: 0.6;
+    radial-gradient(circle at 15% 25%, rgba(230, 213, 184, 0.03) 0%, transparent 45%),
+    radial-gradient(circle at 85% 15%, rgba(230, 213, 184, 0.02) 0%, transparent 45%),
+    repeating-linear-gradient(120deg, rgba(230, 213, 184, 0.02) 0px, rgba(230, 213, 184, 0.02) 1px, transparent 1px, transparent 4px);
+  opacity: 0.5;
   pointer-events: none;
 }
 
@@ -50,16 +50,16 @@ body.mini-rebel .mr-wow-rope {
   height: 10px;
   border-radius: 999px;
   background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.6), rgba(14, 14, 16, 0.2)),
-    repeating-linear-gradient(90deg, rgba(14, 14, 16, 0.3) 0 8px, rgba(255, 255, 255, 0.3) 8px 14px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-  opacity: 0.8;
+    linear-gradient(90deg, rgba(230, 213, 184, 0.15), rgba(0, 0, 0, 0.3)),
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0 8px, rgba(230, 213, 184, 0.1) 8px 14px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  opacity: 0.6;
   pointer-events: none;
 }
 
 body.mini-rebel .mr-panel--hero {
-  background: rgba(243, 237, 228, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(30, 23, 17, 0.4);
+  border-color: var(--ink-border);
   box-shadow: none;
 }
 
@@ -80,9 +80,9 @@ body.mini-rebel .mr-stamp {
   gap: 8px;
   padding: 8px 14px;
   border-radius: 999px;
-  border: 2px dashed rgba(161, 18, 18, 0.6);
-  color: var(--mr-black);
-  background: rgba(243, 237, 228, 0.8);
+  border: 2px dashed rgba(138, 15, 15, 0.5);
+  color: var(--ink-paper);
+  background: rgba(46, 36, 28, 0.6);
   font-weight: 700;
   font-size: 0.85rem;
   text-transform: uppercase;
@@ -96,18 +96,21 @@ body.mini-rebel .mr-stamp::after {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--mr-red);
+  background: var(--ink-blood);
   display: inline-block;
 }
 
 body.mini-rebel .mr-card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 body.mini-rebel .mr-card:hover,
 body.mini-rebel .mr-card:focus-within {
-  transform: translateY(-4px) rotate(-0.3deg);
-  box-shadow: 0 20px 38px rgba(14, 14, 16, 0.2);
+  transform: translateY(-4px) rotate(-0.5deg);
+  box-shadow:
+    0 28px 50px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 0 60px rgba(230, 213, 184, 0.04);
 }
 
 body.mini-rebel .mr-designer {
@@ -118,6 +121,7 @@ body.mini-rebel .mr-designer {
 body.mini-rebel .mr-designer__text {
   display: grid;
   gap: 12px;
+  color: var(--ink-paper-soft);
 }
 
 body.mini-rebel .mr-flash-grid {
@@ -129,11 +133,11 @@ body.mini-rebel .mr-flash-grid {
 body.mini-rebel .mr-flash-card {
   padding: 18px 16px;
   border-radius: 18px;
-  border: 1px dashed rgba(161, 18, 18, 0.35);
-  background: rgba(255, 255, 255, 0.65);
+  border: 1px dashed rgba(138, 15, 15, 0.3);
+  background: rgba(46, 36, 28, 0.5);
   font-weight: 700;
   text-align: center;
-  color: var(--mr-black);
+  color: var(--ink-paper);
 }
 
 body.mini-rebel .mr-club {
@@ -150,15 +154,15 @@ body.mini-rebel .mr-ugc-cta {
   display: grid;
   gap: 12px;
   margin-top: 12px;
-  background: rgba(12, 11, 10, 0.06);
+  background: rgba(230, 213, 184, 0.05);
   border-radius: 16px;
   padding: 14px 16px;
-  border: 1px solid rgba(14, 14, 16, 0.12);
+  border: 1px solid var(--ink-border);
 }
 
 body.mini-rebel .mr-ugc-text {
   margin: 0;
-  color: #3f3f46;
+  color: var(--ink-paper-soft);
 }
 
 body.mini-rebel .mr-ugc-actions {
@@ -166,11 +170,11 @@ body.mini-rebel .mr-ugc-actions {
   flex-wrap: wrap;
   gap: 10px;
   align-items: center;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(46, 36, 28, 0.5);
   border-radius: 999px;
   padding: 8px 12px;
-  border: 1px solid rgba(14, 14, 16, 0.1);
-  box-shadow: 0 10px 18px rgba(14, 14, 16, 0.08);
+  border: 1px solid var(--ink-border);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.3);
 }
 
 body.mini-rebel .mr-hashtag-badge {
@@ -178,8 +182,8 @@ body.mini-rebel .mr-hashtag-badge {
   align-items: center;
   padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(14, 14, 16, 0.08);
-  color: var(--mr-black);
+  background: rgba(230, 213, 184, 0.08);
+  color: var(--ink-paper);
   font-weight: 700;
 }
 
@@ -187,8 +191,8 @@ body.mini-rebel .mr-ugc-contest {
   margin-top: 20px;
   padding: 18px;
   border-radius: 18px;
-  border: 1px dashed rgba(14, 14, 16, 0.2);
-  background: rgba(255, 255, 255, 0.6);
+  border: 1px dashed var(--ink-border);
+  background: rgba(46, 36, 28, 0.4);
 }
 
 body.mini-rebel .mr-ugc-steps {
@@ -201,12 +205,12 @@ body.mini-rebel .mr-ugc-steps {
 }
 
 body.mini-rebel .mr-ugc-steps li {
-  background: rgba(12, 11, 10, 0.06);
+  background: rgba(230, 213, 184, 0.05);
   border-radius: 12px;
   padding: 10px 12px 10px 44px;
   position: relative;
   font-weight: 600;
-  color: #2c2622;
+  color: var(--ink-paper-soft);
 }
 
 body.mini-rebel .mr-ugc-steps li::before {
@@ -219,8 +223,8 @@ body.mini-rebel .mr-ugc-steps li::before {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: rgba(161, 18, 18, 0.15);
-  color: var(--mr-red);
+  background: rgba(138, 15, 15, 0.2);
+  color: var(--ink-rose);
   font-size: 0.8rem;
   font-weight: 700;
   display: grid;
@@ -229,17 +233,19 @@ body.mini-rebel .mr-ugc-steps li::before {
 
 body.mini-rebel .mr-ugc-contest h3 {
   margin: 0 0 8px;
+  color: var(--ink-paper);
 }
 
 body.mini-rebel .mr-ugc-contest ul {
   margin: 8px 0 12px 18px;
   padding: 0;
+  color: var(--ink-paper-soft);
 }
 
 body.mini-rebel .mr-ugc-terms {
   margin: 0;
   font-size: 0.9rem;
-  color: #5b4b3d;
+  color: var(--ink-sand);
 }
 
 body.mini-rebel a:focus-visible,
@@ -247,7 +253,7 @@ body.mini-rebel button:focus-visible,
 body.mini-rebel select:focus-visible,
 body.mini-rebel textarea:focus-visible,
 body.mini-rebel input:focus-visible {
-  outline: 3px solid rgba(161, 18, 18, 0.6);
+  outline: 3px solid rgba(168, 50, 62, 0.6);
   outline-offset: 3px;
 }
 
@@ -262,7 +268,7 @@ body.mini-rebel input:focus-visible {
 @media (max-width: 720px) {
   body.mini-rebel .mr-panel,
   body.mini-rebel .mr-wow-panel {
-    padding: 22px;
+    padding: 18px;
   }
   body.mini-rebel .mr-rope,
   body.mini-rebel .mr-wow-rope {
