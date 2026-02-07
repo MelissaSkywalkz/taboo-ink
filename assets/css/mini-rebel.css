@@ -46,6 +46,17 @@ body.mini-rebel {
   line-height: 1.6;
 }
 
+body.mini-rebel .site-header,
+body.mini-rebel .nav,
+body.mini-rebel .menu-toggle {
+  display: none;
+}
+
+body.mini-rebel .mr-hero .mr-stamps + .mr-stamps,
+body.mini-rebel .mr-modal__stamps + .mr-modal__stamps {
+  display: none;
+}
+
 body.mini-rebel main {
   width: min(var(--mr-page-width), calc(100% - 48px));
   margin: 0 auto;

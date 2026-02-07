@@ -333,7 +333,7 @@ const initMiniRebel = () => {
   };
 
   const cards = document.querySelectorAll('.mr-card');
-  const filterButtons = document.querySelectorAll('.mr-chip');
+  const filterButtons = document.querySelectorAll('[data-filter]');
   const sortSelect = document.getElementById('mr-sort-select');
   const productGrid = document.getElementById('mr-product-grid');
   const resultsCount = document.getElementById('mr-results-count');
@@ -348,19 +348,14 @@ const initMiniRebel = () => {
   }));
   let activeFilter = 'all';
 
-  const getVisibleProductCards = () => {
-    if (!productGrid) {
-      return [];
-    }
-    return Array.from(productGrid.querySelectorAll('.mr-card')).filter((card) => card.style.display !== 'none');
-  };
-
   const updateCount = () => {
     if (!resultsCount) {
       return;
     }
-    // Count based on visible cards to avoid UI desync.
-    resultsCount.textContent = `Visar ${getVisibleProductCards().length} produkter`;
+    if (!productGrid) {
+      return;
+    }
+    resultsCount.textContent = `Visar ${productGrid.querySelectorAll('.mr-card:not([hidden])').length} produkter`;
   };
 
   cards.forEach((card) => {
@@ -420,7 +415,10 @@ const initMiniRebel = () => {
     });
     sorted.forEach((item) => productGrid.appendChild(item.card));
     cardData.forEach((item) => {
-      item.card.style.display = filtered.includes(item) ? 'grid' : 'none';
+      const isVisible = filtered.includes(item);
+      item.card.hidden = !isVisible;
+      item.card.setAttribute('aria-hidden', String(!isVisible));
+      item.card.style.removeProperty('display');
     });
     updateCount();
   };
