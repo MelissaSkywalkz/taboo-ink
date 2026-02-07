@@ -25,12 +25,20 @@ const initMiniRebel = () => {
   const emailError = document.getElementById('mr-email-error');
   const pageRoot = document.querySelector('.mr-page');
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const focusableSelector = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
   let lastFocusedElement = null;
   let modalListenersInitialized = false;
   let highlightTimeout = null;
 
   const mailtoAddress = 'info@tabooinkstockholm.com';
+
+  const getFocusableElements = (root) => {
+    if (!root) {
+      return [];
+    }
+    return Array.from(root.querySelectorAll(focusableSelector)).filter((element) => !element.hasAttribute('disabled'));
+  };
 
   if (formSuccess) {
     formSuccess.hidden = true;
@@ -161,7 +169,7 @@ const initMiniRebel = () => {
       pageRoot.inert = true;
     }
 
-    const focusTarget = modal.querySelector('button, select, input, [href]');
+    const focusTarget = modal.querySelector('.mr-modal__close') || getFocusableElements(modal)[0];
     if (focusTarget) {
       focusTarget.focus();
     }
@@ -189,7 +197,7 @@ const initMiniRebel = () => {
     if (!modal || modal.hidden || event.key !== 'Tab') {
       return;
     }
-    const focusable = modal.querySelectorAll('button, select, input, [href], textarea');
+    const focusable = getFocusableElements(modal);
     if (!focusable.length) {
       return;
     }
@@ -249,6 +257,25 @@ const initMiniRebel = () => {
     const openBtn = card.querySelector('[data-modal-open]');
     const interestBtn = card.querySelector('[data-interest]');
     const meta = card.querySelector('[data-card-meta]');
+    if (card.classList.contains('mr-card--shop')) {
+      // Make the whole card open the modal for a shop-first feel.
+      card.classList.add('mr-card--interactive');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'button');
+      card.setAttribute('aria-label', `Se produkt ${card.dataset.product || 'Mini Rebel Tee'}`);
+      card.addEventListener('click', (event) => {
+        if (event.target.closest('button, a, input, select, textarea, label')) {
+          return;
+        }
+        openModal(card);
+      });
+      card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openModal(card);
+        }
+      });
+    }
     if (meta) {
       const category = card.dataset.category || '';
       const categoryLabel = {
@@ -302,6 +329,10 @@ const initMiniRebel = () => {
       setFilterState(button);
       activeFilter = button.dataset.filter || 'all';
       applyFilterAndSort();
+      const filterRow = button.closest('.mr-filter');
+      if (filterRow && filterRow.scrollWidth > filterRow.clientWidth) {
+        button.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', inline: 'center', block: 'nearest' });
+      }
     });
 
     button.addEventListener('keydown', (event) => {
@@ -377,6 +408,7 @@ const initMiniRebel = () => {
       if (event.target.closest('.mr-modal__content')) {
         return;
       }
+      closeModal();
     });
 
     document.addEventListener('keydown', (event) => {
