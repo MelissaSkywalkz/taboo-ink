@@ -101,6 +101,7 @@ body.mini-rebel.mr-nav-open {
   backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   height: var(--mr-header-height);
+  margin-bottom: 0;
 }
 
 .mr-header__inner {
@@ -307,6 +308,7 @@ body.mini-rebel.mr-nav-open {
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
+  padding-top: 0;
 }
 
 .mr-hero::before {
@@ -401,7 +403,9 @@ body.mini-rebel.mr-nav-open {
   margin: 0;
   font-family: var(--mr-script);
   font-size: clamp(2.6rem, 6vw, 4.2rem);
-  color: #3e2716;
+  color: #2a1b14;
+  letter-spacing: -0.01em;
+  text-shadow: 0 1px 0 rgba(255, 245, 230, 0.35);
   line-height: 1.05;
 }
 
@@ -422,25 +426,36 @@ body.mini-rebel.mr-nav-open {
   gap: var(--mr-space-sm);
 }
 
-.mr-hero-art {
+.mr-hero-actions .mr-btn--ghost {
+  background: rgba(245, 235, 216, 0.75);
+  color: #5a3a25;
+  border: 1px solid rgba(120, 82, 46, 0.35);
+  box-shadow: none;
+}
+
+.mr-hero-art{
   position: absolute;
   top: 54%;
-  right: -40%;
+  right: clamp(-400px, -26vw, -180px);
   transform: translateY(-50%);
-  display: grid;
-  place-items: center;
   z-index: 3;
   pointer-events: none;
 }
 
-.mr-hero-art img {
-  width: min(620px, 48vw);
+.mr-hero-art::before {
+  content: '';
+  display: none;
+}
+
+.mr-hero-art img{
+  width: clamp(820px, 75vw, 1240px);
   height: auto;
-  width: 90% !important;
-  filter: drop-shadow(0 28px 55px rgba(0, 0, 0, 0.55)) drop-shadow(0 10px 22px rgba(0, 0, 0, 0.25));
   transform: rotate(-8deg);
-  position: relative;
-  z-index: 1;
+  filter:
+    drop-shadow(0 6px 6px rgba(0, 0, 0, 0.35))
+    drop-shadow(0 18px 18px rgba(0, 0, 0, 0.45))
+    drop-shadow(0 60px 90px rgba(0, 0, 0, 0.45));
+  transform: rotate(-6deg);
 }
 
 .mr-hero-art {
@@ -1401,12 +1416,7 @@ body.mini-rebel.mr-modal-open .mr-modal {
   }
 
   .mr-hero-art::before {
-    inset: -40%;
-  }
-
-  .mr-hero-art img {
-    width: min(620px, 48vw);
-    transform: none;
+    display: none;
   }
 
   .mr-hero-break {
@@ -1468,6 +1478,13 @@ body.mini-rebel.mr-modal-open .mr-modal {
 }
 
 @media (min-width: 1024px) {
+  .mr-hero-panel {
+    width: min(920px, 82vw);
+    max-width: 920px;
+    padding: 54px 58px;
+    padding-right: clamp(320px, 30vw, 340px);
+  }
+
   .mr-grid {
     grid-template-columns: repeat(3, 1fr);
   }
