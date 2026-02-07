@@ -163,6 +163,7 @@
               <div class="mr-card__body">
                 <h3>Mini Rebel Tee – Barn (Cream)</h3>
                 <p class="mr-card__price">299 kr</p>
+                <p class="mr-card__status">Kommer snart</p>
                 <div class="mr-card__badges">
                   <span class="mr-card__badge">On-demand</span>
                   <span class="mr-card__badge">EU</span>
@@ -185,6 +186,7 @@
               <div class="mr-card__body">
                 <h3>Mini Rebel Tee – Barn (Black)</h3>
                 <p class="mr-card__price">299 kr</p>
+                <p class="mr-card__status">Kommer snart</p>
                 <div class="mr-card__badges">
                   <span class="mr-card__badge">On-demand</span>
                   <span class="mr-card__badge">EU</span>
@@ -207,6 +209,7 @@
               <div class="mr-card__body">
                 <h3>Mini Rebel Tee – Vuxen (Black)</h3>
                 <p class="mr-card__price">349 kr</p>
+                <p class="mr-card__status">Kommer snart</p>
                 <div class="mr-card__badges">
                   <span class="mr-card__badge">On-demand</span>
                   <span class="mr-card__badge">EU</span>
@@ -229,6 +232,7 @@
               <div class="mr-card__body">
                 <h3>Matchande set – Barn + Vuxen (Cream)</h3>
                 <p class="mr-card__price">599 kr</p>
+                <p class="mr-card__status">Kommer snart</p>
                 <div class="mr-card__badges">
                   <span class="mr-card__badge">On-demand</span>
                   <span class="mr-card__badge">EU</span>
@@ -288,6 +292,7 @@
             <div class="mr-card__body">
               <h3>Mini Rebel Tee – Barn (Cream)</h3>
               <p class="mr-card__price">299 kr</p>
+                <p class="mr-card__status">Kommer snart</p>
               <div class="mr-card__badges">
                 <span class="mr-card__badge">On-demand</span>
                 <span class="mr-card__badge">EU</span>
@@ -310,6 +315,7 @@
             <div class="mr-card__body">
               <h3>Mini Rebel Tee – Barn (Black)</h3>
               <p class="mr-card__price">299 kr</p>
+                <p class="mr-card__status">Kommer snart</p>
               <div class="mr-card__badges">
                 <span class="mr-card__badge">On-demand</span>
                 <span class="mr-card__badge">EU</span>
@@ -332,6 +338,7 @@
             <div class="mr-card__body">
               <h3>Mini Rebel Tee – Vuxen (Cream)</h3>
               <p class="mr-card__price">349 kr</p>
+                <p class="mr-card__status">Kommer snart</p>
               <div class="mr-card__badges">
                 <span class="mr-card__badge">On-demand</span>
                 <span class="mr-card__badge">EU</span>
@@ -354,6 +361,7 @@
             <div class="mr-card__body">
               <h3>Mini Rebel Tee – Vuxen (Black)</h3>
               <p class="mr-card__price">349 kr</p>
+                <p class="mr-card__status">Kommer snart</p>
               <div class="mr-card__badges">
                 <span class="mr-card__badge">On-demand</span>
                 <span class="mr-card__badge">EU</span>
@@ -376,6 +384,7 @@
             <div class="mr-card__body">
               <h3>Matchande set – Barn + Vuxen (Cream)</h3>
               <p class="mr-card__price">599 kr</p>
+                <p class="mr-card__status">Kommer snart</p>
               <div class="mr-card__badges">
                 <span class="mr-card__badge">On-demand</span>
                 <span class="mr-card__badge">EU</span>
@@ -398,6 +407,7 @@
             <div class="mr-card__body">
               <h3>Matchande set – Barn + Vuxen (Black)</h3>
               <p class="mr-card__price">599 kr</p>
+                <p class="mr-card__status">Kommer snart</p>
               <div class="mr-card__badges">
                 <span class="mr-card__badge">On-demand</span>
                 <span class="mr-card__badge">EU</span>
@@ -588,11 +598,11 @@
           <div class="mr-ugc-contest">
             <h3>Mini Rebel UGC-tävling</h3>
             <p>Alla har chans att vinna. 1 lott per action:</p>
-            <ul>
+            <ol class="mr-ugc-steps">
               <li>Dela ert set i story.</li>
               <li>Tagga <span aria-label="Mini Rebel Family hashtag">#minirebelfamily</span>.</li>
               <li>Skicka in en bild via mail.</li>
-            </ul>
+            </ol>
             <p class="mr-ugc-terms">Läs regler &amp; policy i <a href="faq.html">FAQ</a>.</p>
           </div>
         </div>
@@ -612,16 +622,30 @@
             <label>
               Namn
               <input type="text" name="name" autocomplete="name" required>
+              <span class="mr-form__inline" id="mr-name-error" aria-live="polite"></span>
             </label>
             <label>
               E-post
               <input type="email" name="email" autocomplete="email" required>
+              <span class="mr-form__inline" id="mr-email-error" aria-live="polite"></span>
+            </label>
+            <label>
+              Vald produkt
+              <select name="produkt" id="mr-product-field">
+                <option value="">Välj produkt (valfritt)</option>
+                <option>Mini Rebel Tee – Barn (Cream)</option>
+                <option>Mini Rebel Tee – Barn (Black)</option>
+                <option>Mini Rebel Tee – Vuxen (Cream)</option>
+                <option>Mini Rebel Tee – Vuxen (Black)</option>
+                <option>Matchande set – Barn + Vuxen (Cream)</option>
+                <option>Matchande set – Barn + Vuxen (Black)</option>
+              </select>
+              <span class="mr-form__inline" id="mr-product-help" aria-live="polite">Välj i listan eller klicka “Intresseanmäl” på en produkt.</span>
             </label>
             <label>
               Kommentar (valfritt)
               <textarea name="comment" rows="4"></textarea>
             </label>
-            <input type="hidden" name="produkt" id="mr-product-field">
             <button class="mr-btn mr-btn--primary" type="submit">Skicka intresse</button>
             <p class="mr-form__error" id="mr-form-error" role="alert" hidden></p>
             <p class="mr-form__note">När du klickar öppnas ditt e-postprogram med ett färdigt meddelande.</p>
@@ -629,6 +653,7 @@
           <div class="mr-form-success is-hidden" id="mr-form-success" role="status" aria-live="polite" aria-hidden="true" hidden>
             <h3>Tack! 🖤</h3>
             <p>Ett mailutkast har öppnats. Skicka det så hör vi av oss när droppet släpps.</p>
+            <p class="mr-form-success__meta" id="mr-form-success-meta"></p>
             <p>Om inget händer kan du maila oss direkt på <a href="mailto:info@tabooinkstockholm.com">info@tabooinkstockholm.com</a>.</p>
             <button class="mr-btn mr-btn--primary" type="button" id="mr-back-to-collection">Tillbaka till kollektionen</button>
             <button class="mr-btn mr-btn--ghost" type="button" id="mr-reset">Skicka en ny</button>
