@@ -119,11 +119,11 @@ const initMiniRebel = () => {
     },
   };
 
-  const openModal = (card) => {
+  const openModal = (card, trigger) => {
     if (!modal || !card) {
       return;
     }
-    lastFocusedElement = document.activeElement;
+    lastFocusedElement = trigger || document.activeElement || card;
     const name = card.dataset.product || 'Mini Rebel Tee';
     const price = card.dataset.price || '299 kr';
     const color = card.dataset.color || 'Cream';
@@ -267,12 +267,12 @@ const initMiniRebel = () => {
         if (event.target.closest('button, a, input, select, textarea, label')) {
           return;
         }
-        openModal(card);
+        openModal(card, card);
       });
       card.addEventListener('keydown', (event) => {
         if (event.key === 'Enter' || event.key === ' ') {
           event.preventDefault();
-          openModal(card);
+          openModal(card, card);
         }
       });
     }
@@ -286,7 +286,7 @@ const initMiniRebel = () => {
       meta.textContent = categoryLabel;
     }
     if (openBtn) {
-      openBtn.addEventListener('click', () => openModal(card));
+      openBtn.addEventListener('click', (event) => openModal(card, event.currentTarget));
     }
     if (interestBtn) {
       interestBtn.addEventListener('click', () => {
@@ -313,7 +313,9 @@ const initMiniRebel = () => {
       item.card.style.display = filtered.includes(item) ? 'grid' : 'none';
     });
     if (resultsCount) {
-      resultsCount.textContent = `Visar ${filtered.length} produkter`;
+      // Count based on visible cards to avoid UI desync.
+      const visibleCount = cardData.filter((item) => item.card.style.display !== 'none').length;
+      resultsCount.textContent = `Visar ${visibleCount} produkter`;
     }
   };
 
