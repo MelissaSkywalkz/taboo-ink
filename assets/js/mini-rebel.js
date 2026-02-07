@@ -338,6 +338,7 @@ const initMiniRebel = () => {
   const productGrid = document.getElementById('mr-product-grid');
   const resultsCount = document.getElementById('mr-results-count');
   const collectionCta = document.querySelector('.mr-hero-actions a[href="#mr-collection"]');
+  const quickFilterButtons = document.querySelectorAll('[data-quick-filter]');
   const gridCards = productGrid ? productGrid.querySelectorAll('.mr-card') : [];
   const cardData = Array.from(gridCards).map((card, index) => ({
     card,
@@ -346,6 +347,21 @@ const initMiniRebel = () => {
     price: Number((card.dataset.price || '').replace(/[^\d]/g, '')) || 0,
   }));
   let activeFilter = 'all';
+
+  const getVisibleProductCards = () => {
+    if (!productGrid) {
+      return [];
+    }
+    return Array.from(productGrid.querySelectorAll('.mr-card')).filter((card) => card.style.display !== 'none');
+  };
+
+  const updateCount = () => {
+    if (!resultsCount) {
+      return;
+    }
+    // Count based on visible cards to avoid UI desync.
+    resultsCount.textContent = `Visar ${getVisibleProductCards().length} produkter`;
+  };
 
   cards.forEach((card) => {
     const openBtn = card.querySelector('[data-modal-open]');
@@ -406,11 +422,7 @@ const initMiniRebel = () => {
     cardData.forEach((item) => {
       item.card.style.display = filtered.includes(item) ? 'grid' : 'none';
     });
-    if (resultsCount) {
-      // Count based on visible cards to avoid UI desync.
-      const visibleCount = cardData.filter((item) => item.card.style.display !== 'none').length;
-      resultsCount.textContent = `Visar ${visibleCount} produkter`;
-    }
+    updateCount();
   };
 
   const setFilterState = (activeButton) => {
@@ -418,12 +430,16 @@ const initMiniRebel = () => {
       chip.classList.toggle('is-active', chip === activeButton);
       chip.setAttribute('aria-pressed', chip === activeButton ? 'true' : 'false');
     });
+    quickFilterButtons.forEach((chip) => {
+      chip.classList.toggle('is-active', chip.dataset.quickFilter === activeFilter);
+      chip.setAttribute('aria-pressed', chip.dataset.quickFilter === activeFilter ? 'true' : 'false');
+    });
   };
 
   filterButtons.forEach((button) => {
     button.addEventListener('click', () => {
-      setFilterState(button);
       activeFilter = button.dataset.filter || 'all';
+      setFilterState(button);
       applyFilterAndSort();
       const filterRow = button.closest('.mr-filter');
       if (filterRow && filterRow.scrollWidth > filterRow.clientWidth) {
@@ -466,11 +482,26 @@ const initMiniRebel = () => {
 
   const initialActive = Array.from(filterButtons).find((chip) => chip.classList.contains('is-active')) || filterButtons[0];
   if (initialActive) {
-    setFilterState(initialActive);
     activeFilter = initialActive.dataset.filter || 'all';
+    setFilterState(initialActive);
   }
 
   applyFilterAndSort();
+
+  quickFilterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      activeFilter = button.dataset.quickFilter || 'all';
+      const matchingChip = Array.from(filterButtons).find((chip) => chip.dataset.filter === activeFilter);
+      if (matchingChip) {
+        setFilterState(matchingChip);
+      }
+      applyFilterAndSort();
+      const anchor = document.getElementById('mr-collection');
+      if (anchor) {
+        anchor.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+      }
+    });
+  });
 
   if (collectionCta && productGrid) {
     collectionCta.addEventListener('click', (event) => {
