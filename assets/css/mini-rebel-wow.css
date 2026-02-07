@@ -248,6 +248,42 @@ body.mini-rebel .mr-ugc-contest {
   background: rgba(255, 255, 255, 0.6);
 }
 
+body.mini-rebel .mr-ugc-steps {
+  margin: 10px 0 12px;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  list-style: none;
+  counter-reset: ugc;
+}
+
+body.mini-rebel .mr-ugc-steps li {
+  background: rgba(12, 11, 10, 0.06);
+  border-radius: 12px;
+  padding: 10px 12px 10px 44px;
+  position: relative;
+  font-weight: 600;
+  color: #2c2622;
+}
+
+body.mini-rebel .mr-ugc-steps li::before {
+  counter-increment: ugc;
+  content: counter(ugc);
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(161, 18, 18, 0.15);
+  color: var(--mr-red);
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+}
+
 body.mini-rebel .mr-ugc-contest h3 {
   margin: 0 0 8px;
 }

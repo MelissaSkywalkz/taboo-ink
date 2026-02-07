@@ -16,10 +16,14 @@ const initMiniRebel = () => {
   const selectedProduct = document.getElementById('mr-selected-product');
   const interestForm = document.getElementById('mr-interest-form');
   const formSuccess = document.getElementById('mr-form-success');
+  const formSuccessMeta = document.getElementById('mr-form-success-meta');
   const resetButton = document.getElementById('mr-reset');
   const backToCollection = document.getElementById('mr-back-to-collection');
   const formError = document.getElementById('mr-form-error');
   const formPanel = document.querySelector('.mr-club__form');
+  const nameError = document.getElementById('mr-name-error');
+  const emailError = document.getElementById('mr-email-error');
+  const pageRoot = document.querySelector('.mr-page');
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   let lastFocusedElement = null;
@@ -43,6 +47,12 @@ const initMiniRebel = () => {
       productField.value = name || '';
     }
   };
+
+  if (productField) {
+    productField.addEventListener('change', () => {
+      updateSelectedProduct(productField.value);
+    });
+  }
 
   const productDetails = {
     'Mini Rebel Tee – Barn (Cream)': {
@@ -145,6 +155,11 @@ const initMiniRebel = () => {
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('mr-modal-open');
+    if (pageRoot) {
+      // Prevent background interaction + assistive tech focus leakage when modal is open.
+      pageRoot.setAttribute('aria-hidden', 'true');
+      pageRoot.inert = true;
+    }
 
     const focusTarget = modal.querySelector('button, select, input, [href]');
     if (focusTarget) {
@@ -160,6 +175,11 @@ const initMiniRebel = () => {
     modal.hidden = true;
     modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('mr-modal-open');
+    if (pageRoot) {
+      // Restore page interactivity after modal close.
+      pageRoot.removeAttribute('aria-hidden');
+      pageRoot.inert = false;
+    }
     if (lastFocusedElement) {
       lastFocusedElement.focus();
     }
@@ -377,6 +397,36 @@ const initMiniRebel = () => {
   }
 
   if (interestForm) {
+    const setInlineError = (input, errorEl, message) => {
+      if (!input) {
+        return;
+      }
+      if (message) {
+        input.setAttribute('aria-invalid', 'true');
+        if (errorEl) {
+          errorEl.textContent = message;
+          errorEl.classList.add('is-error');
+        }
+      } else {
+        input.setAttribute('aria-invalid', 'false');
+        if (errorEl) {
+          errorEl.textContent = '';
+          errorEl.classList.remove('is-error');
+        }
+      }
+    };
+
+    const validateName = (value) => (!value ? 'Fyll i ditt namn.' : '');
+    const validateEmail = (value, valid) => {
+      if (!value) {
+        return 'Fyll i din e-postadress.';
+      }
+      if (!valid) {
+        return 'Ange en giltig e-postadress.';
+      }
+      return '';
+    };
+
     interestForm.addEventListener('submit', (event) => {
       event.preventDefault();
       const nameInput = interestForm.querySelector('input[name="name"]');
@@ -392,12 +442,8 @@ const initMiniRebel = () => {
       const emailValue = emailInput ? emailInput.value.trim() : '';
       const isEmailValid = emailInput ? emailInput.checkValidity() : false;
 
-      if (nameInput) {
-        nameInput.setAttribute('aria-invalid', nameValue ? 'false' : 'true');
-      }
-      if (emailInput) {
-        emailInput.setAttribute('aria-invalid', emailValue && isEmailValid ? 'false' : 'true');
-      }
+      setInlineError(nameInput, nameError, validateName(nameValue));
+      setInlineError(emailInput, emailError, validateEmail(emailValue, isEmailValid));
 
       if (!nameValue || !emailValue || !isEmailValid) {
         if (formError) {
@@ -441,7 +487,24 @@ const initMiniRebel = () => {
         formSuccess.setAttribute('aria-hidden', 'false');
         formSuccess.classList.remove('is-hidden');
       }
+      if (formSuccessMeta) {
+        const productLabel = payload.product || 'Ingen vald';
+        formSuccessMeta.textContent = `Vald produkt: ${productLabel}. Bekräftelse skickas till ${payload.email}.`;
+      }
     });
+
+    const nameInput = interestForm.querySelector('input[name="name"]');
+    const emailInput = interestForm.querySelector('input[name="email"]');
+    if (nameInput) {
+      nameInput.addEventListener('input', () => {
+        setInlineError(nameInput, nameError, validateName(nameInput.value.trim()));
+      });
+    }
+    if (emailInput) {
+      emailInput.addEventListener('input', () => {
+        setInlineError(emailInput, emailError, validateEmail(emailInput.value.trim(), emailInput.checkValidity()));
+      });
+    }
   }
 
   if (resetButton && interestForm && formSuccess) {
@@ -451,6 +514,9 @@ const initMiniRebel = () => {
       formSuccess.classList.add('is-hidden');
       interestForm.reset();
       updateSelectedProduct('');
+      if (formSuccessMeta) {
+        formSuccessMeta.textContent = '';
+      }
       interestForm.hidden = false;
       interestForm.setAttribute('aria-hidden', 'false');
     });
