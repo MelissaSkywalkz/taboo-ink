@@ -157,59 +157,59 @@ const initMiniRebel = () => {
   }
 
   const productDetails = {
-    'Mini Rebel Tee – Barn (Cream)': {
+    'Mini Rebel Wear – Barn (Studio Cream)': {
       image: 'assets/img/mini-rebel/products/product-5.png',
       fit: 'Barn, normal passform',
       material: '100% bomull',
-      story: 'En liten rebell med stort hjärta. Inspirerad av klassisk tattoo flash, tryckt på mjuk cream.',
+      story: 'En liten rebell med stort hjärta. Inspirerad av klassisk tattoo flash, tryckt på Studio Cream.',
       care: 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.',
       shipping: 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.',
-      related: ['Barn, Vuxen, Set', 'Cream, Black', 'Storleksguide'],
+      related: ['Barn, Vuxen, Set', 'Studio Cream, Rebel Black', 'Storleksguide'],
     },
-    'Mini Rebel Tee – Barn (Black)': {
+    'Mini Rebel Wear – Barn (Rebel Black)': {
       image: 'assets/img/mini-rebel/products/product-6.png',
       fit: 'Barn, normal passform',
       material: '100% bomull',
-      story: 'Rebel black med trygg passform. För dagar som behöver lite mer mod.',
+      story: 'Rebel Black med trygg passform. För dagar som behöver lite mer mod.',
       care: 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.',
       shipping: 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.',
-      related: ['Barn, Vuxen, Set', 'Cream, Black', 'Storleksguide'],
+      related: ['Barn, Vuxen, Set', 'Studio Cream, Rebel Black', 'Storleksguide'],
     },
-    'Mini Rebel Tee – Vuxen (Cream)': {
+    'Mini Rebel Wear – Vuxen (Studio Cream)': {
       image: 'assets/img/mini-rebel/products/product-7.png',
       fit: 'Unisex, normal passform',
       material: '100% bomull',
-      story: 'Cream edition för vuxna. Samma motiv som mini, tänkt att bäras ihop.',
+      story: 'Studio Cream för vuxna. Samma motiv som mini, tänkt att bäras ihop.',
       care: 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.',
       shipping: 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.',
-      related: ['Barn, Vuxen, Set', 'Cream, Black', 'Storleksguide'],
+      related: ['Barn, Vuxen, Set', 'Studio Cream, Rebel Black', 'Storleksguide'],
     },
-    'Mini Rebel Tee – Vuxen (Black)': {
+    'Mini Rebel Wear – Vuxen (Rebel Black)': {
       image: 'assets/img/mini-rebel/products/product-1.png',
       fit: 'Unisex, normal passform',
       material: '100% bomull',
-      story: 'Tydlig, enkel och rak. Ett plagg som funkar varje dag.',
+      story: 'Rebel Black med tydlig attityd. Ett plagg som funkar varje dag.',
       care: 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.',
       shipping: 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.',
-      related: ['Barn, Vuxen, Set', 'Cream, Black', 'Storleksguide'],
+      related: ['Barn, Vuxen, Set', 'Studio Cream, Rebel Black', 'Storleksguide'],
     },
-    'Matchande set – Barn + Vuxen (Cream)': {
+    'Matchande set – Barn + Vuxen (Studio Cream)': {
       image: 'assets/img/mini-rebel/products/product-2.png',
       fit: 'Barn + Vuxen, normal passform',
       material: '100% bomull',
-      story: 'Två tees, en idé. Matcha utan att matcha för mycket.',
+      story: 'Studio Cream för två. Matcha utan att matcha för mycket.',
       care: 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.',
       shipping: 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.',
-      related: ['Barn, Vuxen, Set', 'Cream, Black', 'Storleksguide'],
+      related: ['Barn, Vuxen, Set', 'Studio Cream, Rebel Black', 'Storleksguide'],
     },
-    'Matchande set – Barn + Vuxen (Black)': {
+    'Matchande set – Barn + Vuxen (Rebel Black)': {
       image: 'assets/img/mini-rebel/products/product-3.png',
       fit: 'Barn + Vuxen, normal passform',
       material: '100% bomull',
-      story: 'Svart på svart. Samma känsla, två storlekar.',
+      story: 'Rebel Black i dubbel upplaga. Samma känsla, två storlekar.',
       care: 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.',
       shipping: 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.',
-      related: ['Barn, Vuxen, Set', 'Cream, Black', 'Storleksguide'],
+      related: ['Barn, Vuxen, Set', 'Studio Cream, Rebel Black', 'Storleksguide'],
     },
   };
 
@@ -218,9 +218,9 @@ const initMiniRebel = () => {
       return;
     }
     lastFocusedElement = trigger || document.activeElement || card;
-    const name = card.dataset.product || 'Mini Rebel Tee';
+    const name = card.dataset.product || 'Mini Rebel Wear';
     const price = card.dataset.price || '299 kr';
-    const color = card.dataset.color || 'Cream';
+    const color = card.dataset.color || 'Studio Cream';
     const details = productDetails[name] || {};
 
     modalTitle.textContent = name;
@@ -241,7 +241,7 @@ const initMiniRebel = () => {
       modalMaterial.textContent = details.material || '100% bomull';
     }
     if (modalStory) {
-      modalStory.textContent = details.story || 'En liten rebell med stort hjärta. Inspirerad av klassisk tattoo flash, tryckt på mjuk cream.';
+      modalStory.textContent = details.story || 'En liten rebell med stort hjärta. Inspirerad av klassisk tattoo flash, tryckt på Studio Cream.';
     }
     if (modalCare) {
       modalCare.textContent = details.care || 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.';
@@ -250,7 +250,7 @@ const initMiniRebel = () => {
       modalShipping.textContent = details.shipping || 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.';
     }
     if (modalRelated) {
-      const related = details.related || ['Barn, Vuxen, Set', 'Cream, Black', 'Storleksguide'];
+      const related = details.related || ['Barn, Vuxen, Set', 'Studio Cream, Rebel Black', 'Storleksguide'];
       modalRelated.innerHTML = related.map((item) => `<span class="mr-modal__related-card">${item}</span>`).join('');
     }
     modal.hidden = false;
@@ -367,7 +367,7 @@ const initMiniRebel = () => {
       card.classList.add('mr-card--interactive');
       card.setAttribute('tabindex', '0');
       card.setAttribute('role', 'button');
-      card.setAttribute('aria-label', `Se produkt ${card.dataset.product || 'Mini Rebel Tee'}`);
+      card.setAttribute('aria-label', `Se produkt ${card.dataset.product || 'Mini Rebel Wear'}`);
       card.addEventListener('click', (event) => {
         if (event.target.closest('button, a, input, select, textarea, label')) {
           return;
