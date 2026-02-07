@@ -3,26 +3,38 @@ body {
 }
 
 body.mini-rebel {
-  /* ── Ink palette ── */
-  --ink-bg: #0f0c09;
-  --ink-surface: #1e1711;
-  --ink-surface-light: #2e241c;
-  --ink-paper: #e6d5b8;
-  --ink-paper-soft: #c9b89e;
-  --ink-blood: #8a0f0f;
-  --ink-blood-dark: #6b0b0b;
-  --ink-rose: #a8323e;
-  --ink-sand: #b8a48a;
-  --ink-border: rgba(255, 228, 196, 0.12);
+  /* ── Design tokens (canonical) ── */
+  --mr-bg: #0f0c09;
+  --mr-surface-1: #1e1711;
+  --mr-surface-2: #2e241c;
+  --mr-text-strong: #e6d5b8;
+  --mr-text: #d4c4a8;
+  --mr-text-muted: #b8a48a;
+  --mr-border: rgba(255, 228, 196, 0.12);
+  --mr-accent: #8a0f0f;
+  --mr-accent-dark: #6b0b0b;
+  --mr-accent-rose: #a8323e;
 
-  /* ── Legacy aliases (keep JS & fallback references working) ── */
-  --mr-black: var(--ink-bg);
-  --mr-red: var(--ink-blood);
-  --mr-cream: var(--ink-paper);
-  --mr-brown: var(--ink-sand);
-  --mr-brown-text: var(--ink-sand);
+  /* ── Ink aliases (backward compat) ── */
+  --ink-bg: var(--mr-bg);
+  --ink-surface: var(--mr-surface-1);
+  --ink-surface-light: var(--mr-surface-2);
+  --ink-paper: var(--mr-text-strong);
+  --ink-paper-soft: var(--mr-text);
+  --ink-blood: var(--mr-accent);
+  --ink-blood-dark: var(--mr-accent-dark);
+  --ink-rose: var(--mr-accent-rose);
+  --ink-sand: var(--mr-text-muted);
+  --ink-border: var(--mr-border);
+
+  /* ── Legacy JS aliases ── */
+  --mr-black: var(--mr-bg);
+  --mr-red: var(--mr-accent);
+  --mr-cream: var(--mr-text-strong);
+  --mr-brown: var(--mr-text-muted);
+  --mr-brown-text: var(--mr-text-muted);
   --mr-green: #2a5f3f;
-  --mr-blue: var(--ink-sand);
+  --mr-blue: var(--mr-text-muted);
 
   --header-offset: 80px;
   --mr-script: 'Chewy', 'Nunito', cursive;
@@ -58,14 +70,14 @@ body.mini-rebel {
   --mr-header-height: 72px;
 
   /* ── Surface tokens ── */
-  --mr-panel-bg: var(--ink-surface);
-  --mr-panel-border: var(--ink-border);
+  --mr-panel-bg: var(--mr-surface-1);
+  --mr-panel-border: var(--mr-border);
   --mr-panel-shadow: var(--mr-shadow-panel);
   --mr-hero-overlay: rgba(8, 8, 10, 0.68);
 
   position: relative;
-  background: var(--ink-bg);
-  color: var(--ink-paper);
+  background: var(--mr-bg);
+  color: var(--mr-text);
   font-family: var(--mr-ui);
   font-size: 16px;
   line-height: 1.6;
@@ -931,15 +943,28 @@ body.mini-rebel.mr-nav-open {
 }
 
 .mr-benefit {
-  background: var(--ink-surface-light);
-  border: 1px solid var(--ink-border);
-  backdrop-filter: none;
+  background: rgba(46, 36, 28, 0.25);
+  border: 2px dashed rgba(138, 15, 15, 0.3);
   border-radius: var(--mr-radius-lg);
   padding: 22px 20px;
-  box-shadow: var(--mr-shadow-card);
+  box-shadow: none;
   display: grid;
   gap: 10px;
   justify-items: center;
+  transition: transform 0.25s ease;
+  position: relative;
+}
+
+.mr-benefit:nth-child(2) {
+  transform: rotate(1deg);
+}
+
+.mr-benefit:nth-child(3) {
+  transform: rotate(-1.5deg);
+}
+
+.mr-benefit:hover {
+  transform: rotate(0) translateY(-3px);
 }
 
 .mr-benefit__icon {
@@ -961,12 +986,11 @@ body.mini-rebel.mr-nav-open {
 
 .mr-benefits-details {
   margin-top: 20px;
-  background: var(--ink-surface-light);
-  border: 1px solid var(--ink-border);
-  backdrop-filter: none;
+  background: rgba(46, 36, 28, 0.2);
+  border: 1px dashed var(--ink-border);
   border-radius: var(--mr-radius-md);
   padding: 14px 18px;
-  box-shadow: var(--mr-shadow-card);
+  box-shadow: none;
 }
 
 .mr-benefits-details summary {
@@ -1478,6 +1502,313 @@ body.mini-rebel.mr-modal-open .mr-modal {
   visibility: hidden;
 }
 
+/* ═══════════════════════════════════════════
+   Spår A – de-box, CTA, ornaments, wow rules
+   ═══════════════════════════════════════════ */
+
+/* ── De-box info sections ── */
+#sa-funkar-det > .mr-container.mr-panel,
+#designer > .mr-container.mr-panel {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+#storleksguide .mr-panel {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+#minirebelfamily .mr-club > .mr-panel:not(.mr-club__form) {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* Lighten product-section panels so cards pop against dark bg */
+#popular > .mr-container > .mr-panel,
+#kollektion > .mr-container > .mr-panel {
+  background: rgba(30, 23, 17, 0.25);
+  box-shadow: none;
+  border-color: rgba(255, 228, 196, 0.06);
+}
+
+/* ── CTA hierarchy: "Se produkt" = primary, "Få drop-notis" = ghost ── */
+.mr-card__actions [data-modal-open] {
+  background: linear-gradient(180deg, var(--ink-blood) 0%, var(--ink-blood-dark) 100%);
+  color: var(--ink-paper);
+  border: none;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.mr-card__actions [data-modal-open]:hover,
+.mr-card__actions [data-modal-open]:focus-visible {
+  box-shadow: 0 16px 30px rgba(138, 15, 15, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.mr-card__actions [data-interest] {
+  background: rgba(230, 213, 184, 0.1);
+  color: var(--ink-paper);
+  border: 1px solid rgba(255, 228, 196, 0.15);
+  box-shadow: none;
+}
+
+.mr-card__actions [data-interest]:hover,
+.mr-card__actions [data-interest]:focus-visible {
+  background: rgba(230, 213, 184, 0.18);
+  border-color: rgba(255, 228, 196, 0.25);
+}
+
+/* ── Flash-art dividers (pseudo-element ornaments) ── */
+#sa-funkar-det::before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  margin: 0 auto var(--mr-space-lg);
+  background: linear-gradient(90deg, transparent, var(--mr-accent-rose), transparent);
+  opacity: 0.45;
+}
+
+#designer::before {
+  content: '✦';
+  display: block;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--mr-accent-rose);
+  opacity: 0.4;
+  margin-bottom: var(--mr-space-md);
+  letter-spacing: 0.6em;
+}
+
+#minirebelfamily::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  margin: 0 auto var(--mr-space-lg);
+  background: linear-gradient(90deg, transparent, var(--mr-accent-rose), transparent);
+  opacity: 0.35;
+}
+
+/* ── Storleksguide: thin frame tables ── */
+#storleksguide .mr-size-guide > div {
+  border: 1px solid rgba(255, 228, 196, 0.08);
+  border-radius: var(--mr-radius-md);
+  padding: 16px;
+  background: rgba(30, 23, 17, 0.3);
+}
+
+.mr-size-note::before {
+  content: 'Fit tip';
+  display: inline-block;
+  margin-right: 8px;
+  padding: 2px 10px;
+  border: 2px dashed rgba(138, 15, 15, 0.4);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-rose);
+  vertical-align: middle;
+}
+
+/* ── Absorbed from wow.css ── */
+
+/* Stamps / badges (used in modal) */
+.mr-stamps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.mr-badge,
+.mr-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 2px dashed rgba(138, 15, 15, 0.5);
+  color: var(--ink-paper);
+  background: rgba(46, 36, 28, 0.6);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  position: relative;
+}
+
+.mr-badge::after,
+.mr-stamp::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ink-blood);
+  display: inline-block;
+}
+
+/* Designer section layout */
+.mr-designer {
+  display: grid;
+  gap: 20px;
+}
+
+.mr-designer__text {
+  display: grid;
+  gap: 12px;
+  color: var(--ink-paper-soft);
+}
+
+/* Flash grid */
+.mr-flash-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.mr-flash-card {
+  padding: 18px 16px;
+  border-radius: 18px;
+  border: 1px dashed rgba(138, 15, 15, 0.3);
+  background: rgba(46, 36, 28, 0.4);
+  font-weight: 700;
+  text-align: center;
+  color: var(--ink-paper);
+  transition: transform 0.2s ease;
+}
+
+.mr-flash-card:hover {
+  transform: rotate(-1deg) translateY(-2px);
+}
+
+/* Club / interest form */
+.mr-club {
+  display: grid;
+  gap: 24px;
+}
+
+.mr-club__form {
+  display: grid;
+  gap: 18px;
+}
+
+/* UGC CTA band */
+.mr-ugc-cta {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+  background: rgba(230, 213, 184, 0.04);
+  border-radius: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--ink-border);
+}
+
+.mr-ugc-text {
+  margin: 0;
+  color: var(--ink-paper-soft);
+}
+
+.mr-ugc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  background: rgba(46, 36, 28, 0.4);
+  border-radius: 999px;
+  padding: 8px 12px;
+  border: 1px solid var(--ink-border);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.3);
+}
+
+.mr-hashtag-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(230, 213, 184, 0.08);
+  color: var(--ink-paper);
+  font-weight: 700;
+}
+
+/* UGC contest */
+.mr-ugc-contest {
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px dashed var(--ink-border);
+  background: rgba(46, 36, 28, 0.3);
+}
+
+.mr-ugc-contest h3 {
+  margin: 0 0 8px;
+  color: var(--ink-paper);
+}
+
+.mr-ugc-contest ul {
+  margin: 8px 0 12px 18px;
+  padding: 0;
+  color: var(--ink-paper-soft);
+}
+
+.mr-ugc-steps {
+  margin: 10px 0 12px;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  list-style: none;
+  counter-reset: ugc;
+}
+
+.mr-ugc-steps li {
+  background: rgba(230, 213, 184, 0.05);
+  border-radius: 12px;
+  padding: 10px 12px 10px 44px;
+  position: relative;
+  font-weight: 600;
+  color: var(--ink-paper-soft);
+}
+
+.mr-ugc-steps li::before {
+  counter-increment: ugc;
+  content: counter(ugc);
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(138, 15, 15, 0.2);
+  color: var(--ink-rose);
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+}
+
+.mr-ugc-terms {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink-sand);
+}
+
+/* Generic focus-visible */
+body.mini-rebel a:focus-visible,
+body.mini-rebel button:focus-visible,
+body.mini-rebel select:focus-visible,
+body.mini-rebel textarea:focus-visible,
+body.mini-rebel input:focus-visible {
+  outline: 3px solid rgba(168, 50, 62, 0.6);
+  outline-offset: 3px;
+}
+
 @media (min-width: 720px) {
   .mr-hero-inner {
     grid-template-columns: 1fr;
@@ -1509,11 +1840,7 @@ body.mini-rebel.mr-modal-open .mr-modal {
   }
 
   .mr-benefits-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .mr-benefit {
-    min-height: 180px;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .mr-ugc-grid {
@@ -1543,6 +1870,25 @@ body.mini-rebel.mr-modal-open .mr-modal {
   .mr-size-guide {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  /* Absorbed from wow.css */
+  .mr-designer {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .mr-flash-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .mr-club__form {
+    grid-template-columns: 1fr;
+  }
+
+  .mr-ugc-cta {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -1561,10 +1907,6 @@ body.mini-rebel.mr-modal-open .mr-modal {
   }
 
   .mr-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .mr-benefits-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 
@@ -1682,6 +2024,12 @@ body.mini-rebel.mr-modal-open .mr-modal {
 
   .mr-card,
   .mr-card img {
+    transition: none;
+    transform: none !important;
+  }
+
+  .mr-benefit,
+  .mr-flash-card {
     transition: none;
     transform: none !important;
   }
