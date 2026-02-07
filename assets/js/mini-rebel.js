@@ -158,58 +158,58 @@ const initMiniRebel = () => {
 
   const productDetails = {
     'Mini Rebel Tee – Barn (Cream)': {
-      image: 'assets/img/mini-rebel/products/1.png',
+      image: 'assets/img/mini-rebel/products/product-5.png',
       fit: 'Barn, normal passform',
       material: '100% bomull',
-      story: 'En liten rebell med stort hjärta i varm cream.',
-      care: 'Tvätta ut och in på 30°, låg värme.',
-      shipping: 'Trycks on-demand i EU. Leverans 5–8 arbetsdagar.',
-      related: ['Matchande set', 'Vuxen', 'Cream'],
+      story: 'En liten rebell med stort hjärta. Inspirerad av klassisk tattoo flash, tryckt på mjuk cream.',
+      care: 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.',
+      shipping: 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.',
+      related: ['Barn, Vuxen, Set', 'Cream, Black', 'Storleksguide'],
     },
     'Mini Rebel Tee – Barn (Black)': {
-      image: 'assets/img/mini-rebel/products/4.png',
+      image: 'assets/img/mini-rebel/products/product-6.png',
       fit: 'Barn, normal passform',
       material: '100% bomull',
-      story: 'Rebel black med klassisk tattoo-känsla.',
-      care: 'Tvätta ut och in på 30°, låg värme.',
-      shipping: 'Trycks on-demand i EU. Leverans 5–8 arbetsdagar.',
-      related: ['Matchande set', 'Vuxen', 'Black'],
+      story: 'Rebel black med trygg passform. För dagar som behöver lite mer mod.',
+      care: 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.',
+      shipping: 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.',
+      related: ['Barn, Vuxen, Set', 'Cream, Black', 'Storleksguide'],
     },
     'Mini Rebel Tee – Vuxen (Cream)': {
-      image: 'assets/img/mini-rebel/products/3.png',
+      image: 'assets/img/mini-rebel/products/product-7.png',
       fit: 'Unisex, normal passform',
       material: '100% bomull',
-      story: 'Cream med mjuk finish för stora berättelser.',
-      care: 'Tvätta ut och in på 30°, låg värme.',
-      shipping: 'Trycks on-demand i EU. Leverans 5–8 arbetsdagar.',
-      related: ['Matchande set', 'Barn', 'Cream'],
+      story: 'Cream edition för vuxna. Samma motiv som mini, tänkt att bäras ihop.',
+      care: 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.',
+      shipping: 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.',
+      related: ['Barn, Vuxen, Set', 'Cream, Black', 'Storleksguide'],
     },
     'Mini Rebel Tee – Vuxen (Black)': {
-      image: 'assets/img/mini-rebel/products/4.png',
+      image: 'assets/img/mini-rebel/products/product-1.png',
       fit: 'Unisex, normal passform',
       material: '100% bomull',
-      story: 'Rebel black för en tydlig, trygg statement.',
-      care: 'Tvätta ut och in på 30°, låg värme.',
-      shipping: 'Trycks on-demand i EU. Leverans 5–8 arbetsdagar.',
-      related: ['Matchande set', 'Barn', 'Black'],
+      story: 'Tydlig, enkel och rak. Ett plagg som funkar varje dag.',
+      care: 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.',
+      shipping: 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.',
+      related: ['Barn, Vuxen, Set', 'Cream, Black', 'Storleksguide'],
     },
     'Matchande set – Barn + Vuxen (Cream)': {
-      image: 'assets/img/mini-rebel/products/2.png',
+      image: 'assets/img/mini-rebel/products/product-2.png',
       fit: 'Barn + Vuxen, normal passform',
       material: '100% bomull',
-      story: 'Ett matchande set för stora & små rebels.',
-      care: 'Tvätta ut och in på 30°, låg värme.',
-      shipping: 'Trycks on-demand i EU. Leverans 5–8 arbetsdagar.',
-      related: ['Barn', 'Vuxen', 'Cream'],
+      story: 'Två tees, en idé. Matcha utan att matcha för mycket.',
+      care: 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.',
+      shipping: 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.',
+      related: ['Barn, Vuxen, Set', 'Cream, Black', 'Storleksguide'],
     },
     'Matchande set – Barn + Vuxen (Black)': {
-      image: 'assets/img/mini-rebel/products/4.png',
+      image: 'assets/img/mini-rebel/products/product-3.png',
       fit: 'Barn + Vuxen, normal passform',
       material: '100% bomull',
-      story: 'Rebel black set för matchning direkt.',
-      care: 'Tvätta ut och in på 30°, låg värme.',
-      shipping: 'Trycks on-demand i EU. Leverans 5–8 arbetsdagar.',
-      related: ['Barn', 'Vuxen', 'Black'],
+      story: 'Svart på svart. Samma känsla, två storlekar.',
+      care: 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.',
+      shipping: 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.',
+      related: ['Barn, Vuxen, Set', 'Cream, Black', 'Storleksguide'],
     },
   };
 
@@ -232,7 +232,7 @@ const initMiniRebel = () => {
       applyImageFallback(modalImage);
     }
     if (modalDescription) {
-      modalDescription.textContent = details.story || 'Mjuk t-shirt i varm cream eller rebel black. En liten berättelse att bära tillsammans.';
+      modalDescription.textContent = details.story || 'Tydlig, enkel och rak. Ett plagg som funkar varje dag.';
     }
     if (modalFit) {
       modalFit.textContent = details.fit || 'Normal passform';
@@ -241,16 +241,16 @@ const initMiniRebel = () => {
       modalMaterial.textContent = details.material || '100% bomull';
     }
     if (modalStory) {
-      modalStory.textContent = details.story || 'En liten rebell med stort hjärta. Inspirerad av klassisk flash.';
+      modalStory.textContent = details.story || 'En liten rebell med stort hjärta. Inspirerad av klassisk tattoo flash, tryckt på mjuk cream.';
     }
     if (modalCare) {
-      modalCare.textContent = details.care || 'Tvätta ut och in på 30°, låg värme. Undvik torktumlare.';
+      modalCare.textContent = details.care || 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.';
     }
     if (modalShipping) {
-      modalShipping.textContent = details.shipping || 'Trycks on-demand i EU. Leverans 5–8 arbetsdagar.';
+      modalShipping.textContent = details.shipping || 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.';
     }
     if (modalRelated) {
-      const related = details.related || ['Matcha set', 'Barn', 'Vuxen'];
+      const related = details.related || ['Barn, Vuxen, Set', 'Cream, Black', 'Storleksguide'];
       modalRelated.innerHTML = related.map((item) => `<span class="mr-modal__related-card">${item}</span>`).join('');
     }
     modal.hidden = false;
@@ -332,14 +332,14 @@ const initMiniRebel = () => {
     }
   };
 
-  const cards = document.querySelectorAll('.mr-card');
+  const cards = document.querySelectorAll('.mr-card--shop');
   const filterButtons = document.querySelectorAll('[data-filter]');
   const sortSelect = document.getElementById('mr-sort-select');
   const productGrid = document.getElementById('mr-product-grid');
   const resultsCount = document.getElementById('mr-results-count');
   const collectionCta = document.querySelector('.mr-hero-actions a[href="#mr-collection"]');
   const quickFilterButtons = document.querySelectorAll('[data-quick-filter]');
-  const gridCards = productGrid ? productGrid.querySelectorAll('.mr-card') : [];
+  const gridCards = productGrid ? productGrid.querySelectorAll('.mr-card--shop') : [];
   const cardData = Array.from(gridCards).map((card, index) => ({
     card,
     index,
@@ -355,7 +355,7 @@ const initMiniRebel = () => {
     if (!productGrid) {
       return;
     }
-    resultsCount.textContent = `Visar ${productGrid.querySelectorAll('.mr-card:not([hidden])').length} produkter`;
+    resultsCount.textContent = `Visar ${productGrid.querySelectorAll('.mr-card--shop:not([hidden])').length} produkter`;
   };
 
   cards.forEach((card) => {
@@ -505,7 +505,7 @@ const initMiniRebel = () => {
     collectionCta.addEventListener('click', (event) => {
       event.preventDefault();
       productGrid.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
-      const firstCard = productGrid.querySelector('.mr-card');
+      const firstCard = productGrid.querySelector('.mr-card--shop');
       if (firstCard) {
         firstCard.setAttribute('tabindex', '-1');
         if (prefersReducedMotion) {

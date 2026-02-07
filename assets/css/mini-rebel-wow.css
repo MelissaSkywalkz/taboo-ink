@@ -4,11 +4,10 @@ body.mini-rebel {
   --mr-wow-paper: rgba(232, 224, 214, 0.85);
 }
 
-/* Mini Rebel wow-skin utilities: panel + rope + badge/stamp */
-body.mini-rebel .mr-panel,
+/* Mini Rebel wow utilities (base panel/card styles live in mini-rebel.css). */
 body.mini-rebel .mr-wow-panel {
   position: relative;
-  padding: 28px;
+  padding: 0;
   border-radius: 22px;
   background: var(--mr-wow-paper);
   border: 1px solid var(--mr-wow-border);
@@ -16,7 +15,6 @@ body.mini-rebel .mr-wow-panel {
   overflow: hidden;
 }
 
-body.mini-rebel .mr-panel::before,
 body.mini-rebel .mr-wow-panel::before {
   content: '';
   position: absolute;
@@ -29,7 +27,6 @@ body.mini-rebel .mr-wow-panel::before {
   pointer-events: none;
 }
 
-body.mini-rebel .mr-panel > *,
 body.mini-rebel .mr-wow-panel > * {
   position: relative;
   z-index: 1;
@@ -107,73 +104,10 @@ body.mini-rebel .mr-card {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-body.mini-rebel .mr-card--shop {
-  border-radius: 22px;
-}
-
-body.mini-rebel .mr-card__badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-body.mini-rebel .mr-card__badge {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px dashed rgba(161, 18, 18, 0.45);
-  color: var(--mr-brown);
-  background: rgba(243, 237, 228, 0.7);
-  font-weight: 700;
-}
-
-body.mini-rebel .mr-card__quick {
-  font-size: 0.82rem;
-  color: #5b4b3d;
-  background: rgba(14, 14, 16, 0.04);
-  padding: 8px 10px;
-  border-radius: 12px;
-}
-
-body.mini-rebel .mr-card--shop .mr-card__quick {
-  margin-top: 6px;
-}
-
-body.mini-rebel .mr-card--shop .mr-card__status {
-  margin-top: 4px;
-}
-
-body.mini-rebel .mr-card__body {
-  gap: 12px;
-}
-
-body.mini-rebel .mr-card--shop .mr-card__actions {
-  margin-top: 4px;
-}
-
 body.mini-rebel .mr-card:hover,
 body.mini-rebel .mr-card:focus-within {
   transform: translateY(-4px) rotate(-0.3deg);
   box-shadow: 0 20px 38px rgba(14, 14, 16, 0.2);
-}
-
-body.mini-rebel .mr-card__status {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--mr-brown);
-  font-weight: 700;
-}
-
-body.mini-rebel .mr-card__status::before {
-  content: '●';
-  color: var(--mr-red);
-  font-size: 0.8rem;
 }
 
 body.mini-rebel .mr-designer {
