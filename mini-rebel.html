@@ -53,75 +53,95 @@
   </script>
 </head>
 <body class="mini-rebel">
-  <div class="mr-bg" aria-hidden="true">
-    <div class="mr-bg__image"></div>
-    <div class="mr-bg__overlay"></div>
-  </div>
   <div class="mr-page">
   <a class="skip-link" href="#main-content">Hoppa till innehåll</a>
-  <header class="site-header" id="top">
-    <div class="container header-inner">
-      <a class="logo" href="index.html" aria-label="Taboo Ink Stockholm">
-        <img
-          src="assets/img/logo-light.png"
-          alt="Taboo Ink Stockholm logotyp"
-          class="logo-img"
-        >
-      </a>
-            <nav class="nav" id="primary-nav" aria-label="Huvudmeny">
-        <a class="nav__link" href="index.html">Hem</a>
-        <a class="nav__link" href="portfolio.html">Portfolio</a>
-        <div class="nav-item has-dropdown" data-dropdown>
-          <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="dropdown-styles">Stilar</button>
-          <div class="nav__dropdown dropdown-menu" id="dropdown-styles">
-            <a href="realism.html">Realism</a>
-            <a href="black-grey.html">Black &amp; Grey</a>
-            <a href="cover-up.html">Cover-up</a>
-            <a href="portratt.html">Porträtt</a>
-          </div>
-        </div>
-        <div class="nav-item has-dropdown" data-dropdown>
-          <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="dropdown-info">Info</button>
-          <div class="nav__dropdown dropdown-menu" id="dropdown-info">
-            <a href="aftercare.html">Eftervård</a>
-            <a href="pris.html">Pris &amp; konsultation</a>
-            <a href="faq.html">FAQ</a>
-            <a href="kungsholmen.html">Hitta hit</a>
-          </div>
-        </div>
-        <div class="nav-item has-dropdown" data-dropdown>
-          <div class="dropdown-trigger">
-            <a class="nav__link" href="mini-rebel.html">Mini Rebel</a>
-            <button class="nav__toggle nav__toggle--icon" type="button" aria-expanded="false" aria-controls="dropdown-mini-rebel">
-              <span class="sr-only">Öppna Mini Rebel-menyn</span>
-              <span aria-hidden="true">▾</span>
-            </button>
-          </div>
-          <div class="nav__dropdown dropdown-menu" id="dropdown-mini-rebel">
-            <a href="mini-rebel.html">Översikt</a>
-            <a href="mini-rebel.html#kollektion">Shop</a>
-            <a href="flashbook.html">Motiv (Flashbook)</a>
-            <a href="mini-rebel.html#popular">Plushies</a>
-            <a href="mini-rebel.html#designer">Om oss</a>
-            <a href="mini-rebel.html#storleksguide">Storleksguide</a>
-            <a href="mini-rebel.html#sa-funkar-det">Tryck &amp; kvalitet</a>
-          </div>
-        </div>
-        <a class="nav-link nav-book" href="https://www.tabooinkstockholm.com/book-online" target="_blank" rel="noopener">Boka</a>
-      </nav>
-      <button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+  <header class="mr-header" id="top">
+    <div class="mr-header__inner">
+      <button class="mr-nav-toggle" type="button" aria-expanded="false" aria-controls="mr-nav-drawer">
         <span class="sr-only">Öppna meny</span>
-        <span class="menu-bar"></span>
-        <span class="menu-bar"></span>
-        <span class="menu-bar"></span>
+        <span class="mr-nav-toggle__bar"></span>
+        <span class="mr-nav-toggle__bar"></span>
+        <span class="mr-nav-toggle__bar"></span>
       </button>
+      <nav class="mr-nav" aria-label="Mini Rebel meny">
+        <div class="mr-nav__left">
+          <a href="#kollektion">Kollektion</a>
+          <a href="#designer">Om oss</a>
+        </div>
+        <a class="mr-header__logo" href="mini-rebel.html" aria-label="Mini Rebel">
+          <span class="mr-header__logo-text">Mini Rebel</span>
+        </a>
+        <div class="mr-nav__right" aria-label="Snabbikon" role="group">
+          <button class="mr-icon-btn" type="button" aria-label="Sök">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"></circle>
+              <line x1="16.65" y1="16.65" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+            </svg>
+          </button>
+          <button class="mr-icon-btn" type="button" aria-label="Valuta">
+            <span class="mr-icon-btn__text">SEK</span>
+          </button>
+          <button class="mr-icon-btn mr-icon-btn--cart" type="button" aria-label="Kundvagn">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M7 6h14l-2 9H9L7 6Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+              <circle cx="10" cy="20" r="1.8" fill="currentColor"></circle>
+              <circle cx="18" cy="20" r="1.8" fill="currentColor"></circle>
+              <path d="M3 4h2l2 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+      <button class="mr-icon-btn mr-icon-btn--cart mr-icon-btn--mobile" type="button" aria-label="Kundvagn">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M7 6h14l-2 9H9L7 6Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+          <circle cx="10" cy="20" r="1.8" fill="currentColor"></circle>
+          <circle cx="18" cy="20" r="1.8" fill="currentColor"></circle>
+          <path d="M3 4h2l2 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="mr-nav-drawer" id="mr-nav-drawer" hidden>
+      <div class="mr-nav-drawer__overlay" data-drawer-close></div>
+      <div class="mr-nav-drawer__panel" role="dialog" aria-modal="true" aria-label="Mini Rebel meny">
+        <div class="mr-nav-drawer__header">
+          <span class="mr-header__logo-text">Mini Rebel</span>
+          <button class="mr-icon-btn" type="button" data-drawer-close aria-label="Stäng meny">✕</button>
+        </div>
+        <div class="mr-nav-drawer__links">
+          <a href="#kollektion">Kollektion</a>
+          <a href="#designer">Om oss</a>
+          <a href="#popular">Populära just nu</a>
+          <a href="#intresse">Få drop-notis</a>
+        </div>
+        <div class="mr-nav-drawer__actions">
+          <button class="mr-icon-btn" type="button" aria-label="Sök">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"></circle>
+              <line x1="16.65" y1="16.65" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+            </svg>
+            <span class="mr-icon-btn__label">Sök</span>
+          </button>
+          <button class="mr-icon-btn" type="button" aria-label="Valuta">
+            <span class="mr-icon-btn__text">SEK</span>
+            <span class="mr-icon-btn__label">Valuta</span>
+          </button>
+          <button class="mr-icon-btn" type="button" aria-label="Kundvagn">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M7 6h14l-2 9H9L7 6Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+              <circle cx="10" cy="20" r="1.8" fill="currentColor"></circle>
+              <circle cx="18" cy="20" r="1.8" fill="currentColor"></circle>
+              <path d="M3 4h2l2 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+            <span class="mr-icon-btn__label">Kundvagn</span>
+          </button>
+        </div>
+      </div>
     </div>
   </header>
 
   <main id="main-content">
     <!-- Mini Rebel wow-skeleton: paneler/ramar, scen-kort och microinteractions (scopas i mini-rebel.css). -->
     <section class="mr-hero mr-wow-grain" aria-labelledby="mr-hero-title">
-      <div class="mr-hero__overlay"></div>
       <div class="mr-container">
         <div class="mr-hero__grid">
           <div class="mr-panel mr-panel--hero mr-hero__content">
@@ -133,7 +153,7 @@
             <h1 class="mr-hero__title" id="mr-hero-title">Mini Rebel</h1>
             <p class="mr-hero__intro">Tattoo vibes för små rebeller. Mjuk kvalitet, trycks on-demand i EU.</p>
             <div class="mr-hero__actions">
-              <a class="mr-btn mr-btn--primary" href="#kollektion">Se kollektionen</a>
+              <a class="mr-btn mr-btn--primary" href="#kollektion">Shoppa kollektionen</a>
               <a class="mr-btn mr-btn--ghost" href="#intresse">Få drop-notis</a>
             </div>
             <div class="mr-drop-status">Drop 01 • Sneak peek • Lanseras snart</div>

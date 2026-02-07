@@ -24,12 +24,18 @@ const initMiniRebel = () => {
   const nameError = document.getElementById('mr-name-error');
   const emailError = document.getElementById('mr-email-error');
   const pageRoot = document.querySelector('.mr-page');
+  const navToggle = document.querySelector('.mr-nav-toggle');
+  const navDrawer = document.getElementById('mr-nav-drawer');
+  const navDrawerPanel = navDrawer ? navDrawer.querySelector('.mr-nav-drawer__panel') : null;
+  const navDrawerLinks = navDrawer ? navDrawer.querySelectorAll('a') : [];
+  const navDrawerCloseButtons = navDrawer ? navDrawer.querySelectorAll('[data-drawer-close]') : [];
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const focusableSelector = 'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
   let lastFocusedElement = null;
   let modalListenersInitialized = false;
   let highlightTimeout = null;
+  let lastFocusedNav = null;
 
   const mailtoAddress = 'info@tabooinkstockholm.com';
 
@@ -38,6 +44,61 @@ const initMiniRebel = () => {
       return [];
     }
     return Array.from(root.querySelectorAll(focusableSelector)).filter((element) => !element.hasAttribute('disabled'));
+  };
+
+  const openNavDrawer = () => {
+    if (!navDrawer || !navToggle) {
+      return;
+    }
+    lastFocusedNav = document.activeElement;
+    navDrawer.hidden = false;
+    navDrawer.classList.add('is-open');
+    navToggle.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('mr-nav-open');
+    if (pageRoot) {
+      pageRoot.setAttribute('aria-hidden', 'true');
+      pageRoot.inert = true;
+    }
+    const focusTarget = navDrawerLinks[0] || navDrawerPanel;
+    if (focusTarget) {
+      focusTarget.focus();
+    }
+  };
+
+  const closeNavDrawer = () => {
+    if (!navDrawer || !navToggle) {
+      return;
+    }
+    navDrawer.classList.remove('is-open');
+    navDrawer.hidden = true;
+    navToggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('mr-nav-open');
+    if (pageRoot) {
+      pageRoot.removeAttribute('aria-hidden');
+      pageRoot.inert = false;
+    }
+    if (lastFocusedNav && typeof lastFocusedNav.focus === 'function') {
+      lastFocusedNav.focus();
+    }
+  };
+
+  const trapDrawerFocus = (event) => {
+    if (!navDrawer || navDrawer.hidden || event.key !== 'Tab') {
+      return;
+    }
+    const focusable = getFocusableElements(navDrawerPanel);
+    if (!focusable.length) {
+      return;
+    }
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
   };
 
   if (formSuccess) {
@@ -60,6 +121,39 @@ const initMiniRebel = () => {
     productField.addEventListener('change', () => {
       updateSelectedProduct(productField.value);
     });
+  }
+
+  if (navToggle && navDrawer) {
+    navToggle.addEventListener('click', () => {
+      if (navDrawer.classList.contains('is-open')) {
+        closeNavDrawer();
+      } else {
+        openNavDrawer();
+      }
+    });
+
+    navDrawerCloseButtons.forEach((button) => {
+      button.addEventListener('click', closeNavDrawer);
+    });
+
+    navDrawerLinks.forEach((link) => {
+      link.addEventListener('click', closeNavDrawer);
+    });
+
+    navDrawer.addEventListener('click', (event) => {
+      if (event.target.closest('.mr-nav-drawer__panel')) {
+        return;
+      }
+      closeNavDrawer();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && navDrawer && !navDrawer.hidden) {
+        closeNavDrawer();
+      }
+    });
+
+    navDrawer.addEventListener('keydown', trapDrawerFocus);
   }
 
   const productDetails = {
