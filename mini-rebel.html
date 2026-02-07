@@ -22,7 +22,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Chewy&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/css/styles.css">
   <link rel="stylesheet" href="./assets/css/mini-rebel.css">
   <script type="application/ld+json">
   {
@@ -54,8 +53,8 @@
 </head>
 <body class="mini-rebel" data-site="mini-rebel">
   <div class="mr-page">
-  <a class="skip-link" href="#main-content">Hoppa till innehåll</a>
-  <header class="mr-header" id="top">
+  <a class="skip-link" href="#mr-main-content">Hoppa till innehåll</a>
+  <header class="mr-header" id="mr-top">
     <div class="mr-header__inner">
       <button class="mr-nav-toggle" type="button" aria-expanded="false" aria-controls="mr-nav-drawer">
         <span class="sr-only">Öppna meny</span>
@@ -69,7 +68,7 @@
       <nav class="mr-nav" aria-label="Mini Rebel meny">
         <div class="mr-nav__left">
           <a href="#mr-collection">Drop 01</a>
-          <a href="#designer">Om oss</a>
+          <a href="#mr-designer">Om oss</a>
         </div>
         <a class="mr-header__logo" href="./mini-rebel.html" aria-label="Mini Rebel">
           <span class="mr-header__logo-text">Mini Rebel</span>
@@ -112,7 +111,7 @@
         </div>
         <div class="mr-nav-drawer__links">
           <a href="#mr-collection">Drop 01</a>
-          <a href="#designer">Om oss</a>
+          <a href="#mr-designer">Om oss</a>
           <a href="#mr-signup">Få drop-notis</a>
         </div>
         <div class="mr-nav-drawer__actions">
@@ -141,7 +140,7 @@
     </div>
   </header>
 
-  <main id="main-content">
+  <main id="mr-main-content">
     <!-- Mini Rebel wow-skeleton: paneler/ramar, scen-kort och microinteractions (scopas i mini-rebel.css). -->
     <section class="mr-hero" aria-labelledby="mr-hero-title">
       <div class="mr-hero-inner">
@@ -160,14 +159,14 @@
       </div>
     </section>
 
-    <section class="mr-section" id="kollektion">
+    <section class="mr-section" id="mr-drop-01">
       <span class="mr-anchor" id="mr-collection" aria-hidden="true"></span>
       <div class="mr-container">
         <div class="mr-panel">
           <header class="mr-section__header">
-            <p class="mr-section__kicker">Drop 01</p>
+            <p class="mr-section__kicker">Mini Rebel Wear</p>
             <h2>
-              Mini Rebel Wear
+              Drop 01
               <svg class="mr-sparkle mr-sparkle--title" viewBox="0 0 120 120" aria-hidden="true">
                 <path d="M60 10l8 26 26 8-26 8-8 26-8-26-26-8 26-8z" />
               </svg>
@@ -208,16 +207,9 @@
                 <p class="mr-card__price">299 kr</p>
                 
               </div>
-              <div class="mr-card__badges">
-                <span class="mr-card__badge">On-demand</span>
-                <span class="mr-card__badge">EU</span>
-                <span class="mr-card__badge">Mjuk</span>
-              </div>
               <p class="mr-card__text">För små rebeller med stort hjärta. Klassisk flash på Studio Cream.</p>
               <p class="mr-card__meta" data-card-meta></p>
-              <div class="mr-card__quick">Snabbinfo: Barnstorlek • 100% bomull</div>
               <div class="mr-card__actions">
-                <button class="mr-btn mr-btn--ghost" type="button" data-interest>Få drop-notis</button>
                 <button class="mr-btn mr-btn--primary" type="button" data-modal-open>Se produkt</button>
               </div>
             </div>
@@ -233,16 +225,9 @@
                 <p class="mr-card__price">299 kr</p>
                 
               </div>
-              <div class="mr-card__badges">
-                <span class="mr-card__badge">On-demand</span>
-                <span class="mr-card__badge">EU</span>
-                <span class="mr-card__badge">Mjuk</span>
-              </div>
               <p class="mr-card__text">Rebel Black för dagar som behöver lite mer mod och attityd.</p>
               <p class="mr-card__meta" data-card-meta></p>
-              <div class="mr-card__quick">Snabbinfo: Barnstorlek • Rebel Black</div>
               <div class="mr-card__actions">
-                <button class="mr-btn mr-btn--ghost" type="button" data-interest>Få drop-notis</button>
                 <button class="mr-btn mr-btn--primary" type="button" data-modal-open>Se produkt</button>
               </div>
             </div>
@@ -258,16 +243,9 @@
                 <p class="mr-card__price">349 kr</p>
                 
               </div>
-              <div class="mr-card__badges">
-                <span class="mr-card__badge">On-demand</span>
-                <span class="mr-card__badge">EU</span>
-                <span class="mr-card__badge">Mjuk</span>
-              </div>
               <p class="mr-card__text">Tatuerarens Studio Cream. För vuxna som vill matcha med sin mini.</p>
               <p class="mr-card__meta" data-card-meta></p>
-              <div class="mr-card__quick">Snabbinfo: Unisex • Studio Cream</div>
               <div class="mr-card__actions">
-                <button class="mr-btn mr-btn--ghost" type="button" data-interest>Få drop-notis</button>
                 <button class="mr-btn mr-btn--primary" type="button" data-modal-open>Se produkt</button>
               </div>
             </div>
@@ -283,16 +261,9 @@
                 <p class="mr-card__price">349 kr</p>
                 
               </div>
-              <div class="mr-card__badges">
-                <span class="mr-card__badge">On-demand</span>
-                <span class="mr-card__badge">EU</span>
-                <span class="mr-card__badge">Mjuk</span>
-              </div>
               <p class="mr-card__text">Tydlig attityd för stora rebeller. Unisex som funkar varje dag.</p>
               <p class="mr-card__meta" data-card-meta></p>
-              <div class="mr-card__quick">Snabbinfo: Unisex • Rebel Black</div>
               <div class="mr-card__actions">
-                <button class="mr-btn mr-btn--ghost" type="button" data-interest>Få drop-notis</button>
                 <button class="mr-btn mr-btn--primary" type="button" data-modal-open>Se produkt</button>
               </div>
             </div>
@@ -308,16 +279,9 @@
                 <p class="mr-card__price">599 kr</p>
                 
               </div>
-              <div class="mr-card__badges">
-                <span class="mr-card__badge">On-demand</span>
-                <span class="mr-card__badge">EU</span>
-                <span class="mr-card__badge">Mjuk</span>
-              </div>
                 <p class="mr-card__text">Ett set för två. Samma motiv, två storlekar, samma berättelse.</p>
               <p class="mr-card__meta" data-card-meta></p>
-              <div class="mr-card__quick">Snabbinfo: Setpris • Studio Cream</div>
               <div class="mr-card__actions">
-                <button class="mr-btn mr-btn--ghost" type="button" data-interest>Få drop-notis</button>
                 <button class="mr-btn mr-btn--primary" type="button" data-modal-open>Se produkt</button>
               </div>
             </div>
@@ -333,26 +297,22 @@
                 <p class="mr-card__price">599 kr</p>
                 
               </div>
-              <div class="mr-card__badges">
-                <span class="mr-card__badge">On-demand</span>
-                <span class="mr-card__badge">EU</span>
-                <span class="mr-card__badge">Mjuk</span>
-              </div>
               <p class="mr-card__text">Rebel Black i dubbel upplaga. Föräldrar och mini på samma sida.</p>
               <p class="mr-card__meta" data-card-meta></p>
-              <div class="mr-card__quick">Snabbinfo: Setpris • Rebel Black</div>
               <div class="mr-card__actions">
-                <button class="mr-btn mr-btn--ghost" type="button" data-interest>Få drop-notis</button>
                 <button class="mr-btn mr-btn--primary" type="button" data-modal-open>Se produkt</button>
               </div>
             </div>
           </article>
           </div>
+          <div class="mr-collection-cta">
+            <a class="mr-btn mr-btn--ghost" href="#mr-signup">Få drop-notis</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="mr-section" id="origin">
+    <section class="mr-section" id="mr-origin">
       <div class="mr-container mr-panel">
         <div class="mr-origin-grid">
           <div class="mr-origin-copy">
@@ -371,38 +331,7 @@
       </div>
     </section>
 
-    <section class="mr-section mr-section--tight" id="sa-funkar-det">
-      <div class="mr-container mr-panel">
-        <header class="mr-section__header">
-          <p class="mr-section__kicker">Så funkar det</p>
-          <h2>On-demand, nära, tydligt</h2>
-          <p>Läs mer om <a href="./faq.html">leverans &amp; retur</a> och kolla <a href="#storleksguide">storleksguiden</a> innan släpp.</p>
-        </header>
-        <div class="mr-benefits-grid">
-          <div class="mr-benefit">
-            <span class="mr-benefit__icon" aria-hidden="true">🪡</span>
-            <h3>Tryckt i EU</h3>
-            <p>Kortare väg, snabbare leverans.</p>
-          </div>
-          <div class="mr-benefit">
-            <span class="mr-benefit__icon" aria-hidden="true">🌱</span>
-            <h3>On-demand</h3>
-            <p>Vi trycker först när du väljer.</p>
-          </div>
-          <div class="mr-benefit">
-            <span class="mr-benefit__icon" aria-hidden="true">🧸</span>
-            <h3>Mjuk kvalitet</h3>
-            <p>Mjuk bomull för små och stora.</p>
-          </div>
-        </div>
-        <details class="mr-benefits-details">
-          <summary>Mer om drop och leverans</summary>
-          <p>Varje plagg trycks on-demand i EU. När droppet öppnar skickar vi tider och storleksinfo.</p>
-        </details>
-      </div>
-    </section>
-
-    <section class="mr-section mr-section--muted" id="storleksguide">
+    <section class="mr-section mr-section--muted" id="mr-storleksguide">
       <div class="mr-container">
         <div class="mr-panel">
           <header class="mr-section__header">
@@ -410,16 +339,6 @@
             <h2>Hitta rätt storlek för små &amp; stora rebels</h2>
             <p>Unisex och normal passform. Hör av er om ni vill dubbelkolla innan släpp.</p>
           </header>
-          <div class="mr-size-intro">
-            <p>I Stockholm? Prova i studion.</p>
-            <div class="mr-address-card">
-              <div class="mr-address-card__body">
-                <p class="mr-address-card__title">Taboo Ink</p>
-                <p>Hantverkargatan 83<br>112 38 Stockholm</p>
-              </div>
-              <a class="mr-link mr-address-card__link" href="./kungsholmen.html">Hitta hit</a>
-            </div>
-          </div>
           <div class="mr-size-guide">
             <div>
               <h3>Barn</h3>
@@ -485,12 +404,12 @@
               </table>
             </div>
           </div>
-          <p class="mr-size-note">Vill ni ha mer oversize, gå upp en storlek. Barnstorlekarna är normala i passform.</p>
+          <p class="mr-size-note">I Stockholm? Prova i studion på Hantverkargatan 83, 112 38 Stockholm. <a class="mr-link" href="./kungsholmen.html">Hitta hit</a>.</p>
         </div>
       </div>
     </section>
 
-    <section class="mr-section" id="designer">
+    <section class="mr-section" id="mr-designer">
       <div class="mr-container mr-panel">
         <header class="mr-section__header">
           <p class="mr-section__kicker">Designad av tatuerare</p>
@@ -514,7 +433,7 @@
       </div>
     </section>
 
-    <section class="mr-section mr-section--muted" id="minirebelfamily">
+    <section class="mr-section mr-section--muted" id="mr-minirebelfamily">
       <div class="mr-container mr-club">
         <div class="mr-panel">
           <header class="mr-section__header">
@@ -525,7 +444,7 @@
                 <path d="M60 10l8 26 26 8-26 8-8 26-8-26-26-8 26-8z" />
               </svg>
             </h2>
-            <p>Tagga oss när ni matchar med mini. Vi fyller på när Drop 01 landar. Bli del av <a href="#intresse">klubben</a>.</p>
+            <p>Tagga oss när ni matchar med mini. Vi fyller på när Drop 01 landar. Bli del av <a href="#mr-intresse">klubben</a>.</p>
           </header>
           <div class="mr-ugc-cta">
             <p class="mr-ugc-text">Ett arkiv för små rebeller. Dela när ni vill.</p>
@@ -537,28 +456,36 @@
           </div>
           <div class="mr-ugc-grid">
             <div class="mr-ugc-card">
-              <div class="mr-ugc-card__media" aria-hidden="true"></div>
+              <div class="mr-ugc-card__media" aria-hidden="true">
+                <img src="./assets/img/mini-rebel/products/instagram-1.png" alt="" loading="lazy" width="480" height="360">
+              </div>
               <div class="mr-ugc-card__body">
                 <p>Din story har en plats här.</p>
                 <span class="mr-ugc-card__meta">#minirebelfamily</span>
               </div>
             </div>
             <div class="mr-ugc-card">
-              <div class="mr-ugc-card__media" aria-hidden="true"></div>
+              <div class="mr-ugc-card__media" aria-hidden="true">
+                <img src="./assets/img/mini-rebel/products/instagram-2.png" alt="" loading="lazy" width="480" height="360">
+              </div>
               <div class="mr-ugc-card__body">
                 <p>Matcha med mini och dela.</p>
                 <span class="mr-ugc-card__meta">Skicka in bild</span>
               </div>
             </div>
             <div class="mr-ugc-card">
-              <div class="mr-ugc-card__media" aria-hidden="true"></div>
+              <div class="mr-ugc-card__media" aria-hidden="true">
+                <img src="./assets/img/mini-rebel/products/instagram-3.png" alt="" loading="lazy" width="480" height="360">
+              </div>
               <div class="mr-ugc-card__body">
                 <p>Trygg, mjuk vardag i rebel vibes.</p>
                 <span class="mr-ugc-card__meta">Tagga oss</span>
               </div>
             </div>
             <div class="mr-ugc-card">
-              <div class="mr-ugc-card__media" aria-hidden="true"></div>
+              <div class="mr-ugc-card__media" aria-hidden="true">
+                <img src="./assets/img/mini-rebel/products/instagram-4.png" alt="" loading="lazy" width="480" height="360">
+              </div>
               <div class="mr-ugc-card__body">
                 <p>Vi fyller på med era favoriter.</p>
                 <span class="mr-ugc-card__meta">Kommer snart</span>
@@ -585,7 +512,7 @@
             <p class="mr-ugc-terms">Läs regler &amp; policy i <a href="./faq.html">FAQ</a>.</p>
           </div>
         </div>
-        <div class="mr-panel mr-club__form" id="intresse">
+        <div class="mr-panel mr-club__form" id="mr-intresse">
           <span class="mr-anchor" id="mr-signup" aria-hidden="true"></span>
           <div>
             <p class="mr-section__kicker">Drop-notis</p>
@@ -620,7 +547,7 @@
                 <option>Matchande set – Barn + Vuxen (Studio Cream)</option>
                 <option>Matchande set – Barn + Vuxen (Rebel Black)</option>
               </select>
-              <span class="mr-form__inline" id="mr-product-help" aria-live="polite">Välj i listan eller klicka Få drop-notis på en produkt.</span>
+              <span class="mr-form__inline" id="mr-product-help" aria-live="polite">Välj i listan om du vill koppla notisen till en specifik produkt.</span>
             </label>
             <label>
               Kommentar (valfritt)
@@ -731,7 +658,7 @@
             <p id="mr-modal-shipping">Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.</p>
           </div>
         </div>
-        <p class="mr-modal__links">Läs <a href="#storleksguide">storleksguide</a> och <a href="#sa-funkar-det">tryck &amp; kvalitet</a>.</p>
+        <p class="mr-modal__links">Läs <a href="#mr-storleksguide">storleksguide</a>.</p>
         <div class="mr-modal__related">
           <h4>Matcha med mini/vuxen</h4>
           <div class="mr-modal__related-grid" id="mr-modal-related">

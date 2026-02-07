@@ -87,6 +87,59 @@ body.mini-rebel {
   line-height: 1.6;
 }
 
+body.mini-rebel p {
+  margin: 0;
+}
+
+body.mini-rebel button {
+  margin: 0;
+}
+
+body.mini-rebel a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body.mini-rebel a:focus-visible,
+body.mini-rebel button:focus-visible,
+body.mini-rebel input:focus-visible,
+body.mini-rebel textarea:focus-visible,
+body.mini-rebel select:focus-visible {
+  outline: 2px solid rgba(140, 19, 23, 0.8);
+  outline-offset: 3px;
+}
+
+body.mini-rebel .skip-link {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  background: var(--mr-text-strong);
+  color: var(--mr-bg);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transform: translateY(-200%);
+  transition: transform 0.2s ease;
+  z-index: 100;
+}
+
+body.mini-rebel .skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+body.mini-rebel .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 body.mini-rebel::before {
   content: '';
   position: fixed;
@@ -674,7 +727,6 @@ body.mini-rebel.mr-nav-open {
 .mr-section__header {
   display: grid;
   gap: var(--mr-space-sm);
-  margin-bottom: var(--mr-space-lg);
 }
 
 .mr-section__header p {
@@ -684,7 +736,6 @@ body.mini-rebel.mr-nav-open {
 .mr-drop-intro {
   display: grid;
   gap: 12px;
-  margin-bottom: var(--mr-space-lg);
   max-width: var(--mr-text-max);
   color: var(--ink-paper-soft);
 }
@@ -946,7 +997,21 @@ body.mini-rebel.mr-nav-open {
 }
 
 .mr-card__label {
-  display: none;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(138, 15, 15, 0.45);
+  background: rgba(20, 12, 10, 0.75);
+  color: var(--ink-paper);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  z-index: 3;
 }
 
 .mr-card img {
@@ -1008,17 +1073,10 @@ body.mini-rebel.mr-nav-open {
   line-height: 1.5;
 }
 
-/* Hide SaaS-style badges & quick-info clutter */
-.mr-card__badges,
-.mr-card__quick {
-  display: none;
-}
-
 .mr-card__actions {
   display: flex;
   flex-wrap: wrap;
   gap: var(--mr-space-sm);
-  margin-top: auto;
 }
 
 .mr-card__actions .mr-btn--ghost {
@@ -1137,37 +1195,29 @@ body.mini-rebel.mr-nav-open {
   padding-top: var(--mr-space-lg);
 }
 
-#kollektion .mr-section__header {
-  margin-bottom: var(--mr-space-lg);
-}
-
-#kollektion .mr-shop-controls {
+#mr-drop-01 .mr-shop-controls {
   margin-bottom: 12px;
 }
 
-#kollektion .mr-results-row {
+#mr-drop-01 .mr-results-row {
   margin-bottom: 16px;
 }
 
-#kollektion .mr-grid {
+#mr-drop-01 .mr-grid {
   margin-top: 8px;
 }
 
-#minirebelfamily {
+#mr-minirebelfamily {
   padding-top: var(--mr-space-lg);
   padding-bottom: var(--mr-space-lg);
 }
 
-#popular {
-  padding-bottom: var(--mr-space-lg);
-}
-
-#kollektion {
+#mr-drop-01 {
   padding-top: var(--mr-space-lg);
   padding-bottom: var(--mr-space-md);
 }
 
-#designer {
+#mr-designer {
   padding-top: var(--mr-space-lg);
   padding-bottom: var(--mr-space-lg);
 }
@@ -1202,6 +1252,14 @@ body.mini-rebel.mr-nav-open {
   border-radius: var(--mr-radius-md);
   background: rgba(230, 213, 184, 0.06);
   border: 1px dashed rgba(168, 50, 62, 0.3);
+}
+
+.mr-ugc-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
 }
 
 .mr-ugc-card__body {
@@ -1631,63 +1689,6 @@ body.mini-rebel.mr-modal-open .mr-modal {
   color: var(--ink-paper);
 }
 
-.mr-size-intro {
-  display: grid;
-  gap: 14px;
-  margin-bottom: var(--mr-space-lg);
-  color: var(--ink-paper-soft);
-}
-
-.mr-address-card {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 12px 18px;
-  padding: 24px 18px 18px;
-  background: rgba(18, 14, 11, 0.75);
-  border: 1px solid rgba(221, 193, 163, 0.24);
-  border-radius: var(--mr-radius-lg);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
-  position: relative;
-}
-
-.mr-address-card__body {
-  display: grid;
-  gap: 4px;
-}
-
-.mr-address-card__title {
-  margin: 0 0 4px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-paper);
-}
-
-.mr-address-card p {
-  margin: 0;
-  color: var(--ink-paper-soft);
-}
-
-.mr-address-card__link {
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 0.72rem;
-  padding: 6px 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(221, 193, 163, 0.3);
-  color: var(--ink-paper);
-  transition: background 0.2s ease, border-color 0.2s ease;
-}
-
-.mr-address-card__link:hover,
-.mr-address-card__link:focus-visible {
-  background: rgba(234, 218, 194, 0.08);
-  border-color: rgba(221, 193, 163, 0.45);
-}
-
 .mr-size-table {
   width: 100%;
   border-collapse: collapse;
@@ -1727,26 +1728,15 @@ body.mini-rebel.mr-modal-open .mr-modal {
 
 /* Modal display handled via hidden attribute and .is-open. */
 
-#kollektion,
-#popular,
-#designer,
-#sa-funkar-det,
-#intresse,
-#minirebelfamily,
-#storleksguide {
+#mr-drop-01,
+#mr-designer,
+#mr-intresse,
+#mr-minirebelfamily,
+#mr-storleksguide {
   scroll-margin-top: var(--header-offset);
 }
 
-#sa-funkar-det + #storleksguide {
-  padding-top: var(--mr-space-lg);
-}
-
-#sa-funkar-det {
-  padding-top: var(--mr-space-lg);
-  padding-bottom: var(--mr-space-lg);
-}
-
-#storleksguide {
+#mr-storleksguide {
   padding-top: var(--mr-space-lg);
   padding-bottom: var(--mr-space-lg);
 }
@@ -1769,22 +1759,21 @@ body.mini-rebel.mr-modal-open .mr-modal {
    ═══════════════════════════════════════════ */
 
 /* ── De-box info sections ── */
-#sa-funkar-det > .mr-container.mr-panel,
-#designer > .mr-container.mr-panel {
+#mr-designer > .mr-container.mr-panel {
   background: transparent;
   border: none;
   box-shadow: none;
   padding: 0;
 }
 
-#storleksguide .mr-panel {
+#mr-storleksguide .mr-panel {
   background: transparent;
   border: none;
   box-shadow: none;
   padding: 0;
 }
 
-#minirebelfamily .mr-club > .mr-panel:not(.mr-club__form) {
+#mr-minirebelfamily .mr-club > .mr-panel:not(.mr-club__form) {
   background: transparent;
   border: none;
   box-shadow: none;
@@ -1792,8 +1781,7 @@ body.mini-rebel.mr-modal-open .mr-modal {
 }
 
 /* Lighten product-section panels so cards pop against dark bg */
-#popular > .mr-container > .mr-panel,
-#kollektion > .mr-container > .mr-panel {
+#mr-drop-01 > .mr-container > .mr-panel {
   background: rgba(30, 23, 17, 0.25);
   box-shadow: none;
   border-color: rgba(255, 228, 196, 0.06);
@@ -1826,17 +1814,7 @@ body.mini-rebel.mr-modal-open .mr-modal {
 }
 
 /* ── Flash-art dividers (pseudo-element ornaments) ── */
-#sa-funkar-det::before {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 2px;
-  margin: 0 auto var(--mr-space-lg);
-  background: linear-gradient(90deg, transparent, var(--mr-accent-rose), transparent);
-  opacity: 0.45;
-}
-
-#designer::before {
+#mr-designer::before {
   content: '✦';
   display: block;
   text-align: center;
@@ -1847,7 +1825,7 @@ body.mini-rebel.mr-modal-open .mr-modal {
   letter-spacing: 0.6em;
 }
 
-#minirebelfamily::before {
+#mr-minirebelfamily::before {
   content: '';
   display: block;
   width: 40px;
@@ -1858,26 +1836,18 @@ body.mini-rebel.mr-modal-open .mr-modal {
 }
 
 /* ── Storleksguide: thin frame tables ── */
-#storleksguide .mr-size-guide > div {
+#mr-storleksguide .mr-size-guide > div {
   border: 1px solid rgba(255, 228, 196, 0.08);
   border-radius: var(--mr-radius-md);
   padding: 14px;
   background: rgba(27, 20, 15, 0.4);
 }
 
-.mr-size-note::before {
-  content: 'Fit tip';
-  display: inline-block;
-  margin-right: 8px;
-  padding: 2px 10px;
-  border: 1px solid rgba(138, 15, 15, 0.4);
-  border-radius: var(--mr-radius-lg);
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--ink-rose);
-  vertical-align: middle;
+
+.mr-collection-cta {
+  margin-top: var(--mr-space-lg);
+  display: flex;
+  justify-content: center;
 }
 
 /* ── Absorbed from wow.css ── */

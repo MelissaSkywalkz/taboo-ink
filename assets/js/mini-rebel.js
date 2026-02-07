@@ -312,7 +312,7 @@ const initMiniRebel = () => {
   const handleInterest = (name) => {
     updateSelectedProduct(name);
     closeModal();
-    const formSection = document.getElementById('intresse');
+    const formSection = document.getElementById('mr-intresse');
     if (formSection) {
       formSection.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
     }
@@ -341,7 +341,6 @@ const initMiniRebel = () => {
   const productGrid = document.getElementById('mr-product-grid');
   const resultsCount = document.getElementById('mr-results-count');
   const collectionCta = document.querySelector('.mr-hero-actions a[href="#mr-collection"]');
-  const quickFilterButtons = document.querySelectorAll('[data-quick-filter]');
   const gridCards = productGrid ? productGrid.querySelectorAll('.mr-card--shop') : [];
   const cardData = Array.from(gridCards).map((card, index) => ({
     card,
@@ -431,10 +430,6 @@ const initMiniRebel = () => {
       chip.classList.toggle('is-active', chip === activeButton);
       chip.setAttribute('aria-pressed', chip === activeButton ? 'true' : 'false');
     });
-    quickFilterButtons.forEach((chip) => {
-      chip.classList.toggle('is-active', chip.dataset.quickFilter === activeFilter);
-      chip.setAttribute('aria-pressed', chip.dataset.quickFilter === activeFilter ? 'true' : 'false');
-    });
   };
 
   filterButtons.forEach((button) => {
@@ -488,21 +483,6 @@ const initMiniRebel = () => {
   }
 
   applyFilterAndSort();
-
-  quickFilterButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      activeFilter = button.dataset.quickFilter || 'all';
-      const matchingChip = Array.from(filterButtons).find((chip) => chip.dataset.filter === activeFilter);
-      if (matchingChip) {
-        setFilterState(matchingChip);
-      }
-      applyFilterAndSort();
-      const anchor = document.getElementById('mr-collection');
-      if (anchor) {
-        anchor.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
-      }
-    });
-  });
 
   if (collectionCta && productGrid) {
     collectionCta.addEventListener('click', (event) => {
