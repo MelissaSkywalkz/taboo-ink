@@ -43,17 +43,6 @@ body.mini-rebel .mr-wow-grain {
   position: relative;
 }
 
-body.mini-rebel .mr-wow-grain::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at center, rgba(14, 14, 16, 0) 0%, rgba(14, 14, 16, 0.45) 85%),
-    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 3px);
-  mix-blend-mode: soft-light;
-  pointer-events: none;
-}
-
 body.mini-rebel .mr-rope,
 body.mini-rebel .mr-wow-rope {
   display: none;
