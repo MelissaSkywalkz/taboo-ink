@@ -97,9 +97,9 @@ body.mini-rebel {
 }
 
 @media (max-width: 560px) {
-  .mr-products-grid {
-    grid-template-columns: 1fr;
-  }
+.mr-products-grid {
+  grid-template-columns: 1fr;
+}
 }
 
 .mr-products-grid .mr-card {
