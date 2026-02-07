@@ -15,7 +15,7 @@
   <meta name="twitter:title" content="Mini Rebel | Matchande tees för stora &amp; små">
   <meta name="twitter:description" content="Matcha med mini. Designad av tatuerare. Trycks on-demand i EU. Skriv upp dig för kommande drop.">
   <meta name="twitter:image" content="https://melissaskywalkz.github.io/taboo-ink/assets/img/mini-rebel/og-mini-rebel.svg">
-  <link rel="preload" as="image" href="assets/img/mini-rebel/hero-mini-rebel.png">
+  <link rel="preload" as="image" href="assets/img/mini-rebel/hero-bg.png">
   <link rel="icon" type="image/png" href="assets/img/logo-favicon.png">
   <link rel="apple-touch-icon" href="assets/img/logo-favicon.png">
   <meta name="theme-color" content="#0e0e10">
@@ -65,7 +65,7 @@
       </button>
       <nav class="mr-nav" aria-label="Mini Rebel meny">
         <div class="mr-nav__left">
-          <a href="#kollektion">Kollektion</a>
+          <a href="#mr-collection">Kollektion</a>
           <a href="#designer">Om oss</a>
         </div>
         <a class="mr-header__logo" href="mini-rebel.html" aria-label="Mini Rebel">
@@ -108,10 +108,10 @@
           <button class="mr-icon-btn" type="button" data-drawer-close aria-label="Stäng meny">✕</button>
         </div>
         <div class="mr-nav-drawer__links">
-          <a href="#kollektion">Kollektion</a>
+          <a href="#mr-collection">Kollektion</a>
           <a href="#designer">Om oss</a>
           <a href="#popular">Populära just nu</a>
-          <a href="#intresse">Få drop-notis</a>
+          <a href="#mr-signup">Få drop-notis</a>
         </div>
         <div class="mr-nav-drawer__actions">
           <button class="mr-icon-btn" type="button" aria-label="Sök">
@@ -142,53 +142,18 @@
   <main id="main-content">
     <!-- Mini Rebel wow-skeleton: paneler/ramar, scen-kort och microinteractions (scopas i mini-rebel.css). -->
     <section class="mr-hero mr-wow-grain" aria-labelledby="mr-hero-title">
-      <div class="mr-container">
-        <div class="mr-hero__grid">
-          <div class="mr-panel mr-panel--hero mr-hero__content">
-            <svg class="mr-sparkle mr-sparkle--hero" viewBox="0 0 120 120" aria-hidden="true">
-              <path d="M60 10l8 26 26 8-26 8-8 26-8-26-26-8 26-8z" />
-              <circle cx="96" cy="24" r="6" />
-              <circle cx="18" cy="86" r="4" />
-            </svg>
-            <h1 class="mr-hero__title" id="mr-hero-title">Mini Rebel</h1>
-            <p class="mr-hero__intro">Tattoo vibes för små rebeller. Mjuk kvalitet, trycks on-demand i EU.</p>
-            <div class="mr-hero__actions">
-              <a class="mr-btn mr-btn--primary" href="#kollektion">Shoppa kollektionen</a>
-              <a class="mr-btn mr-btn--ghost" href="#intresse">Få drop-notis</a>
-            </div>
-            <div class="mr-drop-status">Drop 01 • Sneak peek • Lanseras snart</div>
+      <div class="mr-hero-inner">
+        <div class="mr-hero-panel">
+          <div class="mr-pill">Drop 01</div>
+          <h1 id="mr-hero-title">Stora tatueringar. Små rebeller.</h1>
+          <p class="mr-hero-tagline">Designat av tatuerare för små rebeller med stora hjärtan.</p>
+          <div class="mr-hero-actions">
+            <a class="mr-btn mr-btn--primary" href="#mr-collection">Shoppa kollektionen</a>
+            <a class="mr-btn mr-btn--ghost" href="#mr-signup">Få drop-notis</a>
           </div>
-          <div class="mr-hero__featured">
-            <article class="mr-card mr-card--shop mr-hero-card" data-product="Mini Rebel Tee – Barn (Cream)" data-price="299 kr" data-color="Cream" data-category="barn">
-              <span class="mr-card__label">Kommer snart</span>
-              <div class="mr-card__media">
-                <img src="assets/img/mini-rebel/products/product-1.png" alt="Mini Rebel Tee för barn i cream" loading="lazy" width="320" height="320">
-              </div>
-              <div class="mr-card__body">
-                <h3>Mini Rebel Tee – Barn (Cream)</h3>
-                <div class="mr-card__pricing">
-                  <p class="mr-card__price">299 kr</p>
-                  <p class="mr-card__status">Kommer snart</p>
-                </div>
-                <div class="mr-card__badges">
-                  <span class="mr-card__badge">On-demand</span>
-                  <span class="mr-card__badge">EU</span>
-                  <span class="mr-card__badge">Mjuk</span>
-                </div>
-                <p class="mr-card__text">Mjuk t-shirt i varm cream. En liten berättelse att bära tillsammans.</p>
-                <div class="mr-card__quick">Snabbinfo: Matcha med mini • 100% bomull</div>
-                <div class="mr-card__actions">
-                  <button class="mr-btn mr-btn--primary" type="button" data-interest>Få drop-notis</button>
-                  <button class="mr-btn mr-btn--ghost" type="button" data-modal-open>Se produkt <span aria-hidden="true">↗</span></button>
-                </div>
-              </div>
-            </article>
-            <div class="mr-stamps" aria-label="Mini Rebel kvalitetsstämplar">
-              <span class="mr-stamp">Tryckt i EU</span>
-              <span class="mr-stamp">On-demand</span>
-              <span class="mr-stamp">Mjuk kvalitet</span>
-            </div>
-          </div>
+        </div>
+        <div class="mr-hero-art" aria-hidden="true">
+          <img src="assets/img/mini-rebel/hero-product.png" alt="" loading="lazy" width="520" height="620">
         </div>
       </div>
     </section>
@@ -308,6 +273,7 @@
     </section>
 
     <section class="mr-section" id="kollektion">
+      <span class="mr-anchor" id="mr-collection" aria-hidden="true"></span>
       <div class="mr-container">
         <div class="mr-panel">
           <header class="mr-section__header">
@@ -699,6 +665,7 @@
           </div>
         </div>
         <div class="mr-panel mr-club__form" id="intresse">
+          <span class="mr-anchor" id="mr-signup" aria-hidden="true"></span>
           <div>
             <p class="mr-section__kicker">Intresseanmälan</p>
             <h3>
