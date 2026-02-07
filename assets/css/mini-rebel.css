@@ -39,7 +39,7 @@ body.mini-rebel {
   --mr-panel-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
   --mr-hero-overlay: rgba(8, 8, 10, 0.68);
   position: relative;
-  background: #0b0a0a;
+  background: #120e08;
   color: var(--mr-black);
   font-family: var(--mr-ui);
   font-size: 16px;
