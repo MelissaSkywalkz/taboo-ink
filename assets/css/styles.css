@@ -1227,6 +1227,92 @@ input::file-selector-button {
   z-index: 2;
 }
 
+.site-footer--taboo {
+  background: #050505;
+}
+
+.taboo-footer__inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 32px;
+  align-items: center;
+  padding: 16px 0 24px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.taboo-footer__brand {
+  display: grid;
+  gap: 16px;
+}
+
+.taboo-footer__logo {
+  width: min(260px, 70vw);
+  height: auto;
+  opacity: 0.9;
+}
+
+.taboo-footer__tagline {
+  color: var(--muted);
+  max-width: 36ch;
+}
+
+.taboo-footer__info {
+  display: grid;
+  gap: 16px;
+}
+
+.taboo-footer__address {
+  display: grid;
+  gap: 4px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.taboo-footer__address a {
+  color: var(--text);
+  border-bottom: 1px solid transparent;
+  width: fit-content;
+  padding-bottom: 2px;
+}
+
+.taboo-footer__address a:hover,
+.taboo-footer__address a:focus-visible {
+  border-bottom-color: var(--accent);
+}
+
+.taboo-footer__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.taboo-footer__legal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.taboo-footer__links {
+  display: flex;
+  gap: 16px;
+}
+
+.taboo-footer__links a {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.7rem;
+}
+
+.taboo-footer__links a:hover,
+.taboo-footer__links a:focus-visible {
+  color: var(--text);
+}
+
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -1411,6 +1497,28 @@ input::file-selector-button {
 @media (max-width: 760px) {
   .container {
     padding: 0 18px;
+  }
+
+  .taboo-footer__inner {
+    text-align: center;
+    justify-items: center;
+  }
+
+  .taboo-footer__brand {
+    justify-items: center;
+  }
+
+  .taboo-footer__address {
+    justify-items: center;
+  }
+
+  .taboo-footer__actions {
+    justify-content: center;
+  }
+
+  .taboo-footer__legal {
+    flex-direction: column;
+    align-items: center;
   }
 
   .section {
