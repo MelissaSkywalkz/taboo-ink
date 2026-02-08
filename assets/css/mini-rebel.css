@@ -234,6 +234,7 @@ body.mini-rebel .sr-only {
   margin-right: 0;
   padding: calc(var(--mr-header-height) + env(safe-area-inset-top, 0px) + 16px) 0 clamp(48px, 10vh, 72px);
   overflow: hidden;
+  overflow-x: clip;
 }
 
 .mr-hero::before {
@@ -276,10 +277,14 @@ body.mini-rebel .sr-only {
   grid-template-columns: 1fr;
   gap: var(--mr-space-lg);
   align-items: center;
+  overflow-x: clip;
 }
 
 .mr-hero-art {
   isolation: isolate;
+  overflow: clip;
+  overflow-y: visible;
+  contain: layout paint;
 }
 
 .mr-hero-art::after {
@@ -499,7 +504,10 @@ body.mini-rebel.mr-nav-open {
   position: fixed;
   inset: 0;
   display: block;
-  z-index: 80;
+  z-index: 9999;
+  width: 100vw;
+  height: 100dvh;
+  min-height: 100vh;
   pointer-events: none;
   isolation: isolate;
   opacity: 0;
@@ -512,8 +520,11 @@ body.mini-rebel.mr-nav-open {
 }
 
 .mr-nav-drawer__overlay {
-  position: absolute;
+  position: fixed;
   inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  min-height: 100vh;
   background: rgba(8, 8, 10, 0.78);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
@@ -555,6 +566,14 @@ body.mini-rebel.mr-nav-open {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.mr-nav-drawer__header .mr-icon-btn {
+  background: rgba(234, 218, 194, 0.12);
+  border-color: rgba(234, 218, 194, 0.35);
+  color: var(--ink-paper);
+  font-size: 1rem;
+  line-height: 1;
 }
 
 .mr-nav-drawer__links {
@@ -1610,7 +1629,7 @@ body.mini-rebel.mr-nav-open {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 32px;
-  max-width: min(var(--mr-page-width), 92%);
+  width: min(var(--mr-page-width), calc(100% - (var(--mr-page-gutter) * 2)));
   margin: 0 auto;
   align-items: start;
 }
@@ -1952,6 +1971,10 @@ body.mini-rebel.mr-modal-open .mr-modal {
   scroll-margin-top: var(--header-offset);
 }
 
+:target {
+  scroll-margin-top: calc(var(--mr-header-height) + 16px);
+}
+
 .mr-anchor {
   position: relative;
   top: calc(-1 * var(--header-offset));
@@ -2091,6 +2114,7 @@ body.mini-rebel.mr-modal-open .mr-modal {
 .mr-club {
   display: grid;
   gap: 32px;
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .mr-club__form {
@@ -2344,6 +2368,18 @@ body.mini-rebel input:focus-visible {
 }
 
 @media (min-width: 900px) {
+  .mr-hero-inner {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  }
+
+  .mr-hero-art img {
+    width: clamp(600px, 52vw, 780px);
+  }
+
+  .mr-hero-art {
+    transform: translateX(-32px);
+  }
+
   .mr-club__form {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     column-gap: var(--mr-space-xl);
@@ -2358,6 +2394,85 @@ body.mini-rebel input:focus-visible {
 
   .mr-club__form .mr-form-success {
     grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .mr-hero-art::after {
+    inset: -10% -12%;
+  }
+
+  .mr-header__inner {
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+  }
+
+  .mr-icon-btn,
+  .mr-nav-toggle {
+    width: 44px;
+    height: 44px;
+  }
+
+  .mr-nav {
+    display: none;
+  }
+
+  .mr-nav-toggle {
+    display: inline-flex;
+  }
+
+  .mr-header__logo--mobile {
+    display: inline-flex;
+  }
+
+  .mr-icon-btn--mobile {
+    display: inline-flex;
+  }
+
+  .mr-ugc-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mr-club {
+    gap: 24px;
+  }
+
+  .mr-club__form {
+    gap: 12px;
+  }
+
+  .mr-form {
+    padding: 22px;
+    gap: 12px;
+  }
+
+  .mr-form label {
+    gap: 8px;
+  }
+
+  .mr-form input,
+  .mr-form select {
+    min-height: 42px;
+  }
+
+  .mr-form textarea {
+    min-height: 88px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .mr-hero-inner {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  }
+
+  .mr-hero-art img {
+    width: clamp(640px, 55vw, 820px);
+  }
+}
+
+@media (max-width: 520px) {
+  .mr-footer__inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
   }
 }
 
@@ -2542,11 +2657,6 @@ body.mini-rebel input:focus-visible {
     font-size: 0.78rem;
   }
 
-  .mr-footer__inner {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
   .mr-footer__links a {
     padding: 8px 0;
   }
@@ -2572,7 +2682,7 @@ body.mini-rebel input:focus-visible {
   }
 }
 
-@media (min-width: 431px) and (max-width: 768px) {
+@media (min-width: 561px) and (max-width: 768px) {
   body.mini-rebel {
     --mr-header-height: 64px;
     --mr-page-gutter: 22px;
