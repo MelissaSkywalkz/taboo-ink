@@ -183,58 +183,58 @@ const initMiniRebel = () => {
   }
 
   const productDetails = {
-    'Mini Rebel Wear – Barn (Studio Cream)': {
+    'Mini Rebel Wear, Barn (Studio Cream)': {
       image: './assets/img/mini-rebel/products/product-5.png',
       fit: 'Barn, normal passform',
       material: '100% bomull',
       story: 'Mjuk jersey med klassisk tattoo flash, tryckt on-demand i EU.',
       care: 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.',
-      shipping: 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.',
+      shipping: 'Trycks on-demand i EU. Normal leverans 5-8 arbetsdagar.',
       related: ['Barn, Vuxen, Set', 'Studio Cream, Rebel Black', 'Storleksguide'],
     },
-    'Mini Rebel Wear – Barn (Rebel Black)': {
+    'Mini Rebel Wear, Barn (Rebel Black)': {
       image: './assets/img/mini-rebel/products/product-6.png',
       fit: 'Barn, normal passform',
       material: '100% bomull',
       story: 'Rebel Black med tydlig kontrast och mjuk känsla mot huden.',
       care: 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.',
-      shipping: 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.',
+      shipping: 'Trycks on-demand i EU. Normal leverans 5-8 arbetsdagar.',
       related: ['Barn, Vuxen, Set', 'Studio Cream, Rebel Black', 'Storleksguide'],
     },
-    'Mini Rebel Wear – Vuxen (Studio Cream)': {
+    'Mini Rebel Wear, Vuxen (Studio Cream)': {
       image: './assets/img/mini-rebel/products/product-7.png',
       fit: 'Unisex, normal passform',
       material: '100% bomull',
       story: 'Studio Cream för vuxna. Samma motiv som mini, mer luft och vardagslugn.',
       care: 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.',
-      shipping: 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.',
+      shipping: 'Trycks on-demand i EU. Normal leverans 5-8 arbetsdagar.',
       related: ['Barn, Vuxen, Set', 'Studio Cream, Rebel Black', 'Storleksguide'],
     },
-    'Mini Rebel Wear – Vuxen (Rebel Black)': {
+    'Mini Rebel Wear, Vuxen (Rebel Black)': {
       image: './assets/img/mini-rebel/products/product-1.png',
       fit: 'Unisex, normal passform',
       material: '100% bomull',
       story: 'Rebel Black med diskret statement, unisex och lätt att bära.',
       care: 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.',
-      shipping: 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.',
+      shipping: 'Trycks on-demand i EU. Normal leverans 5-8 arbetsdagar.',
       related: ['Barn, Vuxen, Set', 'Studio Cream, Rebel Black', 'Storleksguide'],
     },
-    'Matchande set – Barn + Vuxen (Studio Cream)': {
+    'Matchande set (Studio Cream)': {
       image: './assets/img/mini-rebel/products/product-2.png',
       fit: 'Barn + Vuxen, normal passform',
       material: '100% bomull',
       story: 'Två plagg, samma motiv. Matcha utan att kännas tillrättalagd.',
       care: 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.',
-      shipping: 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.',
+      shipping: 'Trycks on-demand i EU. Normal leverans 5-8 arbetsdagar.',
       related: ['Barn, Vuxen, Set', 'Studio Cream, Rebel Black', 'Storleksguide'],
     },
-    'Matchande set – Barn + Vuxen (Rebel Black)': {
+    'Matchande set (Rebel Black)': {
       image: './assets/img/mini-rebel/products/product-3.png',
       fit: 'Barn + Vuxen, normal passform',
       material: '100% bomull',
       story: 'Rebel Black i dubbel upplaga för familjer som vill synas lagom.',
       care: 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.',
-      shipping: 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.',
+      shipping: 'Trycks on-demand i EU. Normal leverans 5-8 arbetsdagar.',
       related: ['Barn, Vuxen, Set', 'Studio Cream, Rebel Black', 'Storleksguide'],
     },
   };
@@ -273,7 +273,7 @@ const initMiniRebel = () => {
       modalCare.textContent = details.care || 'Tvätta ut och in på 30 grader. Undvik torktumlare för längst livslängd.';
     }
     if (modalShipping) {
-      modalShipping.textContent = details.shipping || 'Trycks on-demand i EU. Normal leverans 5–8 arbetsdagar.';
+      modalShipping.textContent = details.shipping || 'Trycks on-demand i EU. Normal leverans 5-8 arbetsdagar.';
     }
     if (modalRelated) {
       const related = details.related || ['Barn, Vuxen, Set', 'Studio Cream, Rebel Black', 'Storleksguide'];
